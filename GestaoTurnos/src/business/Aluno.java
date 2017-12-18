@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public class Aluno extends Utilizador{
 
@@ -130,12 +131,25 @@ public class Aluno extends Utilizador{
     }
 
     protected int possibilidaTrocaTurno(int idUC, int idTurno, int idAluno) {
+        if (!alunoInscritoNaUC(idUC)) return 2;
+        Aluno aluno = SysFacade.getAluno(idAluno);
+        if (aluno==null) return 0;
+        if (aluno.alunoInscritoNaUC(idUC)) return 4;
+        if (idTurno!=aluno.turnos.get(idUC)) return 3;
+        return 1;
     }
 
     protected Troca trocaTurnoAluno(int idUC, int idTurno, int idAluno) {
+        int idAlu= getId();
+        int turnoO = turnos.get(idUC);
+        Troca troca = new Troca(idUC,idAlu,idAluno,turnoO,idTurno);
+        return troca;
+
     }
 
     protected List<TrocaInteressado> consultarTrocasPedidas(int idUC) {
+        UC uc = SysFacade.getUC(idUC);
+        return uc.getTrocasInteressados();      
     }
 
     protected TrocaInteressado pedirTroca(int idUC, int idTurnoD) {
@@ -166,5 +180,19 @@ public class Aluno extends Utilizador{
     protected void mudaTurno(int idUC, int idTurno) {
         this.turnos.remove(idUC);
         this.turnos.put(idUC, idTurno);
+    }
+    
+    protected void verificarPresencas(){
+        for(Integer ucID: this.turnos.keySet())
+            if(this.percentagemPresencas(ucID.intValue()) >= 0.25){
+                UC uAux = SysFacade.getUC(ucID);
+                int turnoId=this.turnos.get(ucID).intValue();
+                List<TrocaInteressado> aux=uAux.getTrocasInteressados();
+                
+                aux=aux.stream().filter(t->t.getIdAluno()==super.getId() && t.getIdTurno()==turnoId).collect(Collectors.toList());
+                uAux.setTrocasInteressados(aux);
+                
+                this.turnos.remove(ucID);
+            }
     }
 }
