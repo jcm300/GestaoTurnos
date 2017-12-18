@@ -27,17 +27,914 @@ public class mainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ErroEmailLogin = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        OK = new javax.swing.JButton();
+        ErroPassLogin = new javax.swing.JDialog();
+        jLabel4 = new javax.swing.JLabel();
+        OK2 = new javax.swing.JButton();
+        MenuDocente = new javax.swing.JFrame();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        MenuCoordenador = new javax.swing.JFrame();
+        jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        MenuAlunoTE = new javax.swing.JFrame();
+        jButton5 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        MenuAluno = new javax.swing.JFrame();
+        jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
+        jButton27 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
+        EscoherUCs = new javax.swing.JFrame();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton28 = new javax.swing.JButton();
+        jButton29 = new javax.swing.JButton();
+        NenhumaUCEscolherUCs = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        jButton30 = new javax.swing.JButton();
+        EscolhaRealizadaEscolherUCs = new javax.swing.JDialog();
+        jLabel7 = new javax.swing.JLabel();
+        jButton31 = new javax.swing.JButton();
+        ConsultarUCs = new javax.swing.JFrame();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton32 = new javax.swing.JButton();
+        ErroConsultarUCs = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        jButton33 = new javax.swing.JButton();
+        DefenirCapacidade = new javax.swing.JFrame();
+        jLabel9 = new javax.swing.JLabel();
+        turno = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton34 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
+        ErroUltrapassaDefenirCap = new javax.swing.JDialog();
+        jLabel10 = new javax.swing.JLabel();
+        jButton36 = new javax.swing.JButton();
+        ErroNegativoDefenirCap = new javax.swing.JDialog();
+        jLabel11 = new javax.swing.JLabel();
+        jButton37 = new javax.swing.JButton();
+        SugerirTrocadeTurno = new javax.swing.JFrame();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        nAluno = new javax.swing.JTextField();
+        uc = new javax.swing.JTextField();
+        turno2 = new javax.swing.JTextField();
+        jButton38 = new javax.swing.JButton();
+        jButton39 = new javax.swing.JButton();
+        ErroAlunoInvSugerirTroca = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jButton40 = new javax.swing.JButton();
+        ErroTurnoSugerirTroca = new javax.swing.JDialog();
+        jLabel17 = new javax.swing.JLabel();
+        jButton41 = new javax.swing.JButton();
+        ErroUCSugerirTroca = new javax.swing.JDialog();
+        jLabel18 = new javax.swing.JLabel();
+        jButton42 = new javax.swing.JButton();
+        ConfirmarSugestaoSugerirTroca = new javax.swing.JDialog();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jButton43 = new javax.swing.JButton();
+        jButton44 = new javax.swing.JButton();
+        jButton45 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        emailL = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        passwordL = new javax.swing.JTextField();
+        Cancelar = new javax.swing.JButton();
+        Login = new javax.swing.JButton();
+
+        ErroEmailLogin.setTitle("Erro: Email Incorreto");
+
+        jLabel1.setText("Email inserido não é válido.");
+
+        OK.setText("OK");
+
+        javax.swing.GroupLayout ErroEmailLoginLayout = new javax.swing.GroupLayout(ErroEmailLogin.getContentPane());
+        ErroEmailLogin.getContentPane().setLayout(ErroEmailLoginLayout);
+        ErroEmailLoginLayout.setHorizontalGroup(
+            ErroEmailLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroEmailLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ErroEmailLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(OK)
+                .addGap(45, 45, 45))
+        );
+        ErroEmailLoginLayout.setVerticalGroup(
+            ErroEmailLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroEmailLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(OK)
+                .addContainerGap())
+        );
+
+        ErroPassLogin.setTitle("Erro: Password incorreta");
+
+        jLabel4.setText("A password inserida não é a correta.");
+
+        OK2.setText("OK");
+
+        javax.swing.GroupLayout ErroPassLoginLayout = new javax.swing.GroupLayout(ErroPassLogin.getContentPane());
+        ErroPassLogin.getContentPane().setLayout(ErroPassLoginLayout);
+        ErroPassLoginLayout.setHorizontalGroup(
+            ErroPassLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroPassLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ErroPassLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(OK2)
+                    .addComponent(jLabel4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ErroPassLoginLayout.setVerticalGroup(
+            ErroPassLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroPassLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(OK2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        MenuDocente.setTitle("Menu: Docente");
+
+        jButton1.setText("1. Consultar Presenças dos alunos nos turnos duma UC");
+
+        jButton2.setText("2. Registar aula com marcação de presenças dos alunos");
+
+        jButton3.setText("Cancelar");
+
+        javax.swing.GroupLayout MenuDocenteLayout = new javax.swing.GroupLayout(MenuDocente.getContentPane());
+        MenuDocente.getContentPane().setLayout(MenuDocenteLayout);
+        MenuDocenteLayout.setHorizontalGroup(
+            MenuDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuDocenteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MenuDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        MenuDocenteLayout.setVerticalGroup(
+            MenuDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuDocenteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        MenuCoordenador.setTitle("Menu: Coordenador");
+
+        jButton4.setText("1. Consultar Presenças dos alunos nos turnos duma UC");
+
+        jButton6.setText("Cancelar");
+
+        jButton7.setText("2. Registar aula com marcação de presenças dos alunos");
+
+        jButton8.setText("3. Defenir capacidade dos turnos lecionados");
+
+        jButton9.setText("4. Aprovar/Reprovar pedido de troca de aluno entre turnos");
+
+        javax.swing.GroupLayout MenuCoordenadorLayout = new javax.swing.GroupLayout(MenuCoordenador.getContentPane());
+        MenuCoordenador.getContentPane().setLayout(MenuCoordenadorLayout);
+        MenuCoordenadorLayout.setHorizontalGroup(
+            MenuCoordenadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuCoordenadorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MenuCoordenadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton6)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        MenuCoordenadorLayout.setVerticalGroup(
+            MenuCoordenadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuCoordenadorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        MenuAlunoTE.setTitle("Menu: Aluno TE");
+
+        jButton5.setText("1. Sugerir troca de turno a outro aluno numa UC");
+
+        jButton10.setText("2. Confirmar/aceitar troca de turno sugerida por outro aluno");
+
+        jButton11.setText("3. Consultar as UC's a que se inscreveu e o seu respetivo turno");
+
+        jButton12.setText("4. Ver lista de alunos com interesse em realizar troca de turnos nas respetivas UC's");
+
+        jButton13.setText("5. Sinalizar interesse em trocar de turno numa UC");
+
+        jButton14.setText("6. Consultar percentagem de presenças numa UC");
+
+        jButton15.setText("7. Pedir ao Docente para trocar de turno");
+
+        jButton16.setText("Cancelar");
+
+        jButton17.setText("8. Fazer escolha das UC's");
+
+        jButton18.setText("9. Realizar troca de turno numa UC");
+
+        javax.swing.GroupLayout MenuAlunoTELayout = new javax.swing.GroupLayout(MenuAlunoTE.getContentPane());
+        MenuAlunoTE.getContentPane().setLayout(MenuAlunoTELayout);
+        MenuAlunoTELayout.setHorizontalGroup(
+            MenuAlunoTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuAlunoTELayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MenuAlunoTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(MenuAlunoTELayout.createSequentialGroup()
+                        .addGroup(MenuAlunoTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton12)
+                            .addComponent(jButton16))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        MenuAlunoTELayout.setVerticalGroup(
+            MenuAlunoTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuAlunoTELayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton16)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        MenuAluno.setTitle("Menu: Aluno");
+
+        jButton19.setText("8. Fazer escolha das UC's");
+
+        jButton20.setText("2. Confirmar/aceitar troca de turno sugerida por outro aluno");
+
+        jButton21.setText("1. Sugerir troca de turno a outro aluno numa UC");
+
+        jButton22.setText("3. Consultar as UC's a que se inscreveu e o seu respetivo turno");
+
+        jButton23.setText("5. Sinalizar interesse em trocar de turno numa UC");
+
+        jButton24.setText("6. Consultar percentagem de presenças numa UC");
+
+        jButton26.setText("7. Pedir ao Docente para trocar de turno");
+
+        jButton27.setText("4. Ver lista de alunos com interesse em realizar troca de turnos nas respetivas UC's");
+
+        jButton25.setText("Cancelar");
+
+        javax.swing.GroupLayout MenuAlunoLayout = new javax.swing.GroupLayout(MenuAluno.getContentPane());
+        MenuAluno.getContentPane().setLayout(MenuAlunoLayout);
+        MenuAlunoLayout.setHorizontalGroup(
+            MenuAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuAlunoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton25)
+                .addContainerGap(482, Short.MAX_VALUE))
+            .addGroup(MenuAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuAlunoLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(MenuAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton27)
+                        .addComponent(jButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap()))
+        );
+        MenuAlunoLayout.setVerticalGroup(
+            MenuAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuAlunoLayout.createSequentialGroup()
+                .addContainerGap(292, Short.MAX_VALUE)
+                .addComponent(jButton25)
+                .addContainerGap())
+            .addGroup(MenuAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuAlunoLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jButton21)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton20)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton22)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton27)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton23)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton24)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton26)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton19)
+                    .addContainerGap(54, Short.MAX_VALUE)))
+        );
+
+        EscoherUCs.setTitle("Escolher UC's");
+
+        jLabel5.setText("Escolha as Unidades curriculares:");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Unidades Curriculares", "Ano"
+            }
+        ));
+        jTable1.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
+        jButton28.setText("Concluir escolha");
+
+        jButton29.setText("Cancelar");
+
+        javax.swing.GroupLayout EscoherUCsLayout = new javax.swing.GroupLayout(EscoherUCs.getContentPane());
+        EscoherUCs.getContentPane().setLayout(EscoherUCsLayout);
+        EscoherUCsLayout.setHorizontalGroup(
+            EscoherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscoherUCsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(EscoherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EscoherUCsLayout.createSequentialGroup()
+                        .addComponent(jButton28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton29))
+                    .addGroup(EscoherUCsLayout.createSequentialGroup()
+                        .addGroup(EscoherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 1, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        EscoherUCsLayout.setVerticalGroup(
+            EscoherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscoherUCsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(EscoherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton28)
+                    .addComponent(jButton29))
+                .addContainerGap())
+        );
+
+        NenhumaUCEscolherUCs.setTitle("Erro: Nenhuma UC escolhida");
+
+        jLabel6.setText("Não foi escolhida nenhuma unidade curricular");
+
+        jButton30.setText("OK");
+
+        javax.swing.GroupLayout NenhumaUCEscolherUCsLayout = new javax.swing.GroupLayout(NenhumaUCEscolherUCs.getContentPane());
+        NenhumaUCEscolherUCs.getContentPane().setLayout(NenhumaUCEscolherUCsLayout);
+        NenhumaUCEscolherUCsLayout.setHorizontalGroup(
+            NenhumaUCEscolherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NenhumaUCEscolherUCsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(NenhumaUCEscolherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton30)
+                    .addComponent(jLabel6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        NenhumaUCEscolherUCsLayout.setVerticalGroup(
+            NenhumaUCEscolherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NenhumaUCEscolherUCsLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton30)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        EscolhaRealizadaEscolherUCs.setTitle("Escolha realizada");
+
+        jLabel7.setText("A escolha das unidades curriculares foi realizada com sucesso");
+
+        jButton31.setText("OK");
+
+        javax.swing.GroupLayout EscolhaRealizadaEscolherUCsLayout = new javax.swing.GroupLayout(EscolhaRealizadaEscolherUCs.getContentPane());
+        EscolhaRealizadaEscolherUCs.getContentPane().setLayout(EscolhaRealizadaEscolherUCsLayout);
+        EscolhaRealizadaEscolherUCsLayout.setHorizontalGroup(
+            EscolhaRealizadaEscolherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscolhaRealizadaEscolherUCsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscolhaRealizadaEscolherUCsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton31)
+                .addContainerGap())
+        );
+        EscolhaRealizadaEscolherUCsLayout.setVerticalGroup(
+            EscolhaRealizadaEscolherUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscolhaRealizadaEscolherUCsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton31)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        ConsultarUCs.setTitle("Consultar UC's");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "UC", "Turno"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jButton32.setText("Voltar");
+
+        javax.swing.GroupLayout ConsultarUCsLayout = new javax.swing.GroupLayout(ConsultarUCs.getContentPane());
+        ConsultarUCs.getContentPane().setLayout(ConsultarUCsLayout);
+        ConsultarUCsLayout.setHorizontalGroup(
+            ConsultarUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultarUCsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultarUCsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton32)
+                .addContainerGap())
+        );
+        ConsultarUCsLayout.setVerticalGroup(
+            ConsultarUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultarUCsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton32)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        ErroConsultarUCs.setTitle("Erro: Turnos");
+
+        jLabel8.setText("Turnos ainda não foram gerados pela DC");
+
+        jButton33.setText("OK");
+
+        javax.swing.GroupLayout ErroConsultarUCsLayout = new javax.swing.GroupLayout(ErroConsultarUCs.getContentPane());
+        ErroConsultarUCs.getContentPane().setLayout(ErroConsultarUCsLayout);
+        ErroConsultarUCsLayout.setHorizontalGroup(
+            ErroConsultarUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroConsultarUCsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ErroConsultarUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton33)
+                    .addComponent(jLabel8))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ErroConsultarUCsLayout.setVerticalGroup(
+            ErroConsultarUCsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroConsultarUCsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton33)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        DefenirCapacidade.setTitle("Defenir Capacidade");
+
+        jLabel9.setText("Forneça capacidade para o turno ");
+
+        jButton34.setText("Cancelar");
+
+        jButton35.setText("Aplicar");
+
+        javax.swing.GroupLayout DefenirCapacidadeLayout = new javax.swing.GroupLayout(DefenirCapacidade.getContentPane());
+        DefenirCapacidade.getContentPane().setLayout(DefenirCapacidadeLayout);
+        DefenirCapacidadeLayout.setHorizontalGroup(
+            DefenirCapacidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DefenirCapacidadeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(DefenirCapacidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(DefenirCapacidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(DefenirCapacidadeLayout.createSequentialGroup()
+                            .addComponent(jButton34)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton35))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, DefenirCapacidadeLayout.createSequentialGroup()
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(turno, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        DefenirCapacidadeLayout.setVerticalGroup(
+            DefenirCapacidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DefenirCapacidadeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(DefenirCapacidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(turno, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(DefenirCapacidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton34)
+                    .addComponent(jButton35))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        ErroUltrapassaDefenirCap.setTitle("Erro: Valor ultrapassa");
+
+        jLabel10.setText("Valor ultrapassa a capacidade de uma das salas");
+
+        jButton36.setText("OK");
+
+        javax.swing.GroupLayout ErroUltrapassaDefenirCapLayout = new javax.swing.GroupLayout(ErroUltrapassaDefenirCap.getContentPane());
+        ErroUltrapassaDefenirCap.getContentPane().setLayout(ErroUltrapassaDefenirCapLayout);
+        ErroUltrapassaDefenirCapLayout.setHorizontalGroup(
+            ErroUltrapassaDefenirCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroUltrapassaDefenirCapLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ErroUltrapassaDefenirCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton36)
+                    .addComponent(jLabel10))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ErroUltrapassaDefenirCapLayout.setVerticalGroup(
+            ErroUltrapassaDefenirCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroUltrapassaDefenirCapLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton36)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        ErroNegativoDefenirCap.setTitle("Erro: Valor Negativo");
+
+        jLabel11.setText("Valor Negativo");
+
+        jButton37.setText("OK");
+
+        javax.swing.GroupLayout ErroNegativoDefenirCapLayout = new javax.swing.GroupLayout(ErroNegativoDefenirCap.getContentPane());
+        ErroNegativoDefenirCap.getContentPane().setLayout(ErroNegativoDefenirCapLayout);
+        ErroNegativoDefenirCapLayout.setHorizontalGroup(
+            ErroNegativoDefenirCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroNegativoDefenirCapLayout.createSequentialGroup()
+                .addGroup(ErroNegativoDefenirCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ErroNegativoDefenirCapLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11))
+                    .addGroup(ErroNegativoDefenirCapLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jButton37)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ErroNegativoDefenirCapLayout.setVerticalGroup(
+            ErroNegativoDefenirCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroNegativoDefenirCapLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton37)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        SugerirTrocadeTurno.setTitle("Sugerir Troca de turno");
+
+        jLabel12.setText("Insira os dados necessários sobre o aluno com que pretende realizar a troca");
+
+        jLabel13.setText("Nº Aluno");
+
+        jLabel14.setText("Unidade Curricular");
+
+        jLabel15.setText("Turno");
+
+        jButton38.setText("Cancelar");
+
+        jButton39.setText("Continuar");
+
+        javax.swing.GroupLayout SugerirTrocadeTurnoLayout = new javax.swing.GroupLayout(SugerirTrocadeTurno.getContentPane());
+        SugerirTrocadeTurno.getContentPane().setLayout(SugerirTrocadeTurnoLayout);
+        SugerirTrocadeTurnoLayout.setHorizontalGroup(
+            SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SugerirTrocadeTurnoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+                    .addGroup(SugerirTrocadeTurnoLayout.createSequentialGroup()
+                        .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(SugerirTrocadeTurnoLayout.createSequentialGroup()
+                                .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15))
+                                .addGap(31, 31, 31)
+                                .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nAluno)
+                                    .addComponent(uc)
+                                    .addComponent(turno2, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)))
+                            .addGroup(SugerirTrocadeTurnoLayout.createSequentialGroup()
+                                .addComponent(jButton38)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
+                                .addComponent(jButton39)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        SugerirTrocadeTurnoLayout.setVerticalGroup(
+            SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SugerirTrocadeTurnoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(nAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(uc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(turno2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton38)
+                    .addComponent(jButton39))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        ErroAlunoInvSugerirTroca.setTitle("Erro: Aluno inválido");
+
+        jLabel16.setText("O nº inscrito não se encontra atribuído a nenhum aluno inscrito no sistema.");
+
+        jButton40.setText("OK");
+
+        javax.swing.GroupLayout ErroAlunoInvSugerirTrocaLayout = new javax.swing.GroupLayout(ErroAlunoInvSugerirTroca.getContentPane());
+        ErroAlunoInvSugerirTroca.getContentPane().setLayout(ErroAlunoInvSugerirTrocaLayout);
+        ErroAlunoInvSugerirTrocaLayout.setHorizontalGroup(
+            ErroAlunoInvSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroAlunoInvSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ErroAlunoInvSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton40)
+                .addContainerGap())
+        );
+        ErroAlunoInvSugerirTrocaLayout.setVerticalGroup(
+            ErroAlunoInvSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroAlunoInvSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton40)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        ErroTurnoSugerirTroca.setTitle("Erro: Turno inválido");
+
+        jLabel17.setText("O turno inserido não é válido para efetuar sugestão de troca.");
+
+        jButton41.setText("OK");
+
+        javax.swing.GroupLayout ErroTurnoSugerirTrocaLayout = new javax.swing.GroupLayout(ErroTurnoSugerirTroca.getContentPane());
+        ErroTurnoSugerirTroca.getContentPane().setLayout(ErroTurnoSugerirTrocaLayout);
+        ErroTurnoSugerirTrocaLayout.setHorizontalGroup(
+            ErroTurnoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroTurnoSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ErroTurnoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton41)
+                    .addComponent(jLabel17))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        ErroTurnoSugerirTrocaLayout.setVerticalGroup(
+            ErroTurnoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroTurnoSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton41)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        ErroUCSugerirTroca.setTitle("Erro: UC inválida");
+
+        jLabel18.setText("A UC inserida não é uma opção válida.");
+
+        jButton42.setText("OK");
+
+        javax.swing.GroupLayout ErroUCSugerirTrocaLayout = new javax.swing.GroupLayout(ErroUCSugerirTroca.getContentPane());
+        ErroUCSugerirTroca.getContentPane().setLayout(ErroUCSugerirTrocaLayout);
+        ErroUCSugerirTrocaLayout.setHorizontalGroup(
+            ErroUCSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroUCSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ErroUCSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton42)
+                    .addComponent(jLabel18))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ErroUCSugerirTrocaLayout.setVerticalGroup(
+            ErroUCSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroUCSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton42)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jLabel19.setText("Quer realmente realizar a sugestão de troca de turno com os seguintes dados?");
+
+        jLabel20.setText("Nº Aluno:");
+
+        jLabel21.setText("UC:");
+
+        jLabel22.setText("Turno:");
+
+        jButton43.setText("Confirmar");
+
+        jButton44.setText("Cancelar");
+
+        jButton45.setText("Alterar");
+
+        javax.swing.GroupLayout ConfirmarSugestaoSugerirTrocaLayout = new javax.swing.GroupLayout(ConfirmarSugestaoSugerirTroca.getContentPane());
+        ConfirmarSugestaoSugerirTroca.getContentPane().setLayout(ConfirmarSugestaoSugerirTrocaLayout);
+        ConfirmarSugestaoSugerirTrocaLayout.setHorizontalGroup(
+            ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createSequentialGroup()
+                        .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createSequentialGroup()
+                                .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel22))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                                    .addComponent(jTextField3)
+                                    .addComponent(jTextField2))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createSequentialGroup()
+                        .addComponent(jButton43)
+                        .addGap(88, 88, 88)
+                        .addComponent(jButton44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton45)
+                        .addGap(48, 48, 48))))
+        );
+        ConfirmarSugestaoSugerirTrocaLayout.setVerticalGroup(
+            ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ConfirmarSugestaoSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton43)
+                    .addComponent(jButton44)
+                    .addComponent(jButton45))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
+
+        jLabel2.setText("Email Institucional:");
+
+        jLabel3.setText("Password:");
+
+        Cancelar.setText("Cancelar");
+
+        Login.setText("Login");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Cancelar)
+                        .addGap(85, 85, 85)
+                        .addComponent(Login))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emailL, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(passwordL, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(emailL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Cancelar)
+                    .addComponent(Login))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +976,109 @@ public class mainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancelar;
+    private javax.swing.JDialog ConfirmarSugestaoSugerirTroca;
+    private javax.swing.JFrame ConsultarUCs;
+    private javax.swing.JFrame DefenirCapacidade;
+    private javax.swing.JDialog ErroAlunoInvSugerirTroca;
+    private javax.swing.JDialog ErroConsultarUCs;
+    private javax.swing.JDialog ErroEmailLogin;
+    private javax.swing.JDialog ErroNegativoDefenirCap;
+    private javax.swing.JDialog ErroPassLogin;
+    private javax.swing.JDialog ErroTurnoSugerirTroca;
+    private javax.swing.JDialog ErroUCSugerirTroca;
+    private javax.swing.JDialog ErroUltrapassaDefenirCap;
+    private javax.swing.JFrame EscoherUCs;
+    private javax.swing.JDialog EscolhaRealizadaEscolherUCs;
+    private javax.swing.JButton Login;
+    private javax.swing.JFrame MenuAluno;
+    private javax.swing.JFrame MenuAlunoTE;
+    private javax.swing.JFrame MenuCoordenador;
+    private javax.swing.JFrame MenuDocente;
+    private javax.swing.JDialog NenhumaUCEscolherUCs;
+    private javax.swing.JButton OK;
+    private javax.swing.JButton OK2;
+    private javax.swing.JFrame SugerirTrocadeTurno;
+    private javax.swing.JTextField emailL;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
+    private javax.swing.JButton jButton33;
+    private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
+    private javax.swing.JButton jButton39;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton40;
+    private javax.swing.JButton jButton41;
+    private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
+    private javax.swing.JButton jButton44;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField nAluno;
+    private javax.swing.JTextField passwordL;
+    private javax.swing.JLabel turno;
+    private javax.swing.JTextField turno2;
+    private javax.swing.JTextField uc;
     // End of variables declaration//GEN-END:variables
 }

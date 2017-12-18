@@ -2,7 +2,6 @@ package business;
 
 public class Troca {
 
-<<<<<<< HEAD
     private static int idC=0;
     private int id;
     private int idUC;
