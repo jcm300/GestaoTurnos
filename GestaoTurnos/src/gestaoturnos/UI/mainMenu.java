@@ -125,6 +125,12 @@ public class mainMenu extends javax.swing.JFrame {
         jButton43 = new javax.swing.JButton();
         jButton44 = new javax.swing.JButton();
         jButton45 = new javax.swing.JButton();
+        CapsDefenidasDefenirCap = new javax.swing.JDialog();
+        jLabel23 = new javax.swing.JLabel();
+        jButton46 = new javax.swing.JButton();
+        ErroAlunoIndsSugerirTroca = new javax.swing.JDialog();
+        jLabel24 = new javax.swing.JLabel();
+        jButton47 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         emailL = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -618,7 +624,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         ErroUltrapassaDefenirCap.setTitle("Erro: Valor ultrapassa");
 
-        jLabel10.setText("Valor ultrapassa a capacidade de uma das salas");
+        jLabel10.setText("Valor ultrapassa capacidade da sala");
 
         jButton36.setText("OK");
 
@@ -888,6 +894,60 @@ public class mainMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        CapsDefenidasDefenirCap.setTitle("Capacidades Defenidas");
+
+        jLabel23.setText("Capacidade dos turnos defenidas com sucesso");
+
+        jButton46.setText("OK");
+
+        javax.swing.GroupLayout CapsDefenidasDefenirCapLayout = new javax.swing.GroupLayout(CapsDefenidasDefenirCap.getContentPane());
+        CapsDefenidasDefenirCap.getContentPane().setLayout(CapsDefenidasDefenirCapLayout);
+        CapsDefenidasDefenirCapLayout.setHorizontalGroup(
+            CapsDefenidasDefenirCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CapsDefenidasDefenirCapLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CapsDefenidasDefenirCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton46)
+                    .addComponent(jLabel23))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        CapsDefenidasDefenirCapLayout.setVerticalGroup(
+            CapsDefenidasDefenirCapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CapsDefenidasDefenirCapLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton46)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        ErroAlunoIndsSugerirTroca.setTitle("Erro: Aluno Indisponível");
+
+        jLabel24.setText("O aluno não está inscrito na UC");
+
+        jButton47.setText("OK");
+
+        javax.swing.GroupLayout ErroAlunoIndsSugerirTrocaLayout = new javax.swing.GroupLayout(ErroAlunoIndsSugerirTroca.getContentPane());
+        ErroAlunoIndsSugerirTroca.getContentPane().setLayout(ErroAlunoIndsSugerirTrocaLayout);
+        ErroAlunoIndsSugerirTrocaLayout.setHorizontalGroup(
+            ErroAlunoIndsSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroAlunoIndsSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ErroAlunoIndsSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton47)
+                    .addComponent(jLabel24))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        ErroAlunoIndsSugerirTrocaLayout.setVerticalGroup(
+            ErroAlunoIndsSugerirTrocaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroAlunoIndsSugerirTrocaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton47)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
 
@@ -977,9 +1037,11 @@ public class mainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
+    private javax.swing.JDialog CapsDefenidasDefenirCap;
     private javax.swing.JDialog ConfirmarSugestaoSugerirTroca;
     private javax.swing.JFrame ConsultarUCs;
     private javax.swing.JFrame DefenirCapacidade;
+    private javax.swing.JDialog ErroAlunoIndsSugerirTroca;
     private javax.swing.JDialog ErroAlunoInvSugerirTroca;
     private javax.swing.JDialog ErroConsultarUCs;
     private javax.swing.JDialog ErroEmailLogin;
@@ -1040,6 +1102,8 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1060,6 +1124,8 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
