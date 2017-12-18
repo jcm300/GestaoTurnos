@@ -1,4 +1,4 @@
-    package business;
+package business;
 
 import java.util.Date;
 import java.util.List;
@@ -17,46 +17,70 @@ public class UC {
 	private int anoDeCurso;
 	private String nome;
         
-        public UC(List<TrocaInteressado> trocasPedidas,List<TrocaInteressado> trocasInteressados,List<Turno> turnos,int id,Coordenador coordenador,int anoDeCurso,tring nome){
-               //TODO
+        
+        protected UC(UC oldUC){
+            this.trocasPedidas=oldUC.getTrocasPedidas();
+            this.trocasInteressados=oldUC.getTrocasInteressados();
+            this.turnos=oldUC.getTurnos();
+            this.id=oldUC.getId();
+            this.coordenador=oldUC.getCoordenador();
+            this.anoDeCurso=oldUC.getAnoDeCurso();
+            this.nome=oldUC.getNome();
         }
         
+        public UC(List<TrocaInteressado> trocasPedidas,List<TrocaInteressado> trocasInteressados,List<Turno> turnos,int id,Coordenador coordenador,int anoDeCurso,String nome){
+            this.trocasPedidas=trocasPedidas.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
+            this.trocasInteressados=trocasInteressados.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
+            this.turnos=turnos.stream().map(Turno::clone).collect(Collectors.toList());
+            this.id=id;
+            this.coordenador=coordenador.clone();
+            this.nome=nome;
+        }
+        
+        //getters & setters
         public int getId(){
             return this.id;
         }
         
-        public UC clone(){
-            return new UC(this.trocasPedidas,this.trocasInteressados,this.turnos,this.id,this.coordenador,this.anoDeCurso,this.nome);
+        protected void setId(int id){
+            this.id=id;
         }
         
         protected String getNome(){
             return this.nome;
         }
         
-        protected int getId(){
-            return this.id;
-        }
+        protected List<TrocaInteressado> getTrocasInteressados() {
+            return this.trocasInteressados.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
+	}
         
         protected List<Turno> getTurnos(){
-            List<Turno> resp = new ArrayList<Turno>();
-            for (Turno t : this.turnos)
-                resp.add(t.clone());
-            return resp;
+            return this.turnos.stream().map(Turno::clone).collect(Collectors.toList());
         }
 
-	protected void addInteresseDeTroca(TrocaInteressado troca) {
-            Integer idTroca= trocasInteressados.size();
-            troca.SetId(idTroca);
+	protected void addInteresseDeTroca(TrocaInteressado troca) { //erro ds
             trocasInteressados.add(troca);
         }
-
-	protected List<TrocaInteressado> getTrocasPedidas() {
+        
+        protected List<TrocaInteressado> getTrocasPedidas() {
             ArrayList<TrocaInteressado> ret = new ArrayList<TrocaInteressado>();
             
             for(TrocaInteressado troca:this.trocasPedidas){
                 ret.add(troca.clone());
             }
             return ret;
+        }
+        
+        protected Coordenador getCoordenador(){
+            return this.coordenador.clone();
+        }
+        
+        protected int getAnoDeCurso(){
+            return this.anoDeCurso;
+        }
+        
+        public UC clone(){
+            return new UC(this);
         }
 
 	protected void registaPresencas(int idTurno, Date data, Map<Integer, Boolean> alunos) {
@@ -85,24 +109,17 @@ public class UC {
         }
 
 	protected Turno getTurno(int idTurno) {
-            Turno turno;
+            Turno turno=null;
             boolean flag = false;
             int id;
-            for (Turno t : this.turnos && !false){
-                id = t.getId();
-                if (idTurno == id){
+            for (Turno t : this.turnos){
+                id=t.getId();
+                if(idTurno == id){
                     flag = true;
                     turno = t;
+                    break;
                 }
-                return turno;
             }
-            
+            return turno;
 	}
-
-	protected List<TrocaInteressado> getTrocasInteressados() {
-	}
-        
-        protected List<Turno> getTurnos(){
-            return this.turnos.stream().map(Turno::clone).collect(Collectors.toList());
-        }
 }

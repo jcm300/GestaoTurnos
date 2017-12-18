@@ -5,12 +5,12 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Aula {
-
 	private Map<Integer,Boolean> presencas;
 	private Date data;
         
-        protected Date getData(){
-            return this.data;
+        protected Aula(Aula oldA){
+            this.presencas=oldA.getPresencas();
+            this.data=oldA.getData();
         }
         
         protected Aula(Map<Integer,Boolean> pres, Date d){
@@ -19,9 +19,10 @@ public class Aula {
         }
         
         public Aula clone(){
-            return new Aula(this.getPresencas(),this.data);
+            return new Aula(this);
         }
         
+        //getters & setters
         protected Map<Integer,Boolean> getPresencas(){
             Map<Integer,Boolean> resp = new HashMap<Integer,Boolean>();
             this.presencas.keySet().stream().forEach((id) -> {
@@ -29,5 +30,8 @@ public class Aula {
             });
             return resp;
         }
-
+        
+        protected Date getData(){
+            return this.data;
+        }
 }
