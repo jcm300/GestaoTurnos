@@ -35,6 +35,10 @@ public class Turno {
             return this.id;
         }
         
+        protected int getCapacidade(){
+            return this.capacidade;
+        }
+        
         protected int getCapacidadeSala(){
             return this.capacidadeSala;
         }

@@ -1,5 +1,6 @@
 package business;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,9 +17,11 @@ public class SysFacade {
             String e;
             String pass;
             boolean flag = false;
-            for (Utilizador u : this.utilizadores && !flag){
+            for(Utilizador u : SysFacade.utilizadores.values()){
                 e = u.getEmail();
-                if (e.equals(email)){
+                if(!flag)
+                    break;
+                else if (e.equals(email)){
                     pass = u.getPassword();
                     flag = true;
                     if (pass.equals(password))
@@ -32,23 +35,30 @@ public class SysFacade {
 
         protected List<UC> getUcs(){
             List <UC> resp = new ArrayList<UC>();
-            for (UC uc : ucs.values()){
+            for (UC uc : SysFacade.ucs.values()){
                 resp.add(uc);
             }
         }
         
 	public static List<UC> getUCsDisponiveis() {
             List<UC> ucs;
-            ucs = this.getUcs();
+            ucs = SysFacade.getUcs();
 	}
 
-	public static boolean existemVagas(int idUC, int idTurno) {
+	public static boolean existemVagas(int idUC, int idTurno){
+            if(existeTurno(idUC,idTurno)){
+                int oc=(int)utilizadores.values().stream().filter(u->u instanceof Aluno)
+                                        .map(uA->(Aluno)uA).filter(u->u.alunoInscritoNaUC(idUC))
+                                        .filter(u->u.getTurnos().get(idUC)==idTurno).count();
+
+                return ucs.get(idUC).getTurno(idTurno).getCapacidade() > oc;
+            }else return false;
 	}
 
-	public static void inputDados(String ficheiro) {
+	public static void inputDados(String ficheiro){
 	}
 
-	public static boolean geraDistribuicao() {
+	public static boolean geraDistribuicao(){
 	}
 
 	public static boolean existeTurno(int idUC, int idTurno) {
@@ -59,13 +69,13 @@ public class SysFacade {
             UC uc=SysFacade.getUC(idUC);
             List<Turno> turnos = uc.getTurnos();
             
-            for(t:turnos)
+            for(Turno t:turnos)
                 if(t.getId()==idTurno) return true;
             return res;
 	}
 
 	public static boolean existeUC(int idUC) {
-            for(uc:SysFacade.ucs.values())
+            for(UC uc: SysFacade.ucs.values())
                 if(uc.getId()==idUC) return true;
             return false;
 	}
