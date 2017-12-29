@@ -1,13 +1,23 @@
 package business;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Coordenador extends Docente {
 
 	private int ucRegente;
+        
+        protected int getUCRegente(){
+            return this.ucRegente;
+        }
 
-	protected List<TrocaInteressado> consultarTrocasPend() {
-	}
+	public List<TrocaInteressado> consultarTrocasPend() {
+            int idUCReg = getUCRegente();
+            UC uc = SysFacade.getUC(idUCReg);
+            ArrayList<TrocaInteressado> trocas = null;
+            if(uc!=null) uc.getTrocasPedidas();
+            return trocas;
+        }
 
 	protected void aprovarTroca(int idTroca) {
 	}

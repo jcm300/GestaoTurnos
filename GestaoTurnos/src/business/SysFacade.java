@@ -5,43 +5,46 @@ import java.util.Map;
 
 public class SysFacade {
 
-	private Map<Integer,Utilizador> utilizadores;
-	private Map<Integer,UC> ucs;
+	private static Map<Integer,Utilizador> utilizadores;
+	private static Map<Integer,UC> ucs;
 
-	public int getIdUC(String UC) {
+	public static int getIdUC(String UC) {
 	}
 
-	public boolean existeTurnos() {
+	public static boolean existeTurnos() {
 	}
 
-	public int login(String email, String password) {
+	public static int login(String email, String password) {
 	}
 
-	public List<UC> getUCsDisponiveis() {
+	public static List<UC> getUCsDisponiveis() {
 	}
 
-	public boolean existemVagas(int idUC, int idTurno) {
+	public static boolean existemVagas(int idUC, int idTurno) {
 	}
 
-	public void inputDados(String ficheiro) {
+	public static void inputDados(String ficheiro) {
 	}
 
-	public boolean geraDistribuicao() {
+	public static boolean geraDistribuicao() {
 	}
 
-	public boolean existeTurno(int idUC, int idTurno) {
+	public static boolean existeTurno(int idUC, int idTurno) {
 	}
 
-	public boolean existeUC(int idUC) {
+	public static boolean existeUC(int idUC) {
 	}
 
-	public void addSugestao(Troca troca) {
+	public static void addSugestao(Troca troca) {
 	}
 
-	public UC getUC(int idUC) {
-	}
+	public static UC getUC(int idUC) {
+            UC uc = null;
+            uc = ucs.get(idUC);
+            return uc;
+        }
 
-	public Aluno getAluno(int idAluno) {
+	public static Aluno getAluno(int idAluno) {
 	}
 
 }
