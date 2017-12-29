@@ -47,6 +47,17 @@ public class Turno {
 	}
 
 	protected Aula getAula(Date data) {
+            boolean flag = false;
+            Date d;
+            Aula aula;
+            for (Aula a : this.aulas && !flag){
+                d = a.getData();
+                if (data.equals(d)){
+                    flag = true;
+                    aula = a;
+                }
+            }
+            return aula;
 	}
 
 	protected List<Aula> getAulas() {

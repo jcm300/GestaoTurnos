@@ -9,6 +9,10 @@ public class Aula {
 	private Map<Integer,Boolean> presencas;
 	private Date data;
         
+        protected Date getData(){
+            return this.data;
+        }
+        
         protected Aula(Map<Integer,Boolean> pres, Date d){
             this.presencas = new HashMap(pres);
             this.data = d;
