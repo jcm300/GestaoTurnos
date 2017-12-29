@@ -29,6 +29,15 @@ public class Coordenador extends Docente {
 	}
 
 	protected List<Integer> getTurnosUC() {
+            int idUC = this.getUCRegente();
+            UC uc = SysFacade.getUC(idUC);
+            List<Turno> listaTurnos = uc.getTurnos();
+            List<Integer> turnos = new ArrayList<Integer>();
+            int id;
+            for (Turno t : listaTurnos){
+                id = t.getId();
+                turnos.add(id);
+            }
 	}
 
 	protected boolean verificaSeCapExcedeSala(int idTurno, int capacidade) {

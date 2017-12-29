@@ -25,6 +25,13 @@ public class UC {
             return new UC(this.trocasPedidas,this.trocasInteressados,this.turnos,this.id,this.coordenador,this.anoDeCurso,this.nome);
         }
         
+        protected List<Turno> getTurnos(){
+            List<Turno> resp = new ArrayList<Turno>();
+            for (Turno t : this.turnos)
+                resp.add(t.clone());
+            return resp;
+        }
+
 	protected void addInteresseDeTroca(TrocaInteressado troca) {
 	}
 
@@ -38,7 +45,10 @@ public class UC {
         }
 
 	protected void registaPresencas(int idTurno, Date data, Map<Integer, Boolean> alunos) {
-	}
+            Turno t = getTurno(idTurno);
+            Aula novaAula = new Aula(alunos,data);
+            t.getAulas().add(novaAula); // erro DS
+        }
 
 	protected TrocaInteressado getTrocaPedida(int idTroca) {
             boolean flag = false;
