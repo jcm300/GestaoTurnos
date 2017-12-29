@@ -24,7 +24,10 @@ public class UC {
         }
 
 	protected void addInteresseDeTroca(TrocaInteressado troca) {
-	}
+            Integer idTroca= trocasInteressados.size();
+            troca.SetId(idTroca);
+            trocasInteressados.add(troca);
+        }
 
 	protected List<TrocaInteressado> getTrocasPedidas() {
 	}
