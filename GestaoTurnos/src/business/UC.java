@@ -1,9 +1,9 @@
     package business;
 
-import business.Coordenador;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class UC {
 
@@ -32,4 +32,8 @@ public class UC {
 
 	protected List<TrocaInteressado> getTrocasInteressados() {
 	}
+        
+        protected List<Turno> getTurnos(){
+            return this.turnos.stream().map(Turno::clone).collect(Collectors.toList());
+        }
 }

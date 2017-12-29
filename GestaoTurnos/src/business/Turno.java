@@ -19,4 +19,7 @@ public class Turno {
 	protected Aula getAula(Date data) {
 	}
 
+        protected Turno clone(){
+            return new Turno();
+        }
 }

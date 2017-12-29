@@ -30,9 +30,22 @@ public class SysFacade {
 	}
 
 	public static boolean existeTurno(int idUC, int idTurno) {
+            boolean res=SysFacade.existeUC(idUC);
+            if(!res) return res;
+            
+            res=false;
+            UC uc=SysFacade.getUC(idUC);
+            List<Turno> turnos = uc.getTurnos();
+            
+            for(t:turnos)
+                if(t.getId()==idTurno) return true;
+            return res;
 	}
 
 	public static boolean existeUC(int idUC) {
+            for(uc:SysFacade.ucs.values())
+                if(uc.getId()==idUC) return true;
+            return false;
 	}
 
 	public static void addSugestao(Troca troca) {
