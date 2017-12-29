@@ -1,4 +1,4 @@
-package gestaoturnos;
+package business;
 
 public class TrocaInteressado {
 
@@ -7,7 +7,7 @@ public class TrocaInteressado {
 	private int idTurno;
 	private int idTurnoPretendido;
 
-	public int getId() {
+	protected int getId() {
 		return this.id;
 	}
 }

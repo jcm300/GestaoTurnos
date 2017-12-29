@@ -1,4 +1,4 @@
-package gestaoturnos;
+package business;
 
 public class Troca {
 

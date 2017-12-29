@@ -1,4 +1,7 @@
-package gestaoturnos;
+package business;
+
+import java.util.Date;
+import java.util.List;
 
 public class Turno {
 
@@ -10,10 +13,10 @@ public class Turno {
 	private Date horaInicio;
 	private Date horaFim;
 
-	public boolean existeAula(Date data) {
+	protected boolean existeAula(Date data) {
 	}
 
-	public Aula getAula(Date data) {
+	protected Aula getAula(Date data) {
 	}
 
 }
