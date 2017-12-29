@@ -63,10 +63,13 @@ public class SysFacade {
 	public static UC getUC(int idUC) {
             UC uc = null;
             uc = ucs.get(idUC);
-            return uc;
+            return uc.clone();
         }
 
 	public static Aluno getAluno(int idAluno) {
-	}
+            Utilizador u = utilizadores.get(idAluno);
+            Aluno a = (Aluno)u;
+            return a.clone();
+        }
 
 }

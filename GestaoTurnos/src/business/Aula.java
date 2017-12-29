@@ -9,6 +9,12 @@ public class Aula {
 	private Map<Integer,Boolean> presencas;
 	private Date data;
         
+
+        Aula(Map<Integer,Boolean> pres,Date d){
+            presencas=new HashMap(pres);
+            data=d;
+        };
+        
         protected Map<Integer,Boolean> getPresencas(){
             Map<Integer,Boolean> resp = new HashMap<Integer,Boolean>();
             this.presencas.keySet().stream().forEach((id) -> {
@@ -16,4 +22,5 @@ public class Aula {
             });
             return resp;
         }
+
 }
