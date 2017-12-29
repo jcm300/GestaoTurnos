@@ -19,10 +19,13 @@ public class Coordenador extends Docente {
             return trocas;
         }
 
-	protected void aprovarTroca(int idTroca) {
+	public void aprovarTroca(int idTroca) {
 	}
 
-	protected void reprovarTroca(int idTroca) {
+	public void reprovarTroca(int idTroca) {
+            int idUCReg = this.getUCRegente();
+            UC uc = SysFacade.getUC(idUCReg);
+            uc.getTrocaPedida(idTroca);
 	}
 
 	protected List<Integer> getTurnosUC() {

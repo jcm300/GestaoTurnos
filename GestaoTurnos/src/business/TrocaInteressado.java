@@ -7,7 +7,18 @@ public class TrocaInteressado {
 	private int idTurno;
 	private int idTurnoPretendido;
 
-	protected int getId() {
+        protected TrocaInteressado(int id,int idAluno, int idTurno, int idTurnoPretendido){
+            this.id = id;
+            this.idAluno = idAluno;
+            this.idTurno = idTurno;
+            this.idTurnoPretendido = idTurnoPretendido;
+        }
+        
+	public int getId() {
 		return this.id;
 	}
+        
+        protected TrocaInteressado clone(){
+            return new TrocaInteressado(this.id,this.idAluno,this.idTurno,this.idTurnoPretendido);
+        }
 }
