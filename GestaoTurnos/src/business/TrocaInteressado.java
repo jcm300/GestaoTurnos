@@ -24,6 +24,14 @@ public class TrocaInteressado {
 		return this.id;
 	}
         
+        protected int getIdAluno(){
+            return this.idAluno;
+        }
+        
+        protected int getTurnoPretendido(){
+            return this.idTurnoPretendido;
+        }
+        
         protected TrocaInteressado clone(){
             TrocaInteressado aux = new TrocaInteressado(this.idAluno,this.idTurno,this.idTurnoPretendido);
             aux.setId(this.id);

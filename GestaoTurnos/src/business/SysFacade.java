@@ -3,6 +3,7 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Iterator;
 
 public class SysFacade {
 
@@ -10,7 +11,25 @@ public class SysFacade {
 	private static Map<Integer,UC> ucs;
 
 	public static int getIdUC(String UC) {
-	}
+            List<UC> ucs = SysFacade.getUCsDisponiveis();
+            boolean flag = false;
+            String nome;
+            int ret=-1;
+            
+            if(ucs.size()!=0){
+                Iterator<UC> it = ucs.iterator();
+                while(it.hasNext() && !flag){
+                    UC u = it.next();
+                    nome = u.getNome();
+                    flag = nome.equals(UC);
+                    if(flag){
+                        ret=u.getId();
+                    }
+                }
+            }
+            
+            return ret;
+        }
 
 	public static int login(String email, String password) {
             int resp = 0;

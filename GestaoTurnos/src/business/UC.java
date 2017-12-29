@@ -29,6 +29,14 @@ public class UC {
             return new UC(this.trocasPedidas,this.trocasInteressados,this.turnos,this.id,this.coordenador,this.anoDeCurso,this.nome);
         }
         
+        protected String getNome(){
+            return this.nome;
+        }
+        
+        protected int getId(){
+            return this.id;
+        }
+        
         protected List<Turno> getTurnos(){
             List<Turno> resp = new ArrayList<Turno>();
             for (Turno t : this.turnos)

@@ -2,6 +2,7 @@ package business;
 
 public class Troca {
 
+<<<<<<< HEAD
     private static int idC=0;
     private int id;
     private int idUC;
@@ -28,5 +29,21 @@ public class Troca {
         Troca aux = new Troca(this.idUC,this.idAluno1,this.idAluno2,this.idTurno1,this.idTurno2);
         aux.setId(this.id);
         return aux;
+    }
+    
+    protected int getIdUC(){
+        return this.idUC;
+    }
+
+    protected int getIdTurno1(){
+        return this.idTurno1;
+    }
+
+    protected int getIdTurno2(){
+        return this.idTurno2;
+    }
+
+    protected int getIdAluno1(){
+        return this.idAluno1;
     }
 }
