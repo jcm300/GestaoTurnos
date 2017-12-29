@@ -4,6 +4,7 @@ import business.Coordenador;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 
 public class UC {
 
@@ -14,6 +15,13 @@ public class UC {
 	private Coordenador coordenador;
 	private int anoDeCurso;
 	private String nome;
+        
+        protected List<Turno> getTurnos(){
+            List<Turno> resp = new ArrayList<Turno>();
+            for (Turno t : this.turnos)
+                resp.add(t.clone());
+            return resp;
+        }
 
 	protected void addInteresseDeTroca(TrocaInteressado troca) {
 	}

@@ -1,13 +1,24 @@
 package business;
 
 import java.util.ArrayDeque;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.HashMap;
 
 public class Aluno extends Utilizador {
 
 	private ArrayDeque<Troca> TrocasPendentes;
 	private Map<Integer,Integer> turnos;
+        
+        protected Map<Integer,Integer> getTurnos(){
+            Map<Integer,Integer> resp = new HashMap<Integer,Integer>();
+            for (Integer uc : this.turnos){
+                resp.put(uc,this.turnos.get(uc));
+            }
+            return resp;
+        }
 
 	protected Troca getTrocaPend() {
 	}
@@ -22,6 +33,8 @@ public class Aluno extends Utilizador {
 	}
 
 	protected Map<Integer, Integer> consultarUCs() {
+            Map<Integer,Integer> ucs = this.getTurnos();
+            return ucs;
 	}
 
 	protected boolean inscreveUC(int idUC) {
@@ -46,6 +59,12 @@ public class Aluno extends Utilizador {
 	}
 
 	protected boolean existeTurnos() {
+            Collection<Integer> values = this.turnos.values();
+            boolean turnosDisp = false;
+            for (Integet t : values && !turnosDips){
+                if (t!=-1) turnosDisp = true;
+            }
+            return turnosDisp;
 	}
 
 	protected void mudaTurno(int idUC, int idTurno) {

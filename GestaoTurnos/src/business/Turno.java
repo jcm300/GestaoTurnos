@@ -12,6 +12,10 @@ public class Turno {
 	private int diaDaSemana;
 	private Date horaInicio;
 	private Date horaFim;
+        
+        protected int getId(){
+            return this.id;
+        }
 
 	protected boolean existeAula(Date data) {
 	}
