@@ -12,6 +12,18 @@ public class Turno {
 	private int diaDaSemana;
 	private Date horaInicio;
 	private Date horaFim;
+        
+        protected int getId(){
+            return this.id;
+        }
+        
+        protected int getCapacidadeSala(){
+            return this.capacidadeSala;
+        }
+        
+        protected void setCapacidade(int c){
+            this.capacidade = c;
+        }
 
 	protected boolean existeAula(Date data) {
 	}
@@ -19,6 +31,10 @@ public class Turno {
 	protected Aula getAula(Date data) {
 	}
 
+	protected List<Aula> getAulas() {
+            return aulas;
+        }
+        
         protected Turno clone(){
             return new Turno();
         }
