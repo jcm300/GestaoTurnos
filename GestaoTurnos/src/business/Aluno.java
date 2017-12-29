@@ -34,16 +34,50 @@ public class Aluno extends Utilizador {
         }
         
 	public Troca getTrocaPend() {
+            Troca troca = this.trocasPendentes.getLast();
+            return troca;
 	}
 
 	public void recusaTroca(String motivoTroca) {
-	}
+            this.trocasPendentes.removeLast();
+        }
 
 	public void aceitaTroca() {
+            Troca troca = this.trocasPendentes.pollLast();
+            if(troca!=null){
+                int idUC = troca.getIdUC();
+                int idT1 = troca.getIdTurno1();
+                this.mudaTurno(idUC, idT1);
+                int idAluno=troca.getIdAluno1();
+                Aluno al = SysFacade.getAluno(idAluno);
+                int idT2 = troca.getIdTurno2();
+                al.mudaTurno(idUC, idT2);
+            }
 	}
 
 	public Float percentagemPresencas(int idUC) {
-	}
+            UC uc = SysFacade.getUC(idUC);
+            List<Turno> turnos = uc.getTurnos();
+            int pres = 0;
+            int idAluno = super.getId();
+                    
+            for(Integer idT: this.turnos.values()){
+                Turno t = uc.getTurno(idT);
+                List<Aula> aulas = t.getAulas();
+                for(Aula a:aulas){
+                    Map<Integer,Boolean> presencas = a.getPresencas();
+                    boolean b = presencas.get(idAluno);
+                    if(b) pres++;
+                }
+            }
+            
+            int idTurno = this.turnos.get(idUC);
+            Turno turno = uc.getTurno(idTurno);
+            List<Aula> aulasT = turno.getAulas();
+            int n = aulasT.size();
+            float ret=pres/n;
+            return ret;
+        }
 
 	protected Map<Integer, Integer> consultarUCs() {
             Map<Integer,Integer> ucs = this.getTurnos();

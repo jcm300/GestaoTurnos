@@ -18,6 +18,14 @@ public class TrocaInteressado {
 		return this.id;
 	}
         
+        protected int getIdAluno(){
+            return this.idAluno;
+        }
+        
+        protected int getTurnoPretendido(){
+            return this.idTurnoPretendido;
+        }
+        
         protected TrocaInteressado clone(){
             return new TrocaInteressado(this.id,this.idAluno,this.idTurno,this.idTurnoPretendido);
         }

@@ -18,6 +18,22 @@ public class Troca {
             this.idTurno2 = iturno2;
         }
         
+        protected int getIdUC(){
+            return this.idUC;
+        }
+        
+        protected int getIdTurno1(){
+            return this.idTurno1;
+        }
+        
+        protected int getIdTurno2(){
+            return this.idTurno2;
+        }
+        
+        protected int getIdAluno1(){
+            return this.idAluno1;
+        }
+        
         protected Troca clone(){
             return new Troca(this.id,this.idUC,this.idAluno1,this.idAluno2,this.idTurno1,this.idTurno2);
         }

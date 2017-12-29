@@ -12,7 +12,7 @@ public class Coordenador extends Docente {
         }
 
 	public List<TrocaInteressado> consultarTrocasPend() {
-            int idUCReg = getUCRegente();
+            int idUCReg = this.getUCRegente();
             UC uc = SysFacade.getUC(idUCReg);
             ArrayList<TrocaInteressado> trocas = null;
             if(uc!=null) uc.getTrocasPedidas();
@@ -20,6 +20,13 @@ public class Coordenador extends Docente {
         }
 
 	public void aprovarTroca(int idTroca) {
+            int idUCReg = this.getUCRegente();
+            UC uc = SysFacade.getUC(idUCReg);
+            TrocaInteressado troca = uc.getTrocaPedida(idTroca);
+            int idAluno = troca.getIdAluno();
+            int idT = troca.getTurnoPretendido();
+            Aluno al = SysFacade.getAluno(idAluno);
+            al.mudaTurno(idUCReg,idT);
 	}
 
 	public void reprovarTroca(int idTroca) {

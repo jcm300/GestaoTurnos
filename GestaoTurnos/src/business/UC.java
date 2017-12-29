@@ -3,12 +3,9 @@
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-<<<<<<< HEAD
 import java.util.stream.Collectors;
-=======
 import java.util.ArrayList;
 import java.util.Iterator;
->>>>>>> FETCH_HEAD
 
 public class UC {
 
@@ -26,6 +23,14 @@ public class UC {
         
         public UC clone(){
             return new UC(this.trocasPedidas,this.trocasInteressados,this.turnos,this.id,this.coordenador,this.anoDeCurso,this.nome);
+        }
+        
+        protected String getNome(){
+            return this.nome;
+        }
+        
+        protected int getId(){
+            return this.id;
         }
         
         protected List<Turno> getTurnos(){

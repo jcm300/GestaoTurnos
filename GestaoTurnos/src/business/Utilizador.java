@@ -13,4 +13,8 @@ public abstract class Utilizador {
         protected String getPassword(){
             return this.password;
         }
+        
+        protected int getId(){
+            return this.id;
+        }
 }
