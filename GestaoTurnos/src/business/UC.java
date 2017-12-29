@@ -22,10 +22,14 @@ public class UC {
 	}
 
 	protected void registaPresencas(int idTurno, Date data, Map<Integer, Boolean> alunos) {
-	}
+            Turno t = getTurno(idTurno);
+            Aula novaAula = new Aula(alunos,data);
+            t.getAulas().add(novaAula); // erro DS
+        }
 
 	protected TrocaInteressado getTrocaPedida(int idTroca) {
-	}
+	
+        }
 
 	protected Turno getTurno(int idTurno) {
 	}

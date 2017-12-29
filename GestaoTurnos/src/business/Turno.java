@@ -18,5 +18,7 @@ public class Turno {
 
 	protected Aula getAula(Date data) {
 	}
-
+	protected List<Aula> getAulas() {
+            return aulas;
+        }
 }

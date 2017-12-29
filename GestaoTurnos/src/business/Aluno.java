@@ -39,8 +39,15 @@ public class Aluno extends Utilizador {
 	protected List<TrocaInteressado> consultarTrocasPedidas(int idUC) {
 	}
 
-	protected Troca pedirTroca(int idUC, int idTurno) {
-	}
+	protected Troca pedirTroca(int idUC, int idTurnoD) {
+            Integer idDoaluno= getId();
+            Integer idDoTurno= turnos.get(idUC);
+            if (idDoTurno==null) return null;
+            Troca troca= new TrocaInteressado(-1,idDoaluno,idDoTurno,idTurnoD );
+            return troca;
+            
+            
+        }
 
 	protected boolean alunoInscritoNaUC(int idUC) {
 	}
