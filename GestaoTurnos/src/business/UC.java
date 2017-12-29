@@ -1,11 +1,14 @@
     package business;
 
-import business.Coordenador;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
+import java.util.stream.Collectors;
+=======
 import java.util.ArrayList;
 import java.util.Iterator;
+>>>>>>> FETCH_HEAD
 
 public class UC {
 
@@ -89,4 +92,8 @@ public class UC {
 
 	protected List<TrocaInteressado> getTrocasInteressados() {
 	}
+        
+        protected List<Turno> getTurnos(){
+            return this.turnos.stream().map(Turno::clone).collect(Collectors.toList());
+        }
 }

@@ -51,9 +51,19 @@ public class Aluno extends Utilizador {
 	}
 
 	protected boolean inscreveUC(int idUC) {
+            if(SysFacade.existeUC(idUC) && !this.turnos.containsKey(idUC)){
+                this.turnos.put(idUC,-1);
+                return true;
+            }
+            return false;
 	}
 
 	protected void trocarTurnoProf(int idUC, int idTurno) {
+            if(SysFacade.existeUC(idUC)){
+                UC aux=SysFacade.getUC(idUC);
+                TrocaInteressado tI = new TrocaInteressado(0,this.id,this.turnos.get(idUC).intValue(),idTurno);
+                aux.addInteresseDeTroca(tI);
+            }
 	}
 
 	protected int possibilidaTrocaTurno(int idUC, int idTurno, int idAluno) {
