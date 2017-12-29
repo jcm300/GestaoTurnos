@@ -38,9 +38,24 @@ public class Coordenador extends Docente {
 	}
 
 	protected boolean verificaSeCapExcedeSala(int idTurno, int capacidade) {
+            boolean capMaxima;
+            int idUC = this.getUCRegente();
+            UC uc = SysFacade.getUC(idUC);
+            Turno turno = uc.getTurno(idTurno);
+            int capacidadeSala = turno.getCapacidadeSala();
+            if (capacidadeSala > capacidade)
+                capMaxima = false;
+            else
+                capMaxima = true;
+            return capMaxima;
+            
 	}
 
-	protected void defineCapacidade(int idTurno, int capacidade) {
+	protected void defineCapacidadeTurno(int idTurno, int capacidade) {
+            int idUC = this.getUCRegente();
+            UC uc = SysFacade.getUC(idUC);
+            Turno turno = uc.getTurno(idTurno);
+            turno.setCapacidade(capacidade);
 	}
 
 }

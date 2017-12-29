@@ -61,7 +61,7 @@ public class Aluno extends Utilizador {
 	protected boolean existeTurnos() {
             Collection<Integer> values = this.turnos.values();
             boolean turnosDisp = false;
-            for (Integet t : values && !turnosDips){
+            for (Integer t : values && !turnosDips){
                 if (t!=-1) turnosDisp = true;
             }
             return turnosDisp;

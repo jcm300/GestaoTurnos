@@ -11,13 +11,35 @@ public class SysFacade {
 	public static int getIdUC(String UC) {
 	}
 
-	public static boolean existeTurnos() {
-	}
-
 	public static int login(String email, String password) {
+            int resp = 0;
+            String e;
+            String pass;
+            boolean flag = false;
+            for (Utilizador u : this.utilizadores && !flag){
+                e = u.getEmail();
+                if (e.equals(email)){
+                    pass = u.getPassword();
+                    flag = true;
+                    if (pass.equals(password))
+                        resp = 1;
+                    else
+                        resp = 2;
+                }
+            }
+            return resp;
 	}
 
+        protected List<UC> getUcs(){
+            List <UC> resp = new ArrayList<UC>();
+            for (UC uc : ucs.values()){
+                resp.add(uc);
+            }
+        }
+        
 	public static List<UC> getUCsDisponiveis() {
+            List<UC> ucs;
+            ucs = this.getUcs();
 	}
 
 	public static boolean existemVagas(int idUC, int idTurno) {

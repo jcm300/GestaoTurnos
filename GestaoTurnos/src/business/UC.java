@@ -36,6 +36,18 @@ public class UC {
 	}
 
 	protected Turno getTurno(int idTurno) {
+            Turno turno;
+            boolean flag = false;
+            int id;
+            for (Turno t : this.turnos && !false){
+                id = t.getId();
+                if (idTurno == id){
+                    flag = true;
+                    turno = t;
+                }
+                return turno;
+            }
+            
 	}
 
 	protected List<TrocaInteressado> getTrocasInteressados() {
