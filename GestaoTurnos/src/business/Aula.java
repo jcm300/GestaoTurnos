@@ -9,11 +9,14 @@ public class Aula {
 	private Map<Integer,Boolean> presencas;
 	private Date data;
         
-
-        Aula(Map<Integer,Boolean> pres,Date d){
-            presencas=new HashMap(pres);
-            data=d;
-        };
+        protected Aula(Map<Integer,Boolean> pres, Date d){
+            this.presencas = new HashMap(pres);
+            this.data = d;
+        }
+        
+        public Aula clone(){
+            return new Aula(this.getPresencas(),this.data);
+        }
         
         protected Map<Integer,Boolean> getPresencas(){
             Map<Integer,Boolean> resp = new HashMap<Integer,Boolean>();
