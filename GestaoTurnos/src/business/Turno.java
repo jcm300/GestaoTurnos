@@ -44,6 +44,14 @@ public class Turno {
         }
 
 	protected boolean existeAula(Date data) {
+            boolean eAula = false;
+            Date d;
+            for (Aula a : this.aulas && !eAula){
+                d = a.getData();
+                if (data.equals(d))
+                    eAula = true;
+            }
+            return eAula;
 	}
 
 	protected Aula getAula(Date data) {
