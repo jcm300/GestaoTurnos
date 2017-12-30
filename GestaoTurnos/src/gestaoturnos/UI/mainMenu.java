@@ -3376,18 +3376,18 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                     for(Map.Entry<Integer,business.Utilizador> e: users.entrySet()){
                         if(e.getValue() instanceof business.Aluno){
                             String id = e.getKey().toString();
-                             Object[] row={id};
-                        model.addRow(row);
+                            Object[] row={id};
+                            model.addRow(row);
                         }
                     }
                 }else{
                     try{
                         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                         Date dataP = df.parse(data);
-                        int[] selectIndex=this.jTable1.getSelectedRows();
+                        int[] selectIndex=this.registarPresencas.getSelectedRows();
                         ArrayList<Integer> presentes = new ArrayList<Integer>();
                         for(Integer i: selectIndex){
-                            presentes.add(Integer.parseInt((String)this.jTable1.getValueAt(selectIndex[i], 0)));
+                            presentes.add(Integer.parseInt((String)this.registarPresencas.getValueAt(selectIndex[i], 0)));
                         }
                         HashMap<Integer,Boolean> pre = new HashMap<Integer,Boolean>();
                         for(business.Utilizador u: users.values()){
