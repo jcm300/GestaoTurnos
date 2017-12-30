@@ -118,4 +118,11 @@ public class SysFacade extends Observable{
         Aluno a = (Aluno)u;
         return a.clone();
     }
+    
+    public static Utilizador getUtilizador(String email){
+        Utilizador ret = null;
+        for(Utilizador u : SysFacade.utilizadores.values())
+            if (email.equals(u.getEmail())) ret = u; 
+        return ret;
+    }
 }

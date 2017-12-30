@@ -7,6 +7,7 @@ import java.util.Observer;
 public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private SysFacade sys;
+    private business.Utilizador utilizador;
     /**
      * Creates new form mainMenu
      */
@@ -2399,7 +2400,35 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-        //String email = 
+        String email = emailL.getText();
+        String pass = passwordL.getText();
+        int autenticacao = sys.login(email,pass);
+        
+        if(autenticacao==0) this.ErroEmailLogin.setVisible(true);
+        else if(autenticacao==1){
+            this.utilizador = this.sys.getUtilizador(email);
+            String type = this.utilizador.getClass().getSimpleName();
+            switch(type){
+                case "Aluno":{
+                    this.MenuAluno.setVisible(true);
+                    break;
+                }
+                case "Coordenador":{
+                    this.MenuCoordenador.setVisible(true);
+                    break;
+                }
+                case "Docente":{
+                    this.MenuDocente.setVisible(true);
+                    break;
+                }
+                case "AlunoTE":{
+                    this.MenuAlunoTE.setVisible(true);
+                    break;
+                }
+                default:break;
+            }
+        }
+        else if(autenticacao==2) this.ErroPassLogin.setVisible(true);
     }//GEN-LAST:event_LoginActionPerformed
 
     /**
