@@ -11,6 +11,8 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.HashMap;
         
 public class mainMenu extends javax.swing.JFrame implements Observer {
 
@@ -3344,18 +3346,19 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                         int[] selectIndex=this.jTable1.getSelectedRows();
                         ArrayList<Integer> presentes = new ArrayList<Integer>();
                         for(Integer i: selectIndex){
-                            presentes.add(this.jTable1.getValueAt(selectIndex[i], 0));
+                            presentes.add(Integer.parseInt((String)this.jTable1.getValueAt(selectIndex[i], 0)));
                         }
                         HashMap<Integer,Boolean> pre = new HashMap<Integer,Boolean>();
                         for(business.Utilizador u: users.values()){
-                            if(presentes.contains(u.getId())) pre.add(u.getId(),true);
-                            else pre.add(u.getId(),false);
+                            if(presentes.contains(u.getId())) pre.put(u.getId(),true);
+                            else pre.put(u.getId(),false);
                         }
                         ucO.registaPresencas(idTurno,dataP,pre);
                         this.RegistarAulaEPresencas.setVisible(false);
                     }catch(ParseException e){}
                 }  
             }
+        }
     }//GEN-LAST:event_okRAActionPerformed
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
         int idUC=SysFacade.getIdUC((String)this.ucCombo.getSelectedItem());

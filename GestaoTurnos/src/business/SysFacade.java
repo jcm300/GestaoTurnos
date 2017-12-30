@@ -23,7 +23,7 @@ public class SysFacade extends Observable{
         this.ucs = new HashMap<Integer,UC>();
     }
     
-        public void testing(){
+    public void testing(){
         Map<Integer,Integer> aluno_turnos = new HashMap<>();
         aluno_turnos.put(0,0);
         Map<Integer,List<Integer>> doc_turnos = new HashMap<>();
@@ -98,6 +98,10 @@ public class SysFacade extends Observable{
             resp.add(uc);
         }
         return resp;
+    }
+    
+    public static Map<Integer,Utilizador> getUtilizadores(){
+        return SysFacade.utilizadores;
     }
 
     public static boolean existemVagas(int idUC, int idTurno){

@@ -88,7 +88,7 @@ public class UC {
             return new UC(this);
         }
 
-	protected void registaPresencas(int idTurno, Date data, Map<Integer, Boolean> alunos) {
+	public void registaPresencas(int idTurno, Date data, Map<Integer, Boolean> alunos) {
             Turno t = getTurno(idTurno);
             Aula novaAula = new Aula(alunos,data);
             t.getAulas().add(novaAula); // erro DS
