@@ -3356,8 +3356,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                         }
                         HashMap<Integer,Boolean> pre = new HashMap<Integer,Boolean>();
                         for(business.Utilizador u: users.values()){
-                            if(presentes.contains(u.getId())) pre.put(u.getId(),true);
-                            else pre.put(u.getId(),false);
+                            if(u instanceof Aluno){
+                                if(presentes.contains(u.getId())) pre.put(u.getId(),true);
+                                else pre.put(u.getId(),false);
+                            }
                         }
                         ucO.registaPresencas(idTurno,dataP,pre);
                         this.RegistarAulaEPresencas.setVisible(false);
