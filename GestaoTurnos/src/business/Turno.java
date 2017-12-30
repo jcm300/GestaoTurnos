@@ -41,7 +41,7 @@ public class Turno {
         
         
         //getters & setters
-        protected int getId(){
+        public int getId(){
             return this.id;
         }
         

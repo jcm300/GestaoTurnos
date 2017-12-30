@@ -59,15 +59,15 @@ public class UC {
             this.trocasInteressados=nL.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
         }
         
-        protected List<Turno> getTurnos(){
+        public List<Turno> getTurnos(){
             return this.turnos.stream().map(Turno::clone).collect(Collectors.toList());
         }
 
-	protected void addInteresseDeTroca(TrocaInteressado troca) { //erro ds
+	public void addInteresseDeTroca(TrocaInteressado troca) { //erro ds
             trocasInteressados.add(troca);
         }
         
-        protected List<TrocaInteressado> getTrocasPedidas() {
+        public List<TrocaInteressado> getTrocasPedidas() {
             ArrayList<TrocaInteressado> ret = new ArrayList<TrocaInteressado>();
             
             for(TrocaInteressado troca:this.trocasPedidas){

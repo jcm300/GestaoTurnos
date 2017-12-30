@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.Iterator;
 import java.util.HashMap;
 import java.util.Observable;
+import java.util.Date;
+import java.text.DateFormat;
+
 
 public class SysFacade extends Observable{
 
@@ -24,7 +27,16 @@ public class SysFacade extends Observable{
         SysFacade.utilizadores.put(2, new Docente("docente1","docente1",new HashMap<>()));
         Coordenador aux=new Coordenador("coordenador1","coordenador1",new HashMap<>(),0);
         SysFacade.utilizadores.put(1, aux);
-        SysFacade.ucs.put(0, new UC(new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),0,aux,3,"Base de Dados"));
+        Map<Integer,Boolean> presencas = new HashMap<Integer,Boolean>();
+        presencas.put(0,true);
+        Date d= new Date(1);
+        Aula aula = new Aula(presencas,d);
+        List<Aula> aulas = new ArrayList<Aula>();
+        aulas.add(aula);
+        Turno t= new Turno(aulas,0,10,10,1,new Date(),new Date());
+        List<Turno> turnos= new ArrayList<Turno>();
+        turnos.add(0,t);
+        SysFacade.ucs.put(0, new UC(new ArrayList<>(),new ArrayList<>(),turnos,0,aux,3,"Base de Dados"));
     }
 
     public static int getIdUC(String UC) {

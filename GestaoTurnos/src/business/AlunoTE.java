@@ -14,7 +14,7 @@ public class AlunoTE extends Aluno {
             super(email,password,tp,t);
         }
         
-        protected void trocarTurnoTE(int idUC, int idTurno) {
+        public void trocarTurnoTE(int idUC, int idTurno) {
             this.mudaTurno(idUC,idTurno);
 	}
 }

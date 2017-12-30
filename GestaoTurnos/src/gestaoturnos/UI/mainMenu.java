@@ -1,9 +1,11 @@
 package gestaoturnos.UI;
 
 import business.*;
+import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import java.text.DateFormat;
@@ -1432,6 +1434,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel32.setText("Motivo:");
 
         enviarMotivo.setText("Enviar");
+        enviarMotivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviarMotivoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout InserirMotivoRecusaTrocaLayout = new javax.swing.GroupLayout(InserirMotivoRecusaTroca.getContentPane());
         InserirMotivoRecusaTroca.getContentPane().setLayout(InserirMotivoRecusaTrocaLayout);
@@ -2059,6 +2066,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         consultar.setText("Consultar");
+        consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ConsultarTrocasLayout = new javax.swing.GroupLayout(ConsultarTrocas.getContentPane());
         ConsultarTrocas.getContentPane().setLayout(ConsultarTrocasLayout);
@@ -2171,6 +2183,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel55.setText("UC:");
 
         ucTrocaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ucTrocaCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ucTrocaComboActionPerformed(evt);
+            }
+        });
 
         jLabel56.setText("Turno:");
 
@@ -2184,6 +2201,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         trocarTurno.setText("Trocar");
+        trocarTurno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trocarTurnoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TrocarDeTurnoLayout = new javax.swing.GroupLayout(TrocarDeTurno.getContentPane());
         TrocarDeTurno.getContentPane().setLayout(TrocarDeTurnoLayout);
@@ -2229,6 +2251,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel57.setText("Não há vagas no turno escolhido.");
 
         okErroSemVagas.setText("Ok");
+        okErroSemVagas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okErroSemVagasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroTrocaTurnoSemVagasLayout = new javax.swing.GroupLayout(ErroTrocaTurnoSemVagas.getContentPane());
         ErroTrocaTurnoSemVagas.getContentPane().setLayout(ErroTrocaTurnoSemVagasLayout);
@@ -2267,6 +2294,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         aplicarSinalizacao.setText("Aplicar");
+        aplicarSinalizacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aplicarSinalizacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SinalizarInteresseLayout = new javax.swing.GroupLayout(SinalizarInteresse.getContentPane());
         SinalizarInteresse.getContentPane().setLayout(SinalizarInteresseLayout);
@@ -2325,6 +2357,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel61.setText("Turno desejado encontra-se inválido para troca");
 
         okES1.setText("Ok");
+        okES1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okES1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroSinalizacaoTurnoLayout = new javax.swing.GroupLayout(ErroSinalizacaoTurno.getContentPane());
         ErroSinalizacaoTurno.getContentPane().setLayout(ErroSinalizacaoTurnoLayout);
@@ -2354,6 +2391,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel62.setText("UC inserida não é uma opção válida");
 
         okES2.setText("Ok");
+        okES2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okES2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroSinalizacaoUCLayout = new javax.swing.GroupLayout(ErroSinalizacaoUC.getContentPane());
         ErroSinalizacaoUC.getContentPane().setLayout(ErroSinalizacaoUCLayout);
@@ -2386,6 +2428,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel64.setText("interesse em trocar de turno");
 
         okSinalizarSucesso.setText("Ok");
+        okSinalizarSucesso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okSinalizarSucessoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SinalizacaoSucessoLayout = new javax.swing.GroupLayout(SinalizacaoSucesso.getContentPane());
         SinalizacaoSucesso.getContentPane().setLayout(SinalizacaoSucessoLayout);
@@ -2424,6 +2471,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         consultarCP.setText("Consultar");
+        consultarCP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarCPActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ConsultarPercPresencasLayout = new javax.swing.GroupLayout(ConsultarPercPresencas.getContentPane());
         ConsultarPercPresencas.getContentPane().setLayout(ConsultarPercPresencasLayout);
@@ -2461,6 +2513,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel66.setText("UC indicada não se encontra no sistema");
 
         OkCPE1.setText("Ok");
+        OkCPE1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OkCPE1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroCPUCLayout = new javax.swing.GroupLayout(ErroCPUC.getContentPane());
         ErroCPUC.getContentPane().setLayout(ErroCPUCLayout);
@@ -2498,6 +2555,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jScrollPane7.setViewportView(tabelaPercPresencas);
 
         voltarCPNaUC.setText("Voltar");
+        voltarCPNaUC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarCPNaUCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PercPresencasNaUCLayout = new javax.swing.GroupLayout(PercPresencasNaUC.getContentPane());
         PercPresencasNaUC.getContentPane().setLayout(PercPresencasNaUCLayout);
@@ -2530,6 +2592,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel68.setText("Turno:");
 
         ucPTDCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ucPTDCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ucPTDComboActionPerformed(evt);
+            }
+        });
 
         turnoPTDCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -2541,6 +2608,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         pedirPTD.setText("Pedir");
+        pedirPTD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pedirPTDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PedirTrocaDeTurnoAoDocenteLayout = new javax.swing.GroupLayout(PedirTrocaDeTurnoAoDocente.getContentPane());
         PedirTrocaDeTurnoAoDocente.getContentPane().setLayout(PedirTrocaDeTurnoAoDocenteLayout);
@@ -2587,6 +2659,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel69.setText("O pedido foi realizado com sucesso.");
 
         okPTD.setText("Ok");
+        okPTD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okPTDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SucessoPTDLayout = new javax.swing.GroupLayout(SucessoPTD.getContentPane());
         SucessoPTD.getContentPane().setLayout(SucessoPTDLayout);
@@ -2616,6 +2693,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel70.setText("Não existem vagas no turno escolhido.");
 
         okPTDErro.setText("Ok");
+        okPTDErro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okPTDErroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroPTDVagasLayout = new javax.swing.GroupLayout(ErroPTDVagas.getContentPane());
         ErroPTDVagas.getContentPane().setLayout(ErroPTDVagasLayout);
@@ -2824,6 +2906,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome());
         this.ConsultarTrocas.setVisible(true);
         this.MenuAlunoTE.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
@@ -2840,6 +2926,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         this.PedirTrocaDeTurnoAoDocente.setVisible(true);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome());
         this.MenuAlunoTE.setVisible(false);
     }//GEN-LAST:event_jButton15ActionPerformed
 
@@ -2850,6 +2940,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         this.TrocarDeTurno.setVisible(true);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucTrocaCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome()); 
         this.MenuAlunoTE.setVisible(false);
     }//GEN-LAST:event_jButton18ActionPerformed
 
@@ -2883,6 +2977,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome());        
+        
         this.ConsultarTrocas.setVisible(true);
         this.MenuAluno.setVisible(false);
     }//GEN-LAST:event_jButton27ActionPerformed
@@ -2900,6 +2999,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         this.PedirTrocaDeTurnoAoDocente.setVisible(true);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome());
         this.MenuAluno.setVisible(false);
     }//GEN-LAST:event_jButton26ActionPerformed
 
@@ -3009,6 +3112,9 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void cancelarSinalizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarSinalizacaoActionPerformed
         this.SinalizarInteresse.setVisible(false);
+        this.nomeUC.setText("");
+        this.turnoAtual.setText("");
+        this.turnoDesejado.setText("");        
         if(this.utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
         else this.MenuAluno.setVisible(true);
     }//GEN-LAST:event_cancelarSinalizacaoActionPerformed
@@ -3224,6 +3330,149 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                 }  
             }
     }//GEN-LAST:event_okRAActionPerformed
+    private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucCombo.getSelectedItem());
+        Aluno cur=(Aluno)this.utilizador;
+        if(cur.alunoInscritoNaUC(idUC)){
+            DefaultTableModel model = (DefaultTableModel) tabelaListaTrocas.getModel();
+            List<TrocaInteressado> lTI=SysFacade.getUC(idUC).getTrocasPedidas();
+            for(TrocaInteressado ti:lTI){
+                Object[] row={String.valueOf(ti.getIdAluno()),String.valueOf(ti.getTurnoPretendido()),String.valueOf(ti.getIdTurno())};
+                model.addRow(row);
+            }
+            this.ListaDeTrocas.setVisible(true);
+        }else this.ErroConsultaTrocasAcessoNegado.setVisible(true);
+        this.ConsultarTrocas.setVisible(false);
+    }//GEN-LAST:event_consultarActionPerformed
+
+    private void enviarMotivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarMotivoActionPerformed
+        this.InserirMotivoRecusaTroca.setVisible(false);
+        this.motivoRecusa.setText("");
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_enviarMotivoActionPerformed
+
+    private void consultarCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarCPActionPerformed
+        int idUC = SysFacade.getIdUC(this.nomeDaUC.getText());
+        this.ConsultarPercPresencas.setVisible(false);
+        if(idUC == -1) this.ErroCPUC.setVisible(true);
+        else{
+            Aluno cur=(Aluno)this.utilizador;
+            DefaultTableModel model = (DefaultTableModel) this.tabelaPercPresencas.getModel();
+            Object[] row={this.nomeDaUC.getText(),String.valueOf(cur.percentagemPresencas(idUC))};
+            model.addRow(row);
+            this.PercPresencasNaUC.setVisible(true);
+        }
+    }//GEN-LAST:event_consultarCPActionPerformed
+
+    private void OkCPE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkCPE1ActionPerformed
+        this.ErroCPUC.setVisible(false);
+        this.ConsultarPercPresencas.setVisible(true);
+    }//GEN-LAST:event_OkCPE1ActionPerformed
+
+    private void voltarCPNaUCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCPNaUCActionPerformed
+        this.PercPresencasNaUC.setVisible(false);
+        DefaultTableModel model = (DefaultTableModel) this.tabelaPercPresencas.getModel();
+        model.setRowCount(0);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_voltarCPNaUCActionPerformed
+
+    private void aplicarSinalizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aplicarSinalizacaoActionPerformed
+        Aluno cur=(Aluno)this.utilizador;
+        this.SinalizarInteresse.setVisible(false);
+        int idUC=SysFacade.getIdUC(this.nomeUC.getText());
+        int idTurno=Integer.parseInt(this.turnoDesejado.getText());
+        TrocaInteressado t=null;
+        if(idUC==-1)
+            this.ErroSinalizacaoUC.setVisible(true);
+        else if(!SysFacade.existeTurno(idUC, idTurno) || (t=cur.pedirTroca(idUC,idTurno))==null)
+            this.ErroSinalizacaoTurno.setVisible(true);
+        else{
+            UC uc=SysFacade.getUC(idUC);
+            uc.addInteresseDeTroca(t);
+            this.SinalizacaoSucesso.setVisible(true);
+        }
+    }//GEN-LAST:event_aplicarSinalizacaoActionPerformed
+
+    private void okSinalizarSucessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okSinalizarSucessoActionPerformed
+        this.SinalizacaoSucesso.setVisible(false);
+        this.nomeUC.setText("");
+        this.turnoAtual.setText("");
+        this.turnoDesejado.setText("");
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_okSinalizarSucessoActionPerformed
+
+    private void okES1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okES1ActionPerformed
+        this.ErroSinalizacaoTurno.setVisible(false);
+        this.SinalizarInteresse.setVisible(true);
+    }//GEN-LAST:event_okES1ActionPerformed
+
+    private void okES2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okES2ActionPerformed
+        this.ErroSinalizacaoUC.setVisible(false);
+        this.SinalizarInteresse.setVisible(true);
+    }//GEN-LAST:event_okES2ActionPerformed
+
+    private void ucPTDComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucPTDComboActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucPTDCombo.getSelectedItem());
+        UC uc=SysFacade.getUC(idUC);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.turnoPTDCombo.getModel();
+        for(Turno t: uc.getTurnos())
+            model.addElement(t.getId());
+    }//GEN-LAST:event_ucPTDComboActionPerformed
+
+    private void pedirPTDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedirPTDActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucPTDCombo.getSelectedItem());
+        int idTurno=Integer.parseInt((String)this.turnoPTDCombo.getSelectedItem());
+        this.PedirTrocaDeTurnoAoDocente.setVisible(false);
+        Aluno cur=(Aluno)this.utilizador;
+        if(!SysFacade.existemVagas(idUC,idTurno))
+            this.ErroPTDVagas.setVisible(true);
+        else{
+            cur.trocarTurnoProf(idUC,idTurno);
+            this.SucessoPTD.setVisible(true);
+        }
+    }//GEN-LAST:event_pedirPTDActionPerformed
+
+    private void okPTDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okPTDActionPerformed
+        this.SucessoPTD.setVisible(false);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_okPTDActionPerformed
+
+    private void okPTDErroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okPTDErroActionPerformed
+        this.ErroPTDVagas.setVisible(false);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_okPTDErroActionPerformed
+
+    private void ucTrocaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucTrocaComboActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucTrocaCombo.getSelectedItem());
+        UC uc=SysFacade.getUC(idUC);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.turnoTrocaCombo.getModel();
+        for(Turno t: uc.getTurnos())
+            model.addElement(t.getId());
+    }//GEN-LAST:event_ucTrocaComboActionPerformed
+
+    private void trocarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trocarTurnoActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucTrocaCombo.getSelectedItem());
+        int idTurno=Integer.parseInt((String)this.turnoTrocaCombo.getSelectedItem());
+        this.TrocarDeTurno.setVisible(false);
+        AlunoTE cur=(AlunoTE)this.utilizador;
+        if(!SysFacade.existemVagas(idUC,idTurno))
+            this.ErroTrocaTurnoSemVagas.setVisible(true);
+        else{
+            cur.trocarTurnoTE(idUC,idTurno);
+            this.MenuAlunoTE.setVisible(true);
+        }
+    }//GEN-LAST:event_trocarTurnoActionPerformed
+
+    private void okErroSemVagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okErroSemVagasActionPerformed
+        this.ErroTrocaTurnoSemVagas.setVisible(false);
+        this.TrocarDeTurno.setVisible(true); 
+    }//GEN-LAST:event_okErroSemVagasActionPerformed
+
 
     private void okRA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okRA1ActionPerformed
         this.ErroRAUCInvalida.setVisible(false);

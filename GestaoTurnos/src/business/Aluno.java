@@ -122,7 +122,7 @@ public class Aluno extends Utilizador{
         return false;
     }
 
-    protected void trocarTurnoProf(int idUC, int idTurno) {
+    public void trocarTurnoProf(int idUC, int idTurno) {
         if(SysFacade.existeUC(idUC)){
             UC aux=SysFacade.getUC(idUC);
             TrocaInteressado tI = new TrocaInteressado(this.getId(),this.turnos.get(idUC).intValue(),idTurno);
@@ -151,16 +151,16 @@ public class Aluno extends Utilizador{
         return uc.getTrocasInteressados();      
     }
 
-    protected TrocaInteressado pedirTroca(int idUC, int idTurnoD) {
+    public TrocaInteressado pedirTroca(int idUC, int idTurnoD) {
         Integer idDoaluno= getId();
         Integer idDoTurno= turnos.get(idUC);
-        if (idDoTurno==null) return null;
+        if(idDoTurno==null) return null;
         TrocaInteressado troca= new TrocaInteressado(idDoaluno,idDoTurno,idTurnoD );
         return troca;
 
     }
 
-    protected boolean alunoInscritoNaUC(int idUC) { 
+    public boolean alunoInscritoNaUC(int idUC) { 
         return turnos.containsKey(idUC); 
     }
 

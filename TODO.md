@@ -74,7 +74,7 @@
 - [ ] DefinirCapacidade
 - [x] SugerirTrocaDeTurno
 - [ ] SugestaoRecebida
-- [ ] InserirMotiveRecusaTroca
+- [x] InserirMotiveRecusaTroca
 - [ ] DitribuicaoInicial
 - [ ] ConsultarPresencas
 - [ ] PresencasAlunos
@@ -82,11 +82,11 @@
 - [ ] TrocasPendentes
 - [ ] ConsultarTrocas
 - [ ] ListaDeTrocas
-- [ ] TrocarDeTurno
-- [ ] SinalizarInteresse
-- [ ] ConsultarPerPresencas
+- [x] TrocarDeTurno
+- [x] SinalizarInteresse
+- [x] ConsultarPerPresencas
 - [ ] PercPresencasNaUC
-- [ ] PedirTrocaDeTurnoAoDocente
+- [x] PedirTrocaDeTurnoAoDocente
 
 ## Interface (testing)
 - [x] Login
@@ -98,3 +98,8 @@
 - [ ] ConsultarUCs
 - [ ] ConsultarPresencas
 - [ ] SugerirTrocaDeTurno
+- [ ] InserirMotiveRecusaTroca
+- [ ] ConsultarPerPresencas
+- [ ] SinalizarInteresse
+- [ ] PedirTrocaDeTurnoAoDocente
+- [ ] TrocarDeTurno

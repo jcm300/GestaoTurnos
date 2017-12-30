@@ -1666,6 +1666,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Enviar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enviarMotivoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -2669,6 +2672,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -2880,6 +2886,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ucTrocaComboActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -2916,6 +2925,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Trocar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="trocarTurnoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -2959,6 +2971,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okErroSemVagasActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3070,6 +3085,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Aplicar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aplicarSinalizacaoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3115,6 +3133,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okES1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3163,6 +3184,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okES2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3216,6 +3240,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okSinalizarSucessoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3281,6 +3308,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarCPActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3326,6 +3356,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OkCPE1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3408,6 +3441,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarCPNaUCActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3489,6 +3525,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ucPTDComboActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -3520,6 +3559,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Pedir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pedirPTDActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3566,6 +3608,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okPTDActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3611,6 +3656,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okPTDErroActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
