@@ -2088,7 +2088,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
         jLabel52.setText("UC:");
 
-        ucCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ucCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ucComboActionPerformed(evt);
+            }
+        });
 
         cancelarConsulta.setText("Cancelar");
         cancelarConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -2219,7 +2223,6 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
         jLabel55.setText("UC:");
 
-        ucTrocaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ucTrocaCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ucTrocaComboActionPerformed(evt);
@@ -2628,14 +2631,17 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
         jLabel68.setText("Turno:");
 
-        ucPTDCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ucPTDCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ucPTDComboActionPerformed(evt);
             }
         });
 
-        turnoPTDCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        turnoPTDCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                turnoPTDComboActionPerformed(evt);
+            }
+        });
 
         cancelarPTD.setText("Cancelar");
         cancelarPTD.addActionListener(new java.awt.event.ActionListener() {
@@ -2967,7 +2973,6 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        this.ucCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
         for(UC uc:ucs)
@@ -2988,7 +2993,6 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         this.PedirTrocaDeTurnoAoDocente.setVisible(true);
-        this.ucCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
         for(UC uc:ucs)
@@ -3003,8 +3007,6 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         this.TrocarDeTurno.setVisible(true);
-        this.ucTrocaCombo.removeAllItems();
-        this.turnoTrocaCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucTrocaCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
         for(UC uc:ucs)
@@ -3074,8 +3076,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         this.PedirTrocaDeTurnoAoDocente.setVisible(true);
-        this.ucCombo.removeAllItems();
-        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucPTDCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
         for(UC uc:ucs)
             model.addElement(uc.getNome());
@@ -3504,7 +3505,6 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     private void ucPTDComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucPTDComboActionPerformed
         int idUC=SysFacade.getIdUC((String)this.ucPTDCombo.getSelectedItem());
         UC uc=SysFacade.getUC(idUC);
-        this.turnoPTDCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.turnoPTDCombo.getModel();
         for(Turno t: uc.getTurnos())
             model.addElement(t.getId());
@@ -3538,7 +3538,6 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     private void ucTrocaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucTrocaComboActionPerformed
         int idUC=SysFacade.getIdUC((String)this.ucTrocaCombo.getSelectedItem());
         UC uc=SysFacade.getUC(idUC);
-        this.turnoTrocaCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.turnoTrocaCombo.getModel();
         for(Turno t: uc.getTurnos())
             model.addElement(t.getId());
@@ -3613,6 +3612,14 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
         else this.MenuAluno.setVisible(true);
     }//GEN-LAST:event_voltarConsultaTrocasActionPerformed
+
+    private void turnoPTDComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnoPTDComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_turnoPTDComboActionPerformed
+
+    private void ucComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ucComboActionPerformed
 
     /**
      * @param args the command line arguments
