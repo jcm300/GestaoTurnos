@@ -3187,7 +3187,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                 presencas = ((Docente)this.utilizador).consultarPresencas(idUc,idTurno,dataP);
                 DefaultTableModel model = (DefaultTableModel) tablePresencasAlunos.getModel();
                 for(Map.Entry<Integer,Boolean> e: presencas.entrySet()){
-                    String nome = this.sys.getUtilizador(e.getKey()).getNome();
+                    String nome = this.sys.getAluno(e.getKey()).getNome();
                     String presenca;
                     if(e.getValue()) presenca = "Presente"; 
                     else presenca = "Faltou";
