@@ -82,7 +82,7 @@ public class Turno {
             Date d;
             for (Aula a : this.aulas){
                 d = a.getData();
-                if (data.equals(d)){
+                if (data.toString().equals(d.toString())){
                     eAula = true;
                     break;
                 }
@@ -96,7 +96,7 @@ public class Turno {
             Aula aula=null;
             for (Aula a : this.aulas){
                 d = a.getData();
-                if (data.equals(d)){
+                if (data.toString().equals(d.toString())){
                     flag = true;
                     aula = a;
                     break;

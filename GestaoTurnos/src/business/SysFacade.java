@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Observable;
 import java.util.Date;
 import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 public class SysFacade extends Observable{
@@ -21,15 +23,23 @@ public class SysFacade extends Observable{
         this.ucs = new HashMap<Integer,UC>();
     }
     
-    public void testing(){
-        SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1",new ArrayDeque<>(),new HashMap<>()));
+        public void testing(){
+        Map<Integer,Integer> aluno_turnos = new HashMap<>();
+        aluno_turnos.put(0,0);
+        Map<Integer,List<Integer>> doc_turnos = new HashMap<>();
+        List<Integer> l = new ArrayList();
+        l.add(0);
+        doc_turnos.put(0,l);
+        SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1",new ArrayDeque<>(), aluno_turnos ));
         SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
-        SysFacade.utilizadores.put(2, new Docente("docente1","docente1",new HashMap<>()));
+        SysFacade.utilizadores.put(2, new Docente("docente1","docente1",doc_turnos ));
         Coordenador aux=new Coordenador("coordenador1","coordenador1",new HashMap<>(),0);
         SysFacade.utilizadores.put(1, aux);
         Map<Integer,Boolean> presencas = new HashMap<Integer,Boolean>();
-        presencas.put(0,true);
-        Date d= new Date(1);
+        presencas.put(0,true);     
+        Calendar c1= GregorianCalendar.getInstance();
+        c1.set(2000, Calendar.JANUARY, 30,0,0,0); //Calendar.JANUARY
+        Date d= c1.getTime();
         Aula aula = new Aula(presencas,d);
         List<Aula> aulas = new ArrayList<Aula>();
         aulas.add(aula);
