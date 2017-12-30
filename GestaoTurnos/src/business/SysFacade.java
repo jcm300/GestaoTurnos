@@ -30,10 +30,10 @@ public class SysFacade extends Observable{
         List<Integer> l = new ArrayList();
         l.add(0);
         doc_turnos.put(0,l);
-        SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1",new ArrayDeque<>(), aluno_turnos ));
-        SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
-        SysFacade.utilizadores.put(2, new Docente("docente1","docente1",doc_turnos ));
-        Coordenador aux=new Coordenador("coordenador1","coordenador1",new HashMap<>(),0);
+        SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1","aluno1",new ArrayDeque<>(), aluno_turnos ));
+        SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
+        SysFacade.utilizadores.put(2, new Docente("docente1","docente1","docente1",doc_turnos ));
+        Coordenador aux=new Coordenador("coordenador1","coordenador1","coordenador1",new HashMap<>(),0);
         SysFacade.utilizadores.put(1, aux);
         Map<Integer,Boolean> presencas = new HashMap<Integer,Boolean>();
         presencas.put(0,true);     
@@ -142,13 +142,13 @@ public class SysFacade extends Observable{
     public static UC getUC(int idUC) {
         UC uc = null;
         uc = ucs.get(idUC);
-        return uc.clone();
+        return uc;
     }
 
     public static Aluno getAluno(int idAluno) {
         Utilizador u = utilizadores.get(idAluno);
         Aluno a = (Aluno)u;
-        return a.clone();
+        return a;
     }
     
     public static Utilizador getUtilizador(String email){
