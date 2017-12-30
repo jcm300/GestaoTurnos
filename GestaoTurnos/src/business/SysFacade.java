@@ -23,14 +23,17 @@ public class SysFacade extends Observable{
         this.ucs = new HashMap<Integer,UC>();
     }
     
-    public void testing(){
+public void testing(){
         Map<Integer,Integer> aluno_turnos = new HashMap<>();
         aluno_turnos.put(0,0);
+        Map<Integer,Integer> aluno_turnos2 = new HashMap<>();
+        aluno_turnos2.put(0,1);
         Map<Integer,List<Integer>> doc_turnos = new HashMap<>();
         List<Integer> l = new ArrayList();
         l.add(0);
         doc_turnos.put(0,l);
         SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1","aluno1",new ArrayDeque<>(), aluno_turnos ));
+        SysFacade.utilizadores.put(4,new Aluno("aluno3","aluno3","aluno3",new ArrayDeque<>(), aluno_turnos ));
         SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
         SysFacade.utilizadores.put(2, new Docente("docente1","docente1","docente1",doc_turnos ));
         Coordenador aux=new Coordenador("coordenador1","coordenador1","coordenador1",new HashMap<>(),0);
@@ -44,8 +47,10 @@ public class SysFacade extends Observable{
         List<Aula> aulas = new ArrayList<Aula>();
         aulas.add(aula);
         Turno t= new Turno(aulas,0,10,10,1,new Date(),new Date());
+        Turno t2= new Turno(aulas,1,10,10,1,new Date(),new Date());
         List<Turno> turnos= new ArrayList<Turno>();
         turnos.add(0,t);
+        turnos.add(1,t2);
         SysFacade.ucs.put(0, new UC(new ArrayList<>(),new ArrayList<>(),turnos,0,aux,3,"Base de Dados"));
     }
 
