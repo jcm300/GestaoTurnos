@@ -15,6 +15,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     public mainMenu() {
         this.sys = new SysFacade();
         this.sys.addObserver(this);
+        this.sys.testing();
         initComponents();
     }
 
@@ -292,6 +293,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel1.setText("Email inserido não é válido.");
 
         OK.setText("OK");
+        OK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OKActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroEmailLoginLayout = new javax.swing.GroupLayout(ErroEmailLogin.getContentPane());
         ErroEmailLogin.getContentPane().setLayout(ErroEmailLoginLayout);
@@ -321,6 +327,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel4.setText("A password inserida não é a correta.");
 
         OK2.setText("OK");
+        OK2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OK2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroPassLoginLayout = new javax.swing.GroupLayout(ErroPassLogin.getContentPane());
         ErroPassLogin.getContentPane().setLayout(ErroPassLoginLayout);
@@ -511,6 +522,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jButton27.setText("4. Ver lista de alunos com interesse em realizar troca de turnos nas respetivas UC's");
 
         jButton25.setText("Cancelar");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MenuAlunoLayout = new javax.swing.GroupLayout(MenuAluno.getContentPane());
         MenuAluno.getContentPane().setLayout(MenuAlunoLayout);
@@ -578,8 +594,18 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         jButton28.setText("Concluir escolha");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
 
         jButton29.setText("Cancelar");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout EscoherUCsLayout = new javax.swing.GroupLayout(EscoherUCs.getContentPane());
         EscoherUCs.getContentPane().setLayout(EscoherUCsLayout);
@@ -645,6 +671,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel7.setText("A escolha das unidades curriculares foi realizada com sucesso");
 
         jButton31.setText("OK");
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout EscolhaRealizadaEscolherUCsLayout = new javax.swing.GroupLayout(EscolhaRealizadaEscolherUCs.getContentPane());
         EscolhaRealizadaEscolherUCs.getContentPane().setLayout(EscolhaRealizadaEscolherUCsLayout);
@@ -2439,7 +2470,6 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
-        EscoherUCs.setVisible(true);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for(UC uc: SysFacade.getUCsDisponiveis()){
             String nome=uc.getNome();
@@ -2447,7 +2477,52 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
             Object[] row={nome,ano};
             model.addRow(row);
         }
+        this.EscoherUCs.setVisible(true);
+        this.MenuAluno.setVisible(false);
     }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        // TODO add your handling code here:
+        this.MenuAluno.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        // TODO add your handling code here:
+        this.EscoherUCs.setVisible(false);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        Aluno cur = (Aluno)this.utilizador;
+        int[] selectIndex=this.jTable1.getSelectedRows();
+        for(int i=0;i<selectIndex.length;i++){
+            String ucN=this.jTable1.getValueAt(selectIndex[i], 0).toString();
+            cur.inscreveUC(SysFacade.getIdUC(ucN));
+        }
+        this.EscolhaRealizadaEscolherUCs.setVisible(true);
+        this.EscoherUCs.setVisible(false);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        // TODO add your handling code here:
+        this.EscolhaRealizadaEscolherUCs.setVisible(false);
+        this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
+        // TODO add your handling code here:
+        this.ErroEmailLogin.setVisible(false);
+    }//GEN-LAST:event_OKActionPerformed
+
+    private void OK2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OK2ActionPerformed
+        // TODO add your handling code here:
+        this.ErroPassLogin.setVisible(false);
+    }//GEN-LAST:event_OK2ActionPerformed
 
     /**
      * @param args the command line arguments

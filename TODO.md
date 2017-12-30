@@ -36,9 +36,17 @@
 
 
 ## Interface (to implement)
-- [ ] Login
+- [x] Login
 - [x] Escolher UCs
+- [x] MenuDocente
+- [x] MenuCoordenador
+- [ ] MenuAluno
+- [ ] MenuAlunoTE
 
 
 ## Interface (testing)
+- [x] Login
 - [ ] Escolher UCs
+- [ ] MenuDocente
+- [ ] MenuCoordenador
+
