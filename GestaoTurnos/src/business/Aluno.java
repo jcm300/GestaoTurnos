@@ -12,6 +12,9 @@ public class Aluno extends Utilizador {
 	private ArrayDeque<Troca> trocasPendentes;
 	private Map<Integer,Integer> turnos;
         
+        protected ArrayDeque<Troca> getTrocasPendentes(){
+            return trocasPendentes;
+        }
         protected Map<Integer,Integer> getTurnos(){
             Map<Integer,Integer> resp = new HashMap<Integer,Integer>();
             for (Integer uc : this.turnos){
@@ -109,18 +112,19 @@ public class Aluno extends Utilizador {
 	protected List<TrocaInteressado> consultarTrocasPedidas(int idUC) {
 	}
 
-	protected Troca pedirTroca(int idUC, int idTurnoD) {
+	protected TrocaInteressado pedirTroca(int idUC, int idTurnoD) { //erro ds
             Integer idDoaluno= getId();
             Integer idDoTurno= turnos.get(idUC);
             if (idDoTurno==null) return null;
-            Troca troca= new TrocaInteressado(-1,idDoaluno,idDoTurno,idTurnoD );
+            TrocaInteressado troca= new TrocaInteressado(idDoaluno,idDoTurno,idTurnoD );
             return troca;
             
             
         }
 
-	protected boolean alunoInscritoNaUC(int idUC) {
-	}
+	protected boolean alunoInscritoNaUC(int idUC) { 
+            return turnos.containsKey(idUC); 
+        }
 
 	protected boolean existeTurnos() {
             Collection<Integer> values = this.turnos.values();

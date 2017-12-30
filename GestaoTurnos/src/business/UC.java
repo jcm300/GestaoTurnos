@@ -44,9 +44,7 @@ public class UC {
             return resp;
         }
 
-	protected void addInteresseDeTroca(TrocaInteressado troca) {
-            Integer idTroca= trocasInteressados.size();
-            troca.SetId(idTroca);
+	protected void addInteresseDeTroca(TrocaInteressado troca) { //erro ds
             trocasInteressados.add(troca);
         }
 
@@ -56,7 +54,6 @@ public class UC {
             for(TrocaInteressado troca:this.trocasPedidas){
                 ret.add(troca.clone());
             }
-            return ret;
         }
 
 	protected void registaPresencas(int idTurno, Date data, Map<Integer, Boolean> alunos) {
