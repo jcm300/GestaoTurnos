@@ -1838,7 +1838,9 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                 "Aluno"
             }
         ));
+        registarPresencas.setColumnSelectionAllowed(true);
         jScrollPane4.setViewportView(registarPresencas);
+        registarPresencas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         okRA.setText("Ok");
         okRA.addActionListener(new java.awt.event.ActionListener() {
@@ -1861,18 +1863,17 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
             .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(voltarRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(okRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
-                            .addComponent(jLabel47)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(dataRA3))
-                        .addComponent(jLabel48))
+                    .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(voltarRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(okRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
+                        .addComponent(jLabel47)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dataRA3))
+                    .addComponent(jLabel48)
                     .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
                         .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel46)
@@ -3355,6 +3356,8 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                         }
                         ucO.registaPresencas(idTurno,dataP,pre);
                         this.RegistarAulaEPresencas.setVisible(false);
+                        if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
+                        if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
                     }catch(ParseException e){}
                 }  
             }
