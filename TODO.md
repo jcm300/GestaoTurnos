@@ -1,6 +1,38 @@
 # TODO
 
 ## Methods (to implement)
+- [x] consultarTrocasPend()
+- [x] aprovarTroca(idTroca:int)
+- [x] reprovarTroca(idTroca:int)
+- [x] getId()
+- [x] getTrocaPend()
+- [x] recusaTroca(motivoTroca:String)
+- [x] aceitaTroca()
+- [x] percentagemPresencas(idUC)
+- [x] getIdUC(UC:String)
+- [x] consultarPresencas(idUC,idTurno,data)
+- [x] consultarUCs()
+- [x] existeTurnos()
+- [x] getTurnosUC()
+- [x] verificaSeCapExcedeSala(idTurno,capacidade)
+- [x] defineCapacidadeTurno(idTurno,Capacidade)
+- [x] login(email,password)
+- [x] getUCsDisponiveis()
+- [x] inscreveUC(idUC)
+- [x] existemVagas(idUC,idTurno)
+- [x] trocarTurnoProf(idUC,idTurno)
+- [ ] inputDados(ficheiro)
+- [ ] geraDistribuicao()
+- [x] TrocaTurnoAluno(idAluno,idUC,idTurno)
+- [x] possibilidadeTrocaTurno(idAluno,idUC,idTurno)
+- [x] consultarTrocasPedidas(idUC)
+- [x] pedirTroca(idUC,idTurnoD)
+- [x] existeTurno(idUC,idTurno)
+- [x] existeUC(idUC)
+- [x] registaPresencas(idTurno,data,alunos)
+- [x] trocarTurnoTE(idUC,idTurno)
+
+## Methods (testing)
 - [ ] consultarTrocasPend()
 - [ ] aprovarTroca(idTroca:int)
 - [ ] reprovarTroca(idTroca:int)
@@ -21,8 +53,6 @@
 - [ ] inscreveUC(idUC)
 - [ ] existemVagas(idUC,idTurno)
 - [ ] trocarTurnoProf(idUC,idTurno)
-- [ ] inputDados(ficheiro)
-- [ ] geraDistribuicao()
 - [ ] TrocaTurnoAluno(idAluno,idUC,idTurno)
 - [ ] possibilidadeTrocaTurno(idAluno,idUC,idTurno)
 - [ ] consultarTrocasPedidas(idUC)
@@ -32,24 +62,37 @@
 - [ ] registaPresencas(idTurno,data,alunos)
 - [ ] trocarTurnoTE(idUC,idTurno)
 
-## Methods (testing)
-
 
 ## Interface (to implement)
 - [x] Login
-- [x] Escolher UCs
 - [x] MenuDocente
 - [x] MenuCoordenador
 - [x] MenuAluno
 - [x] MenuAlunoTE
+- [x] Escolher UCs
 - [x] ConsultarUCs
-
+- [ ] DefinirCapacidade
+- [ ] SugerirTrocaDeTurno
+- [ ] SugestaoRecebida
+- [ ] InserirMotiveRecusaTroca
+- [ ] DitribuicaoInicial
+- [ ] ConsultarPresencas
+- [ ] PresencasAlunos
+- [ ] RegistarAulasEPresencas
+- [ ] TrocasPendentes
+- [ ] ConsultarTrocas
+- [ ] ListaDeTrocas
+- [ ] TrocarDeTurno
+- [ ] SinalizarInteresse
+- [ ] ConsultarPerPresencas
+- [ ] PercPresencasNaUC
+- [ ] PedirTrocaDeTurnoAoDocente
 
 ## Interface (testing)
 - [x] Login
-- [ ] Escolher UCs
 - [x] MenuDocente
 - [x] MenuCoordenador
 - [x] MenuAluno
 - [x] MenuAlunoTE
+- [ ] Escolher UCs
 - [ ] ConsultarUCs
