@@ -33,7 +33,7 @@ public void testing(){
         l.add(0);
         doc_turnos.put(0,l);
         SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1","aluno1",new ArrayDeque<>(), aluno_turnos ));
-        SysFacade.utilizadores.put(4,new Aluno("aluno3","aluno3","aluno3",new ArrayDeque<>(), aluno_turnos ));
+        SysFacade.utilizadores.put(4,new Aluno("aluno3","aluno3","aluno3",new ArrayDeque<>(), aluno_turnos2 ));
         SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
         SysFacade.utilizadores.put(2, new Docente("docente1","docente1","docente1",doc_turnos ));
         Coordenador aux=new Coordenador("coordenador1","coordenador1","coordenador1",new HashMap<>(),0);
