@@ -3182,7 +3182,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         try{
             int idUc = this.sys.getIdUC(uc);
             int idTurno = Integer.parseInt(turno);
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             Date dataP = df.parse(data);
             Map<Integer,Boolean> presencas;
             if(idUc==-1) this.ErroPresencasUCInvalida.setVisible(true);
