@@ -29,7 +29,7 @@ public class Turno {
         protected Turno(List<Aula> aulas, int id, int capacidade, int capacidadeSala, int diaDaSemana, Date HoraInicio, Date horaFim){
             this.aulas = new ArrayList<Aula>();
             for (Aula a : aulas){
-                this.aulas.add(a.clone());
+                this.aulas.add(a);
             }
             this.id = id;
             this.capacidade = capacidade;

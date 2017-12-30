@@ -1838,7 +1838,9 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                 "Aluno"
             }
         ));
+        registarPresencas.setColumnSelectionAllowed(true);
         jScrollPane4.setViewportView(registarPresencas);
+        registarPresencas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         okRA.setText("Ok");
         okRA.addActionListener(new java.awt.event.ActionListener() {
@@ -1861,18 +1863,17 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
             .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(voltarRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(okRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
-                            .addComponent(jLabel47)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(dataRA3))
-                        .addComponent(jLabel48))
+                    .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(voltarRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(okRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
+                        .addComponent(jLabel47)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dataRA3))
+                    .addComponent(jLabel48)
                     .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
                         .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel46)
@@ -3216,7 +3217,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         try{
             int idUc = this.sys.getIdUC(uc);
             int idTurno = Integer.parseInt(turno);
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             Date dataP = df.parse(data);
             Map<Integer,Boolean> presencas;
             if(idUc==-1) this.ErroPresencasUCInvalida.setVisible(true);
@@ -3280,17 +3281,22 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         switch(res){
             case 0:
                 this.ErroAlunoInvSugerirTroca.setVisible(true);
+                break;
             case 1:
                 this.jTextField2.setText(this.nAluno.getText());
                 this.jTextField3.setText(this.uc.getText());
                 this.jTextField4.setText(this.turno2.getText());
                 this.ConfirmarSugestaoSugerirTroca.setVisible(true);
+                break;
             case 2:
                 this.ErroUCSugerirTroca.setVisible(true);
+                break;
             case 3:
                 this.ErroTurnoSugerirTroca.setVisible(true);
+                break;
             case 4:
                 this.ErroAlunoIndsSugerirTroca.setVisible(true);
+                break;
         }
     }//GEN-LAST:event_jButton39ActionPerformed
 
@@ -3390,6 +3396,8 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                         }
                         ucO.registaPresencas(idTurno,dataP,pre);
                         this.RegistarAulaEPresencas.setVisible(false);
+                        if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
+                        if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
                     }catch(ParseException e){}
                 }  
             }

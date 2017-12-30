@@ -29,11 +29,11 @@ public class UC {
         }
         
         public UC(List<TrocaInteressado> trocasPedidas,List<TrocaInteressado> trocasInteressados,List<Turno> turnos,int id,Coordenador coordenador,int anoDeCurso,String nome){
-            this.trocasPedidas=trocasPedidas.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
-            this.trocasInteressados=trocasInteressados.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
-            this.turnos=turnos.stream().map(Turno::clone).collect(Collectors.toList());
+            this.trocasPedidas=trocasPedidas.stream().collect(Collectors.toList());
+            this.trocasInteressados=trocasInteressados.stream().collect(Collectors.toList());
+            this.turnos=turnos.stream().collect(Collectors.toList());
             this.id=id;
-            this.coordenador=coordenador.clone();
+            this.coordenador=coordenador;
             this.nome=nome;
             this.anoDeCurso=anoDeCurso;
         }
@@ -52,15 +52,15 @@ public class UC {
         }
         
         protected List<TrocaInteressado> getTrocasInteressados() {
-            return this.trocasInteressados.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
+            return this.trocasInteressados.stream().collect(Collectors.toList());
 	}
         
         protected void setTrocasInteressados(List<TrocaInteressado> nL){
-            this.trocasInteressados=nL.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
+            this.trocasInteressados=nL.stream().collect(Collectors.toList());
         }
         
         public List<Turno> getTurnos(){
-            return this.turnos.stream().map(Turno::clone).collect(Collectors.toList());
+            return this.turnos.stream().collect(Collectors.toList());
         }
 
 	public void addInteresseDeTroca(TrocaInteressado troca) { //erro ds
@@ -71,13 +71,13 @@ public class UC {
             ArrayList<TrocaInteressado> ret = new ArrayList<TrocaInteressado>();
             
             for(TrocaInteressado troca:this.trocasPedidas){
-                ret.add(troca.clone());
+                ret.add(troca);
             }
             return ret;
         }
         
         protected Coordenador getCoordenador(){
-            return this.coordenador.clone();
+            return this.coordenador;
         }
         
         public int getAnoDeCurso(){
@@ -105,7 +105,7 @@ public class UC {
                 idT = aux.getId();
                 flag = idT==idTroca;
                 if(flag){
-                    ret = aux.clone();
+                    ret = aux;
                     it.remove();
                 }
             }
