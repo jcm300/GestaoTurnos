@@ -1,6 +1,6 @@
 # TODO
 
-## Implementing
+## Methods (to implement)
 - [ ] consultarTrocasPend()
 - [ ] aprovarTroca(idTroca:int)
 - [ ] reprovarTroca(idTroca:int)
@@ -32,4 +32,13 @@
 - [ ] registaPresencas(idTurno,data,alunos)
 - [ ] trocarTurnoTE(idUC,idTurno)
 
-## Testing
+## Methods (testing)
+
+
+## Interface (to implement)
+- [ ] Login
+- [x] Escolher UCs
+
+
+## Interface (testing)
+- [ ] Escolher UCs

@@ -1,8 +1,9 @@
 package gestaoturnos.UI;
 
-import business.SysFacade;
+import business.*;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.table.DefaultTableModel;
         
 public class mainMenu extends javax.swing.JFrame implements Observer {
 
@@ -489,6 +490,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         MenuAluno.setTitle("Menu: Aluno");
 
         jButton19.setText("8. Fazer escolha das UC's");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
 
         jButton20.setText("2. Confirmar/aceitar troca de turno sugerida por outro aluno");
 
@@ -2430,6 +2436,18 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         }
         else if(autenticacao==2) this.ErroPassLogin.setVisible(true);
     }//GEN-LAST:event_LoginActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+        EscoherUCs.setVisible(true);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        for(UC uc: SysFacade.getUCsDisponiveis()){
+            String nome=uc.getNome();
+            String ano=String.valueOf(uc.getAnoDeCurso());
+            Object[] row={nome,ano};
+            model.addRow(row);
+        }
+    }//GEN-LAST:event_jButton19ActionPerformed
 
     /**
      * @param args the command line arguments

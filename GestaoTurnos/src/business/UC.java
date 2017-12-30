@@ -46,7 +46,7 @@ public class UC {
             this.id=id;
         }
         
-        protected String getNome(){
+        public String getNome(){
             return this.nome;
         }
         
@@ -79,7 +79,7 @@ public class UC {
             return this.coordenador.clone();
         }
         
-        protected int getAnoDeCurso(){
+        public int getAnoDeCurso(){
             return this.anoDeCurso;
         }
         
