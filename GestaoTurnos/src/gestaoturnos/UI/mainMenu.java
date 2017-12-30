@@ -1479,6 +1479,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel33.setText("Troca efetuada com sucesso!");
 
         ok.setText("Ok");
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TrocaRealizadaSucessoLayout = new javax.swing.GroupLayout(TrocaRealizadaSucesso.getContentPane());
         TrocaRealizadaSucesso.getContentPane().setLayout(TrocaRealizadaSucessoLayout);
@@ -2780,7 +2785,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_ucSugestaoActionPerformed
 
     private void aceitarTrocaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceitarTrocaActionPerformed
-        // TODO add your handling code here:
+        this.TrocaRealizadaSucesso.setVisible(true);
+        this.SugestaoRecebida.setVisible(false);
+        Aluno cur=(Aluno)this.utilizador;
+        cur.aceitaTroca();
     }//GEN-LAST:event_aceitarTrocaActionPerformed
 
     private void okAcessoNegadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okAcessoNegadoActionPerformed
@@ -2887,8 +2895,18 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        this.SugestaoRecebida.setVisible(true);
-        this.MenuAlunoTE.setVisible(false);
+        Aluno cur=(Aluno)this.utilizador;
+        Troca t=cur.getTrocaPend();
+        if(t!=null){
+            int id2=t.getIdAluno2();
+            Aluno aux=SysFacade.getAluno(id2);
+            this.ucSugestao.setText(SysFacade.getUC(t.getIdUC()).getNome());
+            this.turnoSugestao.setText(String.valueOf(t.getIdTurno2()));
+            this.nAlunoSugestao.setText(String.valueOf(id2));
+            this.nomeAlunoSugestao.setText(aux.getNome());
+            this.SugestaoRecebida.setVisible(true);
+            this.MenuAlunoTE.setVisible(false);
+        }       
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -2945,8 +2963,18 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        this.SugestaoRecebida.setVisible(true);
-        this.MenuAluno.setVisible(false);
+        Aluno cur=(Aluno)this.utilizador;
+        Troca t=cur.getTrocaPend();
+        if(t!=null){
+            int id2=t.getIdAluno2();
+            Aluno aux=SysFacade.getAluno(id2);
+            this.ucSugestao.setText(SysFacade.getUC(t.getIdUC()).getNome());
+            this.turnoSugestao.setText(String.valueOf(t.getIdTurno2()));
+            this.nAlunoSugestao.setText(String.valueOf(id2));
+            this.nomeAlunoSugestao.setText(aux.getNome());
+            this.SugestaoRecebida.setVisible(true);
+            this.MenuAluno.setVisible(false);
+        }
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
@@ -3091,8 +3119,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void recusarTrocaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recusarTrocaActionPerformed
         this.SugestaoRecebida.setVisible(false);
-        if(this.utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
-        else this.MenuAluno.setVisible(true);
+        this.InserirMotivoRecusaTroca.setVisible(true);
     }//GEN-LAST:event_recusarTrocaActionPerformed
 
     private void cancelarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarConsultaActionPerformed
@@ -3330,6 +3357,8 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void enviarMotivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarMotivoActionPerformed
         this.InserirMotivoRecusaTroca.setVisible(false);
+        Aluno cur=(Aluno)this.utilizador;
+        cur.recusaTroca(this.motivoRecusa.getText());
         this.motivoRecusa.setText("");
         if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
         else this.MenuAluno.setVisible(true);
@@ -3455,6 +3484,12 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         this.ErroTrocaTurnoSemVagas.setVisible(false);
         this.TrocarDeTurno.setVisible(true); 
     }//GEN-LAST:event_okErroSemVagasActionPerformed
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        this.TrocaRealizadaSucesso.setVisible(false);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_okActionPerformed
 
 
     /**

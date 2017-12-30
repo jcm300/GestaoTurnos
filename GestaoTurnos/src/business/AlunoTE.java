@@ -10,8 +10,8 @@ public class AlunoTE extends Aluno {
             super(new ArrayDeque<Troca>(),new HashMap<Integer,Integer>());
         }
         
-        protected AlunoTE(String email,String password,ArrayDeque<Troca> tp, Map<Integer,Integer> t){
-            super(email,password,tp,t);
+        protected AlunoTE(String email,String password,String nome,ArrayDeque<Troca> tp, Map<Integer,Integer> t){
+            super(email,password,nome,tp,t);
         }
         
         public void trocarTurnoTE(int idUC, int idTurno) {

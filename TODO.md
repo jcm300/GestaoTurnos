@@ -73,7 +73,7 @@
 - [x] ConsultarUCs
 - [ ] DefinirCapacidade
 - [x] SugerirTrocaDeTurno
-- [ ] SugestaoRecebida
+- [x] SugestaoRecebida
 - [x] InserirMotiveRecusaTroca
 - [ ] DitribuicaoInicial
 - [ ] ConsultarPresencas
@@ -103,3 +103,4 @@
 - [ ] SinalizarInteresse
 - [ ] PedirTrocaDeTurnoAoDocente
 - [ ] TrocarDeTurno
+- [ ] SugestaoRecebida
