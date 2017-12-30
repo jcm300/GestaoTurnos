@@ -3267,6 +3267,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void voltarPresencasAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarPresencasAlunosActionPerformed
         this.PresencasAlunos.setVisible(false);
+        DefaultTableModel model = (DefaultTableModel) tablePresencasAlunos.getModel();
+        while(model.getRowCount() > 0){
+                    model.removeRow(0);
+        }
         if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
         if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
     }//GEN-LAST:event_voltarPresencasAlunosActionPerformed
@@ -3397,6 +3401,9 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                             }
                         }
                         ucO.registaPresencas(idTurno,dataP,pre);
+                        while(model.getRowCount() > 0){
+                            model.removeRow(0);
+                        }
                         this.RegistarAulaEPresencas.setVisible(false);
                         if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
                         if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
