@@ -40,14 +40,16 @@
 - [x] Escolher UCs
 - [x] MenuDocente
 - [x] MenuCoordenador
-- [ ] MenuAluno
-- [ ] MenuAlunoTE
+- [x] MenuAluno
+- [x] MenuAlunoTE
 - [x] ConsultarUCs
 
 
 ## Interface (testing)
 - [x] Login
 - [ ] Escolher UCs
-- [ ] MenuDocente
-- [ ] MenuCoordenador
+- [x] MenuDocente
+- [x] MenuCoordenador
+- [x] MenuAluno
+- [x] MenuAlunoTE
 - [ ] ConsultarUCs
