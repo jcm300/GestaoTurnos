@@ -3516,6 +3516,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ucPTDComboActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -3547,6 +3550,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Pedir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pedirPTDActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3593,6 +3599,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okPTDActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3638,6 +3647,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okPTDErroActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

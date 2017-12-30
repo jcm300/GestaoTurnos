@@ -122,7 +122,7 @@ public class Aluno extends Utilizador{
         return false;
     }
 
-    protected void trocarTurnoProf(int idUC, int idTurno) {
+    public void trocarTurnoProf(int idUC, int idTurno) {
         if(SysFacade.existeUC(idUC)){
             UC aux=SysFacade.getUC(idUC);
             TrocaInteressado tI = new TrocaInteressado(this.getId(),this.turnos.get(idUC).intValue(),idTurno);

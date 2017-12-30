@@ -2568,6 +2568,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel68.setText("Turno:");
 
         ucPTDCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ucPTDCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ucPTDComboActionPerformed(evt);
+            }
+        });
 
         turnoPTDCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -2579,6 +2584,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         pedirPTD.setText("Pedir");
+        pedirPTD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pedirPTDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PedirTrocaDeTurnoAoDocenteLayout = new javax.swing.GroupLayout(PedirTrocaDeTurnoAoDocente.getContentPane());
         PedirTrocaDeTurnoAoDocente.getContentPane().setLayout(PedirTrocaDeTurnoAoDocenteLayout);
@@ -2625,6 +2635,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel69.setText("O pedido foi realizado com sucesso.");
 
         okPTD.setText("Ok");
+        okPTD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okPTDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SucessoPTDLayout = new javax.swing.GroupLayout(SucessoPTD.getContentPane());
         SucessoPTD.getContentPane().setLayout(SucessoPTDLayout);
@@ -2654,6 +2669,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel70.setText("Não existem vagas no turno escolhido.");
 
         okPTDErro.setText("Ok");
+        okPTDErro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okPTDErroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroPTDVagasLayout = new javax.swing.GroupLayout(ErroPTDVagas.getContentPane());
         ErroPTDVagas.getContentPane().setLayout(ErroPTDVagasLayout);
@@ -2925,9 +2945,12 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome());        
         
         this.ConsultarTrocas.setVisible(true);
-        
         this.MenuAluno.setVisible(false);
     }//GEN-LAST:event_jButton27ActionPerformed
 
@@ -2944,6 +2967,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         this.PedirTrocaDeTurnoAoDocente.setVisible(true);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome());
         this.MenuAluno.setVisible(false);
     }//GEN-LAST:event_jButton26ActionPerformed
 
@@ -3346,6 +3373,39 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         this.ErroSinalizacaoUC.setVisible(false);
         this.SinalizarInteresse.setVisible(true);
     }//GEN-LAST:event_okES2ActionPerformed
+
+    private void ucPTDComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucPTDComboActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucPTDCombo.getSelectedItem());
+        UC uc=SysFacade.getUC(idUC);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.turnoPTDCombo.getModel();
+        for(Turno t: uc.getTurnos())
+            model.addElement(t.getId());
+    }//GEN-LAST:event_ucPTDComboActionPerformed
+
+    private void pedirPTDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedirPTDActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucPTDCombo.getSelectedItem());
+        int idTurno=Integer.parseInt((String)this.turnoPTDCombo.getSelectedItem());
+        this.PedirTrocaDeTurnoAoDocente.setVisible(false);
+        Aluno cur=(Aluno)this.utilizador;
+        if(!SysFacade.existemVagas(idUC,idTurno))
+            this.ErroPTDVagas.setVisible(true);
+        else{
+            cur.trocarTurnoProf(idUC,idTurno);
+            this.SucessoPTD.setVisible(true);
+        }
+    }//GEN-LAST:event_pedirPTDActionPerformed
+
+    private void okPTDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okPTDActionPerformed
+        this.SucessoPTD.setVisible(false);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_okPTDActionPerformed
+
+    private void okPTDErroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okPTDErroActionPerformed
+        this.ErroPTDVagas.setVisible(false);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_okPTDErroActionPerformed
 
 
     /**

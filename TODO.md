@@ -86,7 +86,7 @@
 - [x] SinalizarInteresse
 - [x] ConsultarPerPresencas
 - [ ] PercPresencasNaUC
-- [ ] PedirTrocaDeTurnoAoDocente
+- [x] PedirTrocaDeTurnoAoDocente
 
 ## Interface (testing)
 - [x] Login
@@ -101,3 +101,4 @@
 - [ ] InserirMotiveRecusaTroca
 - [ ] ConsultarPerPresencas
 - [ ] SinalizarInteresse
+- [ ] PedirTrocaDeTurnoAoDocente
