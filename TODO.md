@@ -79,7 +79,7 @@
 - [ ] ConsultarPresencas
 - [ ] PresencasAlunos
 - [ ] RegistarAulasEPresencas
-- [ ] TrocasPendentes
+- [x] TrocasPendentes
 - [x] ConsultarTrocas
 - [x] ListaDeTrocas
 - [x] TrocarDeTurno
@@ -107,3 +107,4 @@
 - [ ] ConsultarTrocas
 - [ ] PercPresencasNaUC
 - [ ] ListaDeTrocas
+- [ ] TrocasPendentes

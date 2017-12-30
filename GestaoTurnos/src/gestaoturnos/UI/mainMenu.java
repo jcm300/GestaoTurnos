@@ -1986,7 +1986,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
             },
             new String [] {
-                "Aluno", "Turno", "Aluno", "Turno"
+                "Aluno", "Turno", "Turno"
             }
         ));
         jScrollPane5.setViewportView(tabelaTrocasPendentes);
@@ -1999,8 +1999,27 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         revogarTP.setText("Revogar");
+        revogarTP.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                revogarTPAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        revogarTP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                revogarTPActionPerformed(evt);
+            }
+        });
 
         aprovarTP.setText("Aprovar");
+        aprovarTP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aprovarTPActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TrocasPendentesLayout = new javax.swing.GroupLayout(TrocasPendentes.getContentPane());
         TrocasPendentes.getContentPane().setLayout(TrocasPendentesLayout);
@@ -2036,6 +2055,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel51.setText("Não há trocas à espera de aprovação.");
 
         okTP.setText("Ok");
+        okTP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okTPActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroTPTrocasInexistentesLayout = new javax.swing.GroupLayout(ErroTPTrocasInexistentes.getContentPane());
         ErroTPTrocasInexistentes.getContentPane().setLayout(ErroTPTrocasInexistentesLayout);
@@ -2893,7 +2917,18 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        this.TrocasPendentes.setVisible(true);
+        Coordenador cur=(Coordenador)this.utilizador;
+        this.MenuCoordenador.setVisible(false);
+        List<TrocaInteressado> lT=cur.consultarTrocasPend();
+        if(lT.size()==0) this.ErroTPTrocasInexistentes.setVisible(true);
+        else{
+            DefaultTableModel model = (DefaultTableModel) this.tabelaTrocasPendentes.getModel();
+            for(TrocaInteressado ti:lT){
+                Object[] row={String.valueOf(ti.getIdAluno()),String.valueOf(ti.getIdTurno()),String.valueOf(ti.getTurnoPretendido())};
+                model.addRow(row);
+            }
+            this.TrocasPendentes.setVisible(true);
+        }
         this.MenuCoordenador.setVisible(false);
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -3356,8 +3391,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                         }
                         HashMap<Integer,Boolean> pre = new HashMap<Integer,Boolean>();
                         for(business.Utilizador u: users.values()){
-                            if(presentes.contains(u.getId())) pre.put(u.getId(),true);
-                            else pre.put(u.getId(),false);
+                            if(u instanceof Aluno){
+                                if(presentes.contains(u.getId())) pre.put(u.getId(),true);
+                                else pre.put(u.getId(),false);
+                            }
                         }
                         ucO.registaPresencas(idTurno,dataP,pre);
                         this.RegistarAulaEPresencas.setVisible(false);
@@ -3533,6 +3570,31 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
         if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
     }//GEN-LAST:event_okRA2ActionPerformed
+
+    private void revogarTPAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_revogarTPAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_revogarTPAncestorAdded
+
+    private void revogarTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revogarTPActionPerformed
+        int sel=this.tabelaTrocasPendentes.getSelectedRow();
+        Coordenador cur=(Coordenador)this.utilizador;
+        List<TrocaInteressado> lT=cur.consultarTrocasPend(); 
+        cur.reprovarTroca(lT.get(sel).getId());
+        this.jButton9.doClick();
+    }//GEN-LAST:event_revogarTPActionPerformed
+
+    private void aprovarTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aprovarTPActionPerformed
+        int sel=this.tabelaTrocasPendentes.getSelectedRow();
+        Coordenador cur=(Coordenador)this.utilizador;
+        List<TrocaInteressado> lT=cur.consultarTrocasPend(); 
+        cur.aprovarTroca(lT.get(sel).getId());
+        this.jButton9.doClick();
+    }//GEN-LAST:event_aprovarTPActionPerformed
+
+    private void okTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okTPActionPerformed
+        this.ErroTPTrocasInexistentes.setVisible(false);
+        this.MenuCoordenador.setVisible(true);
+    }//GEN-LAST:event_okTPActionPerformed
 
     /**
      * @param args the command line arguments
