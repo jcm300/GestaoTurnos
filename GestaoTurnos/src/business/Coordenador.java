@@ -37,8 +37,8 @@ public class Coordenador extends Docente {
 	public List<TrocaInteressado> consultarTrocasPend() {
             int idUCReg = this.getUCRegente();
             UC uc = SysFacade.getUC(idUCReg);
-            ArrayList<TrocaInteressado> trocas = null;
-            if(uc!=null) uc.getTrocasPedidas();
+            List<TrocaInteressado> trocas = new ArrayList<>();
+            if(uc!=null) trocas=uc.getTrocasPedidas();
             return trocas;
         }
 

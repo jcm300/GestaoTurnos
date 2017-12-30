@@ -24,7 +24,7 @@ public class Aluno extends Utilizador{
         this.trocasPendentes = new ArrayDeque<Troca>();
         this.turnos = new HashMap<Integer,Integer>();
         for(Troca tr:tp){
-            this.trocasPendentes.addFirst(tr.clone());
+            this.trocasPendentes.addFirst(tr);
         }
         t.putAll(this.turnos);
     }
@@ -34,7 +34,7 @@ public class Aluno extends Utilizador{
         this.trocasPendentes = new ArrayDeque<Troca>();
         this.turnos = new HashMap<Integer,Integer>();
         for(Troca tr:tp){
-            this.trocasPendentes.addFirst(tr.clone());
+            this.trocasPendentes.addFirst(tr);
         }
         t.putAll(this.turnos);
     }
@@ -44,7 +44,7 @@ public class Aluno extends Utilizador{
     protected ArrayDeque<Troca> getTrocasPendentes(){
         ArrayDeque<Troca> res=new ArrayDeque<Troca>();
         for(Troca tr:this.trocasPendentes){
-            res.addFirst(tr.clone());
+            res.addFirst(tr);
         }
         return res;
     }
