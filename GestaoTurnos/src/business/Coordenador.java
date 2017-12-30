@@ -2,15 +2,22 @@ package business;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Coordenador extends Docente {
 
 	private int ucRegente;
         
+        
+
         //constructor
         protected Coordenador(Coordenador cOld){
             super(cOld);
             this.ucRegente=cOld.getUCRegente();
+        }
+        
+        protected Coordenador(String email,String password,Map<Integer,List<Integer>> turnos, int cadeira){
+            super(email,password,turnos);
         }
         
         protected Coordenador(int cadeira){

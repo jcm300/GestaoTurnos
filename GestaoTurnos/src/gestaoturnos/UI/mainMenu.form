@@ -367,6 +367,8 @@
             <Property name="text" type="java.lang.String" value="8. Fazer escolha das UC&apos;s"/>
           </Properties>
           <Events>
+            <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="jButton17AncestorAdded"/>
+            <EventHandler event="ancestorRemoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="jButton17AncestorRemoved"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton17ActionPerformed"/>
           </Events>
         </Component>
@@ -899,6 +901,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton34ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton35">
           <Properties>
@@ -1027,7 +1032,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jButton38" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="259" max="32767" attributes="0"/>
+                                  <EmptySpace pref="265" max="32767" attributes="0"/>
                                   <Component id="jButton39" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1098,6 +1103,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton38ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton39">
           <Properties>
@@ -1563,6 +1571,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Recusar Troca"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recusarTrocaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -1858,7 +1869,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="ucConsulta" max="32767" attributes="0"/>
+                          <Component id="ucConsulta" pref="178" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1942,6 +1953,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarConsultaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -2303,6 +2317,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarRAActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -2479,6 +2496,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarTPActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="revogarTP">
           <Properties>
@@ -2606,6 +2626,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarConsultaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="consultar">
           <Properties>
@@ -2850,6 +2873,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarTrocaTurnoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="trocarTurno">
           <Properties>
@@ -3001,6 +3027,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarSinalizacaoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="aplicarSinalizacao">
           <Properties>
@@ -3209,6 +3238,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarCPActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="consultarCP">
           <Properties>
@@ -3445,6 +3477,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarPTDActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="pedirPTD">
           <Properties>

@@ -164,7 +164,7 @@ public class Aluno extends Utilizador{
         return turnos.containsKey(idUC); 
     }
 
-    protected boolean existeTurnos() {
+    public boolean existeTurnos() {
         Collection<Integer> values = this.turnos.values();
         boolean turnosDisp = false;
         for (Integer t : values){

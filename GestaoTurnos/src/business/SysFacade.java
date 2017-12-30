@@ -19,8 +19,12 @@ public class SysFacade extends Observable{
     }
     
     public void testing(){
-        SysFacade.utilizadores.put(0,new Aluno("aluno1@universidade.pt","aluno1",new ArrayDeque<>(),new HashMap<>()));
-        SysFacade.ucs.put(0, new UC(new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),0,new Coordenador(0),3,"Base de Dados"));
+        SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1",new ArrayDeque<>(),new HashMap<>()));
+        SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
+        SysFacade.utilizadores.put(2, new Docente("docente1","docente1",new HashMap<>()));
+        Coordenador aux=new Coordenador("coordenador1","coordenador1",new HashMap<>(),0);
+        SysFacade.utilizadores.put(1, aux);
+        SysFacade.ucs.put(0, new UC(new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),0,aux,3,"Base de Dados"));
     }
 
     public static int getIdUC(String UC) {

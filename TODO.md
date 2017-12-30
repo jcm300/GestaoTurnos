@@ -46,7 +46,7 @@
 
 
 ## Interface (testing)
-- [x] Login
+- [x] Login
 - [ ] Escolher UCs
 - [ ] MenuDocente
 - [ ] MenuCoordenador
