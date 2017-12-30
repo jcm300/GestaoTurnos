@@ -74,7 +74,7 @@
 - [ ] DefinirCapacidade
 - [x] SugerirTrocaDeTurno
 - [ ] SugestaoRecebida
-- [ ] InserirMotiveRecusaTroca
+- [x] InserirMotiveRecusaTroca
 - [ ] DitribuicaoInicial
 - [ ] ConsultarPresencas
 - [ ] PresencasAlunos
@@ -84,7 +84,7 @@
 - [ ] ListaDeTrocas
 - [ ] TrocarDeTurno
 - [ ] SinalizarInteresse
-- [ ] ConsultarPerPresencas
+- [x] ConsultarPerPresencas
 - [ ] PercPresencasNaUC
 - [ ] PedirTrocaDeTurnoAoDocente
 
@@ -98,3 +98,5 @@
 - [ ] ConsultarUCs
 - [ ] ConsultarPresencas
 - [ ] SugerirTrocaDeTurno
+- [ ] InserirMotiveRecusaTroca
+- [ ] ConsultarPerPresencas

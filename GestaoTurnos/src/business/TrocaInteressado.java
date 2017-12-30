@@ -31,15 +31,15 @@ public class TrocaInteressado {
             return this.id;
     }
 
-    protected int getIdAluno(){
+    public int getIdAluno(){
         return this.idAluno;
     }
     
-    protected int getIdTurno(){
+    public int getIdTurno(){
         return this.idTurno;
     }
 
-    protected int getTurnoPretendido(){
+    public int getTurnoPretendido(){
         return this.idTurnoPretendido;
     }
 

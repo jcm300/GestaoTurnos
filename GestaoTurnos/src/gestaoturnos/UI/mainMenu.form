@@ -1666,6 +1666,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Enviar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enviarMotivoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -2669,6 +2672,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3281,6 +3287,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarCPActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3326,6 +3335,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OkCPE1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3408,6 +3420,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarCPNaUCActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -1,9 +1,11 @@
 package gestaoturnos.UI;
 
 import business.*;
+import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import java.text.DateFormat;
@@ -1433,6 +1435,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel32.setText("Motivo:");
 
         enviarMotivo.setText("Enviar");
+        enviarMotivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviarMotivoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout InserirMotivoRecusaTrocaLayout = new javax.swing.GroupLayout(InserirMotivoRecusaTroca.getContentPane());
         InserirMotivoRecusaTroca.getContentPane().setLayout(InserirMotivoRecusaTrocaLayout);
@@ -2050,6 +2057,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         consultar.setText("Consultar");
+        consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ConsultarTrocasLayout = new javax.swing.GroupLayout(ConsultarTrocas.getContentPane());
         ConsultarTrocas.getContentPane().setLayout(ConsultarTrocasLayout);
@@ -2415,6 +2427,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         consultarCP.setText("Consultar");
+        consultarCP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarCPActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ConsultarPercPresencasLayout = new javax.swing.GroupLayout(ConsultarPercPresencas.getContentPane());
         ConsultarPercPresencas.getContentPane().setLayout(ConsultarPercPresencasLayout);
@@ -2452,6 +2469,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel66.setText("UC indicada não se encontra no sistema");
 
         OkCPE1.setText("Ok");
+        OkCPE1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OkCPE1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroCPUCLayout = new javax.swing.GroupLayout(ErroCPUC.getContentPane());
         ErroCPUC.getContentPane().setLayout(ErroCPUCLayout);
@@ -2489,6 +2511,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jScrollPane7.setViewportView(tabelaPercPresencas);
 
         voltarCPNaUC.setText("Voltar");
+        voltarCPNaUC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarCPNaUCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PercPresencasNaUCLayout = new javax.swing.GroupLayout(PercPresencasNaUC.getContentPane());
         PercPresencasNaUC.getContentPane().setLayout(PercPresencasNaUCLayout);
@@ -2815,6 +2842,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome());
         this.ConsultarTrocas.setVisible(true);
         this.MenuAlunoTE.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
@@ -2874,7 +2905,9 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        
         this.ConsultarTrocas.setVisible(true);
+        
         this.MenuAluno.setVisible(false);
     }//GEN-LAST:event_jButton27ActionPerformed
 
@@ -3207,6 +3240,54 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
             this.ErroPresencasDataInvalida.setVisible(true);
         }*/
     }//GEN-LAST:event_okRAActionPerformed
+    private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucCombo.getSelectedItem());
+        Aluno cur=(Aluno)this.utilizador;
+        if(cur.alunoInscritoNaUC(idUC)){
+            DefaultTableModel model = (DefaultTableModel) tabelaListaTrocas.getModel();
+            List<TrocaInteressado> lTI=SysFacade.getUC(idUC).getTrocasPedidas();
+            for(TrocaInteressado ti:lTI){
+                Object[] row={String.valueOf(ti.getIdAluno()),String.valueOf(ti.getTurnoPretendido()),String.valueOf(ti.getIdTurno())};
+                model.addRow(row);
+            }
+            this.ListaDeTrocas.setVisible(true);
+        }else this.ErroConsultaTrocasAcessoNegado.setVisible(true);
+        this.ConsultarTrocas.setVisible(false);
+    }//GEN-LAST:event_consultarActionPerformed
+
+    private void enviarMotivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarMotivoActionPerformed
+        this.InserirMotivoRecusaTroca.setVisible(false);
+        this.motivoRecusa.setText("");
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_enviarMotivoActionPerformed
+
+    private void consultarCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarCPActionPerformed
+        int idUC = SysFacade.getIdUC(this.nomeDaUC.getText());
+        this.ConsultarPercPresencas.setVisible(false);
+        if(idUC == -1) this.ErroCPUC.setVisible(true);
+        else{
+            Aluno cur=(Aluno)this.utilizador;
+            DefaultTableModel model = (DefaultTableModel) this.tabelaPercPresencas.getModel();
+            Object[] row={this.nomeDaUC.getText(),String.valueOf(cur.percentagemPresencas(idUC))};
+            model.addRow(row);
+            this.PercPresencasNaUC.setVisible(true);
+        }
+    }//GEN-LAST:event_consultarCPActionPerformed
+
+    private void OkCPE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkCPE1ActionPerformed
+        this.ErroCPUC.setVisible(false);
+        this.ConsultarPercPresencas.setVisible(true);
+    }//GEN-LAST:event_OkCPE1ActionPerformed
+
+    private void voltarCPNaUCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCPNaUCActionPerformed
+        this.PercPresencasNaUC.setVisible(false);
+        DefaultTableModel model = (DefaultTableModel) this.tabelaPercPresencas.getModel();
+        model.setRowCount(0);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_voltarCPNaUCActionPerformed
+
 
     /**
      * @param args the command line arguments

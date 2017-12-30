@@ -160,7 +160,7 @@ public class Aluno extends Utilizador{
 
     }
 
-    protected boolean alunoInscritoNaUC(int idUC) { 
+    public boolean alunoInscritoNaUC(int idUC) { 
         return turnos.containsKey(idUC); 
     }
 

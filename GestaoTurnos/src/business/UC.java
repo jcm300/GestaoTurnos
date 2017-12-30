@@ -67,7 +67,7 @@ public class UC {
             trocasInteressados.add(troca);
         }
         
-        protected List<TrocaInteressado> getTrocasPedidas() {
+        public List<TrocaInteressado> getTrocasPedidas() {
             ArrayList<TrocaInteressado> ret = new ArrayList<TrocaInteressado>();
             
             for(TrocaInteressado troca:this.trocasPedidas){
