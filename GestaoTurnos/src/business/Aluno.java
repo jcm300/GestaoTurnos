@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public class Aluno extends Utilizador{
 
@@ -166,5 +167,19 @@ public class Aluno extends Utilizador{
     protected void mudaTurno(int idUC, int idTurno) {
         this.turnos.remove(idUC);
         this.turnos.put(idUC, idTurno);
+    }
+    
+    protected void verificarPresencas(){
+        for(Integer ucID: this.turnos.keySet())
+            if(this.percentagemPresencas(ucID.intValue()) >= 0.25){
+                UC uAux = SysFacade.getUC(ucID);
+                int turnoId=this.turnos.get(ucID).intValue();
+                List<TrocaInteressado> aux=uAux.getTrocasInteressados();
+                
+                aux=aux.stream().filter(t->t.getIdAluno()==super.getId() && t.getIdTurno()==turnoId).collect(Collectors.toList());
+                uAux.setTrocasInteressados(aux);
+                
+                this.turnos.remove(ucID);
+            }
     }
 }

@@ -54,6 +54,10 @@ public class UC {
             return this.trocasInteressados.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
 	}
         
+        protected void setTrocasInteressados(List<TrocaInteressado> nL){
+            this.trocasInteressados=nL.stream().map(TrocaInteressado::clone).collect(Collectors.toList());
+        }
+        
         protected List<Turno> getTurnos(){
             return this.turnos.stream().map(Turno::clone).collect(Collectors.toList());
         }
