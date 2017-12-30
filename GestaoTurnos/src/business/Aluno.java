@@ -26,7 +26,7 @@ public class Aluno extends Utilizador{
         for(Troca tr:tp){
             this.trocasPendentes.addFirst(tr);
         }
-        t.putAll(this.turnos);
+        turnos=t;
     }
 
     protected Aluno(ArrayDeque<Troca> tp, Map<Integer,Integer> t){
