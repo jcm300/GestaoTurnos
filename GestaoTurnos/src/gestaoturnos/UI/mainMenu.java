@@ -1604,7 +1604,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
         jLabel40.setText("Turno:");
 
-        jLabel41.setText("Data:");
+        jLabel41.setText("Data(yyyy-MM-dd):");
 
         okConsulta.setText("Ok");
         okConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -1633,14 +1633,13 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ConsultarPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ucConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addGroup(ConsultarPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(dataConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                        .addComponent(turnoConsulta)))
+                    .addComponent(dataConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addComponent(turnoConsulta))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(ConsultarPresencasLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(okConsulta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addComponent(voltarConsulta)
                 .addGap(29, 29, 29))
         );
@@ -1814,7 +1813,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
         jLabel46.setText("Turno:");
 
-        jLabel47.setText("Data:");
+        jLabel47.setText("Data(yyyy-MM-dd):");
 
         jLabel48.setText("Alunos presentes:");
 
@@ -1829,6 +1828,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jScrollPane4.setViewportView(registarPresencas);
 
         okRA.setText("Ok");
+        okRA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okRAActionPerformed(evt);
+            }
+        });
 
         voltarRA.setText("Voltar");
         voltarRA.addActionListener(new java.awt.event.ActionListener() {
@@ -1844,27 +1848,27 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
             .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(voltarRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(okRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(voltarRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(okRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
                             .addComponent(jLabel47)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(dataRA3, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
-                        .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
-                            .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel46)
-                                .addComponent(jLabel45))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ucRA1)
-                                .addComponent(turnoRA2, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))))
-                    .addComponent(jLabel48))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(dataRA3))
+                        .addComponent(jLabel48))
+                    .addGroup(RegistarAulaEPresencasLayout.createSequentialGroup()
+                        .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel46)
+                            .addComponent(jLabel45))
+                        .addGap(93, 93, 93)
+                        .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(turnoRA2)
+                            .addComponent(ucRA1))))
+                .addContainerGap())
         );
         RegistarAulaEPresencasLayout.setVerticalGroup(
             RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1874,10 +1878,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                     .addComponent(jLabel45)
                     .addComponent(ucRA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel46)
                     .addComponent(turnoRA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addGroup(RegistarAulaEPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel47)
                     .addComponent(dataRA3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -3033,7 +3037,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         try{
             int idUc = this.sys.getIdUC(uc);
             int idTurno = Integer.parseInt(turno);
-            DateFormat df = new SimpleDateFormat("EEE MMM dd", Locale.ENGLISH);
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             Date dataP = df.parse(data);
             Map<Integer,Boolean> presencas;
             if(idUc==-1) this.ErroPresencasUCInvalida.setVisible(true);
@@ -3168,6 +3172,41 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         this.jTextField3.setText("");
         this.jTextField4.setText("");
     }//GEN-LAST:event_jButton44ActionPerformed
+
+    private void okRAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okRAActionPerformed
+        String uc = ucRA1.getText();
+        String turno = turnoRA2.getText();
+        String data = dataRA3.getText();
+        /*
+        try{
+            int idUc = this.sys.getIdUC(uc);
+            int idTurno = Integer.parseInt(turno);
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+            Date dataP = df.parse(data);
+            Map<Integer,Boolean> presencas;
+            if(idUc==-1) this.ErroPresencasUCInvalida.setVisible(true);
+            else{
+                presencas = ((Docente)this.utilizador).consultarPresencas(idUc,idTurno,dataP);
+                DefaultTableModel model = (DefaultTableModel) tablePresencasAlunos.getModel();
+                for(Map.Entry<Integer,Boolean> e: presencas.entrySet()){
+                    String id = e.getKey().toString();
+                    String presenca;
+                    if(e.getValue()) presenca = "Presente"; 
+                    else presenca = "Faltou";
+                    Object[] row={id,presenca};
+                    model.addRow(row);
+                }
+                this.ConsultarPresencas.setVisible(false);
+                this.PresencasAlunos.setVisible(true);
+            }
+        }catch(business.UCInvalidaException e){
+            this.ErroPresencasUCInvalida.setVisible(true);
+        }catch(business.TurnoInexistenteException|NumberFormatException e){
+            this.ErroPresencasTurnoInexistente.setVisible(true);
+        }catch(business.AulaInexistenteException|ParseException e){
+            this.ErroPresencasDataInvalida.setVisible(true);
+        }*/
+    }//GEN-LAST:event_okRAActionPerformed
 
     /**
      * @param args the command line arguments
