@@ -2174,6 +2174,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel55.setText("UC:");
 
         ucTrocaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ucTrocaCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ucTrocaComboActionPerformed(evt);
+            }
+        });
 
         jLabel56.setText("Turno:");
 
@@ -2187,6 +2192,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         trocarTurno.setText("Trocar");
+        trocarTurno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trocarTurnoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TrocarDeTurnoLayout = new javax.swing.GroupLayout(TrocarDeTurno.getContentPane());
         TrocarDeTurno.getContentPane().setLayout(TrocarDeTurnoLayout);
@@ -2232,6 +2242,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel57.setText("Não há vagas no turno escolhido.");
 
         okErroSemVagas.setText("Ok");
+        okErroSemVagas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okErroSemVagasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroTrocaTurnoSemVagasLayout = new javax.swing.GroupLayout(ErroTrocaTurnoSemVagas.getContentPane());
         ErroTrocaTurnoSemVagas.getContentPane().setLayout(ErroTrocaTurnoSemVagasLayout);
@@ -2902,6 +2917,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         this.PedirTrocaDeTurnoAoDocente.setVisible(true);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome());
         this.MenuAlunoTE.setVisible(false);
     }//GEN-LAST:event_jButton15ActionPerformed
 
@@ -2912,6 +2931,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         this.TrocarDeTurno.setVisible(true);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucTrocaCombo.getModel();
+        List<UC> ucs=SysFacade.getUCsDisponiveis();
+        for(UC uc:ucs)
+            model.addElement(uc.getNome()); 
         this.MenuAlunoTE.setVisible(false);
     }//GEN-LAST:event_jButton18ActionPerformed
 
@@ -3406,6 +3429,32 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
         else this.MenuAluno.setVisible(true);
     }//GEN-LAST:event_okPTDErroActionPerformed
+
+    private void ucTrocaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucTrocaComboActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucTrocaCombo.getSelectedItem());
+        UC uc=SysFacade.getUC(idUC);
+        DefaultComboBoxModel model = (DefaultComboBoxModel)this.turnoTrocaCombo.getModel();
+        for(Turno t: uc.getTurnos())
+            model.addElement(t.getId());
+    }//GEN-LAST:event_ucTrocaComboActionPerformed
+
+    private void trocarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trocarTurnoActionPerformed
+        int idUC=SysFacade.getIdUC((String)this.ucTrocaCombo.getSelectedItem());
+        int idTurno=Integer.parseInt((String)this.turnoTrocaCombo.getSelectedItem());
+        this.TrocarDeTurno.setVisible(false);
+        AlunoTE cur=(AlunoTE)this.utilizador;
+        if(!SysFacade.existemVagas(idUC,idTurno))
+            this.ErroTrocaTurnoSemVagas.setVisible(true);
+        else{
+            cur.trocarTurnoTE(idUC,idTurno);
+            this.MenuAlunoTE.setVisible(true);
+        }
+    }//GEN-LAST:event_trocarTurnoActionPerformed
+
+    private void okErroSemVagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okErroSemVagasActionPerformed
+        this.ErroTrocaTurnoSemVagas.setVisible(false);
+        this.TrocarDeTurno.setVisible(true); 
+    }//GEN-LAST:event_okErroSemVagasActionPerformed
 
 
     /**
