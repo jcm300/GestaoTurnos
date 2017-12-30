@@ -2270,6 +2270,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         aplicarSinalizacao.setText("Aplicar");
+        aplicarSinalizacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aplicarSinalizacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SinalizarInteresseLayout = new javax.swing.GroupLayout(SinalizarInteresse.getContentPane());
         SinalizarInteresse.getContentPane().setLayout(SinalizarInteresseLayout);
@@ -2328,6 +2333,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel61.setText("Turno desejado encontra-se inválido para troca");
 
         okES1.setText("Ok");
+        okES1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okES1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroSinalizacaoTurnoLayout = new javax.swing.GroupLayout(ErroSinalizacaoTurno.getContentPane());
         ErroSinalizacaoTurno.getContentPane().setLayout(ErroSinalizacaoTurnoLayout);
@@ -2357,6 +2367,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel62.setText("UC inserida não é uma opção válida");
 
         okES2.setText("Ok");
+        okES2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okES2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroSinalizacaoUCLayout = new javax.swing.GroupLayout(ErroSinalizacaoUC.getContentPane());
         ErroSinalizacaoUC.getContentPane().setLayout(ErroSinalizacaoUCLayout);
@@ -2389,6 +2404,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel64.setText("interesse em trocar de turno");
 
         okSinalizarSucesso.setText("Ok");
+        okSinalizarSucesso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okSinalizarSucessoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SinalizacaoSucessoLayout = new javax.swing.GroupLayout(SinalizacaoSucesso.getContentPane());
         SinalizacaoSucesso.getContentPane().setLayout(SinalizacaoSucessoLayout);
@@ -3033,6 +3053,9 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void cancelarSinalizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarSinalizacaoActionPerformed
         this.SinalizarInteresse.setVisible(false);
+        this.nomeUC.setText("");
+        this.turnoAtual.setText("");
+        this.turnoDesejado.setText("");        
         if(this.utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
         else this.MenuAluno.setVisible(true);
     }//GEN-LAST:event_cancelarSinalizacaoActionPerformed
@@ -3287,6 +3310,42 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
         else this.MenuAluno.setVisible(true);
     }//GEN-LAST:event_voltarCPNaUCActionPerformed
+
+    private void aplicarSinalizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aplicarSinalizacaoActionPerformed
+        Aluno cur=(Aluno)this.utilizador;
+        this.SinalizarInteresse.setVisible(false);
+        int idUC=SysFacade.getIdUC(this.nomeUC.getText());
+        int idTurno=Integer.parseInt(this.turnoDesejado.getText());
+        TrocaInteressado t=null;
+        if(idUC==-1)
+            this.ErroSinalizacaoUC.setVisible(true);
+        else if(!SysFacade.existeTurno(idUC, idTurno) || (t=cur.pedirTroca(idUC,idTurno))==null)
+            this.ErroSinalizacaoTurno.setVisible(true);
+        else{
+            UC uc=SysFacade.getUC(idUC);
+            uc.addInteresseDeTroca(t);
+            this.SinalizacaoSucesso.setVisible(true);
+        }
+    }//GEN-LAST:event_aplicarSinalizacaoActionPerformed
+
+    private void okSinalizarSucessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okSinalizarSucessoActionPerformed
+        this.SinalizacaoSucesso.setVisible(false);
+        this.nomeUC.setText("");
+        this.turnoAtual.setText("");
+        this.turnoDesejado.setText("");
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_okSinalizarSucessoActionPerformed
+
+    private void okES1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okES1ActionPerformed
+        this.ErroSinalizacaoTurno.setVisible(false);
+        this.SinalizarInteresse.setVisible(true);
+    }//GEN-LAST:event_okES1ActionPerformed
+
+    private void okES2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okES2ActionPerformed
+        this.ErroSinalizacaoUC.setVisible(false);
+        this.SinalizarInteresse.setVisible(true);
+    }//GEN-LAST:event_okES2ActionPerformed
 
 
     /**

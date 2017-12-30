@@ -151,10 +151,10 @@ public class Aluno extends Utilizador{
         return uc.getTrocasInteressados();      
     }
 
-    protected TrocaInteressado pedirTroca(int idUC, int idTurnoD) {
+    public TrocaInteressado pedirTroca(int idUC, int idTurnoD) {
         Integer idDoaluno= getId();
         Integer idDoTurno= turnos.get(idUC);
-        if (idDoTurno==null) return null;
+        if(idDoTurno==null) return null;
         TrocaInteressado troca= new TrocaInteressado(idDoaluno,idDoTurno,idTurnoD );
         return troca;
 

@@ -63,7 +63,7 @@ public class UC {
             return this.turnos.stream().map(Turno::clone).collect(Collectors.toList());
         }
 
-	protected void addInteresseDeTroca(TrocaInteressado troca) { //erro ds
+	public void addInteresseDeTroca(TrocaInteressado troca) { //erro ds
             trocasInteressados.add(troca);
         }
         

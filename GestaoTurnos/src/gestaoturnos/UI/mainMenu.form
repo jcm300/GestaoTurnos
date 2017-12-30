@@ -3076,6 +3076,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Aplicar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aplicarSinalizacaoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3121,6 +3124,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okES1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3169,6 +3175,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okES2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -3222,6 +3231,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okSinalizarSucessoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

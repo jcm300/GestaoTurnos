@@ -83,7 +83,7 @@
 - [ ] ConsultarTrocas
 - [ ] ListaDeTrocas
 - [ ] TrocarDeTurno
-- [ ] SinalizarInteresse
+- [x] SinalizarInteresse
 - [x] ConsultarPerPresencas
 - [ ] PercPresencasNaUC
 - [ ] PedirTrocaDeTurnoAoDocente
@@ -100,3 +100,4 @@
 - [ ] SugerirTrocaDeTurno
 - [ ] InserirMotiveRecusaTroca
 - [ ] ConsultarPerPresencas
+- [ ] SinalizarInteresse
