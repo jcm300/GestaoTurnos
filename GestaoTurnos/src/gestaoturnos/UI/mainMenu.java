@@ -3246,17 +3246,22 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         switch(res){
             case 0:
                 this.ErroAlunoInvSugerirTroca.setVisible(true);
+                break;
             case 1:
                 this.jTextField2.setText(this.nAluno.getText());
                 this.jTextField3.setText(this.uc.getText());
                 this.jTextField4.setText(this.turno2.getText());
                 this.ConfirmarSugestaoSugerirTroca.setVisible(true);
+                break;
             case 2:
                 this.ErroUCSugerirTroca.setVisible(true);
+                break;
             case 3:
                 this.ErroTurnoSugerirTroca.setVisible(true);
+                break;
             case 4:
                 this.ErroAlunoIndsSugerirTroca.setVisible(true);
+                break;
         }
     }//GEN-LAST:event_jButton39ActionPerformed
 
