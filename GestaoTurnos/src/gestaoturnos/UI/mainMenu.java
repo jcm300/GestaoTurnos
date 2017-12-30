@@ -1,20 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gestaoturnos.UI;
 
-/**
- *
- * @author miguelq
- */
-public class mainMenu extends javax.swing.JFrame {
+import business.SysFacade;
+import java.util.Observable;
+import java.util.Observer;
+        
+public class mainMenu extends javax.swing.JFrame implements Observer {
 
+    private SysFacade sys;
     /**
      * Creates new form mainMenu
      */
     public mainMenu() {
+        this.sys = new SysFacade();
+        this.sys.addObserver(this);
         initComponents();
     }
 
@@ -849,7 +847,7 @@ public class mainMenu extends javax.swing.JFrame {
             .addGroup(SugerirTrocadeTurnoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 480, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
                     .addGroup(SugerirTrocadeTurnoLayout.createSequentialGroup()
                         .addGroup(SugerirTrocadeTurnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(SugerirTrocadeTurnoLayout.createSequentialGroup()
@@ -2330,8 +2328,18 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel3.setText("Password:");
 
         Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         Login.setText("Login");
+        Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2386,6 +2394,14 @@ public class mainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_okAcessoNegadoActionPerformed
 
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_CancelarActionPerformed
+
+    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
+        //String email = 
+    }//GEN-LAST:event_LoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2419,6 +2435,10 @@ public class mainMenu extends javax.swing.JFrame {
                 new mainMenu().setVisible(true);
             }
         });
+    }
+    
+    public void update(Observable o, Object arg) {
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

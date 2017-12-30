@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Observable;
 
-public class SysFacade {
+public class SysFacade extends Observable{
 
     private static Map<Integer,Utilizador> utilizadores;
     private static Map<Integer,UC> ucs;
+    
+    public SysFacade(){
+        this.utilizadores = new HashMap<Integer,Utilizador>();
+        this.ucs = new HashMap<Integer,UC>();
+    }
 
     public static int getIdUC(String UC) {
         List<UC> ucs = SysFacade.getUCsDisponiveis();
