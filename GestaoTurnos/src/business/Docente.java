@@ -37,7 +37,7 @@ public class Docente extends Utilizador {
             return new Docente(this);
         }
         
-        protected Map<Integer, Boolean> consultarPresencas(int idUC, int idTurno, Date data) throws UCInvalidaException,TurnoInexistenteException,AulaInexistenteException{
+        public Map<Integer, Boolean> consultarPresencas(int idUC, int idTurno, Date data) throws UCInvalidaException,TurnoInexistenteException,AulaInexistenteException{
             boolean ucValida = SysFacade.existeUC(idUC);
             if (ucValida == false)
                 throw new UCInvalidaException("A UC inserida é inválida");

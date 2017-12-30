@@ -5,6 +5,11 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.table.DefaultTableModel;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.text.ParseException;
         
 public class mainMenu extends javax.swing.JFrame implements Observer {
 
@@ -384,10 +389,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
             MenuDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuDocenteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(MenuDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addGroup(MenuDocenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuDocenteLayout.setVerticalGroup(
@@ -1562,6 +1567,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel41.setText("Data:");
 
         okConsulta.setText("Ok");
+        okConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okConsultaActionPerformed(evt);
+            }
+        });
 
         voltarConsulta.setText("Voltar");
         voltarConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -1576,19 +1586,16 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
             ConsultarPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultarPresencasLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(ConsultarPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel40)
+                    .addComponent(jLabel41)
+                    .addComponent(jLabel39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ConsultarPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(ConsultarPresencasLayout.createSequentialGroup()
-                        .addComponent(jLabel39)
-                        .addGap(38, 38, 38)
-                        .addComponent(ucConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-                    .addGroup(ConsultarPresencasLayout.createSequentialGroup()
-                        .addGroup(ConsultarPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel41))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(ConsultarPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dataConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                            .addComponent(turnoConsulta))))
+                    .addComponent(ucConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addGroup(ConsultarPresencasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(dataConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                        .addComponent(turnoConsulta)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(ConsultarPresencasLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
@@ -1632,6 +1639,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jScrollPane3.setViewportView(tablePresencasAlunos);
 
         voltarPresencasAlunos.setText("Voltar");
+        voltarPresencasAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarPresencasAlunosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PresencasAlunosLayout = new javax.swing.GroupLayout(PresencasAlunos.getContentPane());
         PresencasAlunos.getContentPane().setLayout(PresencasAlunosLayout);
@@ -1661,6 +1673,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel42.setText("A UC escolhida é inválida.");
 
         okP1.setText("Ok");
+        okP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okP1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroPresencasUCInvalidaLayout = new javax.swing.GroupLayout(ErroPresencasUCInvalida.getContentPane());
         ErroPresencasUCInvalida.getContentPane().setLayout(ErroPresencasUCInvalidaLayout);
@@ -1690,6 +1707,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel43.setText("Não ocorreu aula na data escolhida.");
 
         okP2.setText("Ok");
+        okP2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okP2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroPresencasDataInvalidaLayout = new javax.swing.GroupLayout(ErroPresencasDataInvalida.getContentPane());
         ErroPresencasDataInvalida.getContentPane().setLayout(ErroPresencasDataInvalidaLayout);
@@ -1717,6 +1739,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel44.setText("O turno escolhido não existe.");
 
         okP3.setText("Ok");
+        okP3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okP3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroPresencasTurnoInexistenteLayout = new javax.swing.GroupLayout(ErroPresencasTurnoInexistente.getContentPane());
         ErroPresencasTurnoInexistente.getContentPane().setLayout(ErroPresencasTurnoInexistenteLayout);
@@ -2954,6 +2981,68 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         this.TrocarDeTurno.setVisible(false);
         this.MenuAlunoTE.setVisible(true);
     }//GEN-LAST:event_cancelarTrocaTurnoActionPerformed
+
+    private void okConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okConsultaActionPerformed
+        String uc = ucConsulta.getText();
+        String turno = turnoConsulta.getText();
+        String data = dataConsulta.getText();
+        
+        try{
+            int idUc = this.sys.getIdUC(uc);
+            int idTurno = Integer.parseInt(turno);
+            DateFormat df = new SimpleDateFormat("EEE MMM dd", Locale.ENGLISH);
+            Date dataP = df.parse(data);
+            Map<Integer,Boolean> presencas;
+            if(idUc==-1) this.ErroPresencasUCInvalida.setVisible(true);
+            else{
+                presencas = ((Docente)this.utilizador).consultarPresencas(idUc,idTurno,dataP);
+                DefaultTableModel model = (DefaultTableModel) tablePresencasAlunos.getModel();
+                for(Map.Entry<Integer,Boolean> e: presencas.entrySet()){
+                    String id = e.getKey().toString();
+                    String presenca;
+                    if(e.getValue()) presenca = "Presente"; 
+                    else presenca = "Faltou";
+                    Object[] row={id,presenca};
+                    model.addRow(row);
+                }
+                this.ConsultarPresencas.setVisible(false);
+                this.PresencasAlunos.setVisible(true);
+            }
+        }catch(business.UCInvalidaException e){
+            this.ErroPresencasUCInvalida.setVisible(true);
+        }catch(business.TurnoInexistenteException|NumberFormatException e){
+            this.ErroPresencasTurnoInexistente.setVisible(true);
+        }catch(business.AulaInexistenteException|ParseException e){
+            this.ErroPresencasDataInvalida.setVisible(true);
+        }
+    }//GEN-LAST:event_okConsultaActionPerformed
+
+    private void okP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okP1ActionPerformed
+        this.ErroPresencasUCInvalida.setVisible(false);
+        this.ConsultarPresencas.setVisible(false);
+        if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
+        if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
+    }//GEN-LAST:event_okP1ActionPerformed
+
+    private void okP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okP2ActionPerformed
+        this.ErroPresencasDataInvalida.setVisible(false);
+        this.ConsultarPresencas.setVisible(false);
+        if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
+        if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
+    }//GEN-LAST:event_okP2ActionPerformed
+
+    private void okP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okP3ActionPerformed
+        this.ErroPresencasTurnoInexistente.setVisible(false);
+        this.ConsultarPresencas.setVisible(false);
+        if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
+        if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
+    }//GEN-LAST:event_okP3ActionPerformed
+
+    private void voltarPresencasAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarPresencasAlunosActionPerformed
+        this.PresencasAlunos.setVisible(false);
+        if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
+        if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
+    }//GEN-LAST:event_voltarPresencasAlunosActionPerformed
 
 
     /**

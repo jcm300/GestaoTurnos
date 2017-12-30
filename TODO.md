@@ -96,3 +96,4 @@
 - [x] MenuAlunoTE
 - [ ] Escolher UCs
 - [ ] ConsultarUCs
+- [ ] ConsultarPresencas
