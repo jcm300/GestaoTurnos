@@ -35,6 +35,7 @@ public class UC {
             this.id=id;
             this.coordenador=coordenador.clone();
             this.nome=nome;
+            this.anoDeCurso=anoDeCurso;
         }
         
         //getters & setters
