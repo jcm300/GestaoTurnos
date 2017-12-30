@@ -98,7 +98,8 @@ public class SysFacade {
 	}
 
 	public static void addSugestao(Troca troca) {
-	}
+            getAluno(troca.getIdAluno1()).getTrocasPendentes().addFirst(troca);            
+        }
 
 	public static UC getUC(int idUC) {
             UC uc = null;
