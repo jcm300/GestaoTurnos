@@ -71,14 +71,14 @@
 - [x] MenuAlunoTE
 - [x] Escolher UCs
 - [x] ConsultarUCs
-- [ ] DefinirCapacidade
+- [x] DefinirCapacidade
 - [x] SugerirTrocaDeTurno
 - [x] SugestaoRecebida
 - [x] InserirMotiveRecusaTroca
-- [ ] DitribuicaoInicial
-- [ ] ConsultarPresencas
-- [ ] PresencasAlunos
-- [ ] RegistarAulasEPresencas
+- [x] DitribuicaoInicial
+- [x] ConsultarPresencas
+- [x] PresencasAlunos
+- [x] RegistarAulasEPresencas
 - [x] TrocasPendentes
 - [x] ConsultarTrocas
 - [x] ListaDeTrocas
@@ -94,13 +94,13 @@
 - [x] MenuCoordenador
 - [x] MenuAluno
 - [x] MenuAlunoTE
-- [ ] Escolher UCs
-- [ ] ConsultarUCs
+- [x] Escolher UCs
+- [x] ConsultarUCs
 - [ ] ConsultarPresencas
 - [ ] SugerirTrocaDeTurno
 - [ ] InserirMotiveRecusaTroca
 - [ ] ConsultarPerPresencas
-- [ ] SinalizarInteresse
+- [x] SinalizarInteresse
 - [ ] PedirTrocaDeTurnoAoDocente
 - [ ] TrocarDeTurno
 - [ ] SugestaoRecebida
@@ -108,3 +108,8 @@
 - [ ] PercPresencasNaUC
 - [ ] ListaDeTrocas
 - [ ] TrocasPendentes
+- [ ] DefinirCapacidade
+- [ ] DitribuicaoInicial
+- [ ] ConsultarPresencas
+- [x] PresencasAlunos
+- [x] RegistarAulasEPresencas

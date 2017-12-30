@@ -2884,11 +2884,14 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Aluno cur=(Aluno)this.utilizador;
         for(UC uc: SysFacade.getUCsDisponiveis()){
-            String nome=uc.getNome();
-            String ano=String.valueOf(uc.getAnoDeCurso());
-            Object[] row={nome,ano};
-            model.addRow(row);
+            if(!cur.alunoInscritoNaUC(uc.getId())){
+                String nome=uc.getNome();
+                String ano=String.valueOf(uc.getAnoDeCurso());
+                Object[] row={nome,ano};
+                model.addRow(row);
+            }
         }
         this.EscoherUCs.setVisible(true);
         this.MenuAluno.setVisible(false);
@@ -3001,6 +3004,16 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Aluno cur=(Aluno)this.utilizador;
+        for(UC uc: SysFacade.getUCsDisponiveis()){
+            if(!cur.alunoInscritoNaUC(uc.getId())){
+                String nome=uc.getNome();
+                String ano=String.valueOf(uc.getAnoDeCurso());
+                Object[] row={nome,ano};
+                model.addRow(row);
+            }
+        }
         this.EscoherUCs.setVisible(true);
         this.MenuAlunoTE.setVisible(false);
     }//GEN-LAST:event_jButton17ActionPerformed
