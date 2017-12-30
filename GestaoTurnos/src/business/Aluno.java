@@ -19,9 +19,8 @@ public class Aluno extends Utilizador{
         this.turnos=nAl.getTurnos();
     }
     
-    protected Aluno(int id,String email,String password,ArrayDeque<Troca> tp, Map<Integer,Integer> t){
+    protected Aluno(String email,String password,ArrayDeque<Troca> tp, Map<Integer,Integer> t){
         super(email,password);
-        this.setId(id);
         this.trocasPendentes = new ArrayDeque<Troca>();
         this.turnos = new HashMap<Integer,Integer>();
         for(Troca tr:tp){

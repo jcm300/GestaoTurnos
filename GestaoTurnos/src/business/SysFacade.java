@@ -1,5 +1,6 @@
 package business;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,11 @@ public class SysFacade extends Observable{
     public SysFacade(){
         this.utilizadores = new HashMap<Integer,Utilizador>();
         this.ucs = new HashMap<Integer,UC>();
+    }
+    
+    private static void testing(){
+        SysFacade.utilizadores.put(0,new Aluno("aluno1@universidade.pt","aluno1",new ArrayDeque<>(),new ArrayDeque<>()));
+        SysFacade.ucs.put(0, new UC(new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),0,new Coordenador(0),3,"Base de Dados"));
     }
 
     public static int getIdUC(String UC) {
