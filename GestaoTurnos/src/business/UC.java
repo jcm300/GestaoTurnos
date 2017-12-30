@@ -57,6 +57,10 @@ public class UC {
         protected List<Turno> getTurnos(){
             return this.turnos.stream().map(Turno::clone).collect(Collectors.toList());
         }
+
+	protected void addInteresseDeTroca(TrocaInteressado troca) { //erro ds
+            trocasInteressados.add(troca);
+        }
         
         protected List<TrocaInteressado> getTrocasPedidas() {
             ArrayList<TrocaInteressado> ret = new ArrayList<TrocaInteressado>();
@@ -77,12 +81,6 @@ public class UC {
         
         public UC clone(){
             return new UC(this);
-        }
-
-	protected void addInteresseDeTroca(TrocaInteressado troca) {
-            Integer idTroca= trocasInteressados.size();
-            troca.setId(idTroca);
-            trocasInteressados.add(troca);
         }
 
 	protected void registaPresencas(int idTurno, Date data, Map<Integer, Boolean> alunos) {

@@ -10,7 +10,7 @@ public class Aluno extends Utilizador{
 
     private ArrayDeque<Troca> trocasPendentes;
     private Map<Integer,Integer> turnos;
-        
+    
     //constructors
     protected Aluno(Aluno nAl){
         super(nAl);
@@ -145,10 +145,10 @@ public class Aluno extends Utilizador{
         TrocaInteressado troca= new TrocaInteressado(idDoaluno,idDoTurno,idTurnoD );
         return troca;
 
-
     }
 
-    protected boolean alunoInscritoNaUC(int idUC) {
+    protected boolean alunoInscritoNaUC(int idUC) { 
+        return turnos.containsKey(idUC); 
     }
 
     protected boolean existeTurnos() {
