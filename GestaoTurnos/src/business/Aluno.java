@@ -94,9 +94,10 @@ public class Aluno extends Utilizador{
             Turno t = uc.getTurno(idT);
             List<Aula> aulas = t.getAulas();
             for(Aula a:aulas){
-                Map<Integer,Boolean> presencas = a.getPresencas();
-                boolean b = presencas.get(idAluno);
-                if(b) pres++;
+                if(a!=null){
+                    Map<Integer,Boolean> presencas = a.getPresencas();
+                    if(presencas!=null && presencas.get(idAluno)!=null && presencas.get(idAluno)) pres++;
+                }
             }
         }
 

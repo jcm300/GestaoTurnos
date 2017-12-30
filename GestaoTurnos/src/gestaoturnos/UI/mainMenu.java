@@ -3129,7 +3129,8 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         this.EscolhaRealizadaEscolherUCs.setVisible(false);
-        this.MenuAluno.setVisible(true);
+        if(this.utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
@@ -3142,7 +3143,8 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
         this.NenhumaUCEscolherUCs.setVisible(false);
-        this.MenuAluno.setVisible(true);
+        if(this.utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
     }//GEN-LAST:event_jButton30ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed

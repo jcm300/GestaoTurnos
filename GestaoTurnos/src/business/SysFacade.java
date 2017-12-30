@@ -39,7 +39,7 @@ public void testing(){
         SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
         SysFacade.utilizadores.put(4,new Aluno("aluno3","aluno3","aluno3",new ArrayDeque<>(), aluno_turnos2 ));
         Map<Integer,Boolean> presencas = new HashMap<Integer,Boolean>();
-        presencas.put(0,true);     
+        presencas.put(0,true);
         Calendar c1= GregorianCalendar.getInstance();
         c1.set(2000, Calendar.JANUARY, 30,0,0,0); //Calendar.JANUARY
         Date d= c1.getTime();
