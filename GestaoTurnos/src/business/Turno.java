@@ -14,6 +14,18 @@ public class Turno {
 	private Date horaInicio;
 	private Date horaFim;
         
+        
+        //constructor
+        protected Turno(Turno oldT){
+            this.aulas=oldT.getAulas();
+            this.id=oldT.getId();
+            this.capacidade=oldT.getCapacidade();
+            this.capacidadeSala=oldT.getCapacidadeSala();
+            this.diaDaSemana=oldT.getDiaDaSemana();
+            this.horaInicio=oldT.getHoraInicio();
+            this.horaFim=oldT.getHoraFim();
+        }
+        
         protected Turno(List<Aula> aulas, int id, int capacidade, int capacidadeSala, int diaDaSemana, Date HoraInicio, Date horaFim){
             this.aulas = new ArrayList<Aula>();
             for (Aula a : aulas){
@@ -27,10 +39,8 @@ public class Turno {
             this.horaFim = horaFim;
         }
         
-        public Turno clone(){
-            return new Turno(this.aulas,this.id,this.capacidade,this.capacidadeSala,this.diaDaSemana,this.horaInicio,this.horaFim);
-        }
         
+        //getters & setters
         protected int getId(){
             return this.id;
         }
@@ -46,14 +56,36 @@ public class Turno {
         protected void setCapacidade(int c){
             this.capacidade = c;
         }
+        
+        protected List<Aula> getAulas() {
+            return aulas;
+        }
+        
+        protected int getDiaDaSemana(){
+            return this.diaDaSemana;
+        }
+        
+        protected Date getHoraInicio(){
+            return this.horaInicio;
+        }
+        
+        protected Date getHoraFim(){
+            return this.horaFim;
+        }
+        
+        public Turno clone(){
+            return new Turno(this);
+        }
 
 	protected boolean existeAula(Date data) {
             boolean eAula = false;
             Date d;
-            for (Aula a : this.aulas && !eAula){
+            for (Aula a : this.aulas){
                 d = a.getData();
-                if (data.equals(d))
+                if (data.equals(d)){
                     eAula = true;
+                    break;
+                }
             }
             return eAula;
 	}
@@ -61,22 +93,15 @@ public class Turno {
 	protected Aula getAula(Date data) {
             boolean flag = false;
             Date d;
-            Aula aula;
-            for (Aula a : this.aulas && !flag){
+            Aula aula=null;
+            for (Aula a : this.aulas){
                 d = a.getData();
                 if (data.equals(d)){
                     flag = true;
                     aula = a;
+                    break;
                 }
             }
             return aula;
 	}
-
-	protected List<Aula> getAulas() {
-            return aulas;
-        }
-        
-        protected Turno clone(){
-            return new Turno();
-        }
 }

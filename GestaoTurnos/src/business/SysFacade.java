@@ -51,17 +51,13 @@ public class SysFacade {
             }
             return resp;
 	}
-
-        protected List<UC> getUcs(){
+        
+	public static List<UC> getUCsDisponiveis() {
             List <UC> resp = new ArrayList<UC>();
             for (UC uc : SysFacade.ucs.values()){
                 resp.add(uc);
             }
-        }
-        
-	public static List<UC> getUCsDisponiveis() {
-            List<UC> ucs;
-            ucs = SysFacade.getUcs();
+            return resp;
 	}
 
 	public static boolean existemVagas(int idUC, int idTurno){
@@ -75,9 +71,11 @@ public class SysFacade {
 	}
 
 	public static void inputDados(String ficheiro){
+            
 	}
 
 	public static boolean geraDistribuicao(){
+            return true;
 	}
 
 	public static boolean existeTurno(int idUC, int idTurno) {

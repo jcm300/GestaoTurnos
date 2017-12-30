@@ -7,8 +7,24 @@ public class Coordenador extends Docente {
 
 	private int ucRegente;
         
+        //constructor
+        protected Coordenador(Coordenador cOld){
+            super(cOld);
+            this.ucRegente=cOld.getUCRegente();
+        }
+        
+        protected Coordenador(int cadeira){
+            super();
+            this.ucRegente=cadeira;
+        }
+        
+        //getters & setters
         protected int getUCRegente(){
             return this.ucRegente;
+        }
+        
+        protected Coordenador clone(){
+            return new Coordenador(this);
         }
 
 	public List<TrocaInteressado> consultarTrocasPend() {
@@ -36,15 +52,17 @@ public class Coordenador extends Docente {
 	}
 
 	protected List<Integer> getTurnosUC() {
-            int idUC = this.getUCRegente();
+            int idUC = this.ucRegente;
             UC uc = SysFacade.getUC(idUC);
             List<Turno> listaTurnos = uc.getTurnos();
             List<Integer> turnos = new ArrayList<Integer>();
             int id;
+            
             for (Turno t : listaTurnos){
                 id = t.getId();
                 turnos.add(id);
             }
+            return turnos;
 	}
 
 	protected boolean verificaSeCapExcedeSala(int idTurno, int capacidade) {

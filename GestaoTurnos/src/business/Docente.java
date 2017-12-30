@@ -1,12 +1,44 @@
 package business;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Docente extends Utilizador {
 
 	private Map<Integer,List<Integer>> turnos;
 
-	protected Map<Integer, Boolean> consultarPresencas(int idUC, int idTurno, Date data) throws UCInvalidaException,TurnoInexistenteException,AulaInexistenteException{
+        //constructors
+	protected Docente(Docente oldD){
+            super(oldD);
+            this.turnos=oldD.getTurnos();
+        }
+        
+        public Docente(int id, String email,String password,Map<Integer,List<Integer>> turnos){
+            super(email,password);
+            this.setId(id);
+            this.turnos=turnos.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
+        }
+        
+        protected Docente(){
+            super();
+            this.turnos=new HashMap<Integer,List<Integer>>();
+        }
+        
+        
+        //getters & setters
+        protected Map<Integer,List<Integer>> getTurnos(){
+            return this.turnos.entrySet().stream().collect(Collectors.toMap(e->e.getKey(),e->e.getValue()));
+        }
+        
+        protected void setTurnos(Map<Integer,List<Integer>> nTurnos){
+            this.turnos=nTurnos.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
+        }
+        
+        protected Docente clone(){
+            return new Docente(this);
+        }
+        
+        protected Map<Integer, Boolean> consultarPresencas(int idUC, int idTurno, Date data) throws UCInvalidaException,TurnoInexistenteException,AulaInexistenteException{
             boolean ucValida = SysFacade.existeUC(idUC);
             if (ucValida == false)
                 throw new UCInvalidaException("A UC inserida é inválida");
