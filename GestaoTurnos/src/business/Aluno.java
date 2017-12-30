@@ -129,21 +129,20 @@ public class Aluno extends Utilizador{
         }
     }
 
-    protected int possibilidaTrocaTurno(int idUC, int idTurno, int idAluno) {
+    public int possibilidaTrocaTurno(int idUC, int idTurno, int idAluno) {
         if (!alunoInscritoNaUC(idUC)) return 2;
         Aluno aluno = SysFacade.getAluno(idAluno);
         if (aluno==null) return 0;
-        if (aluno.alunoInscritoNaUC(idUC)) return 4;
+        if (!aluno.alunoInscritoNaUC(idUC)) return 4;
         if (idTurno!=aluno.turnos.get(idUC)) return 3;
         return 1;
     }
 
-    protected Troca trocaTurnoAluno(int idUC, int idTurno, int idAluno) {
+    public Troca trocaTurnoAluno(int idUC, int idTurno, int idAluno) {
         int idAlu= getId();
         int turnoO = turnos.get(idUC);
         Troca troca = new Troca(idUC,idAlu,idAluno,turnoO,idTurno);
         return troca;
-
     }
 
     protected List<TrocaInteressado> consultarTrocasPedidas(int idUC) {
@@ -183,7 +182,7 @@ public class Aluno extends Utilizador{
     
     protected void verificarPresencas(){
         for(Integer ucID: this.turnos.keySet())
-            if(this.percentagemPresencas(ucID.intValue()) >= 0.25){
+            if(this.percentagemPresencas(ucID.intValue()) <= 0.75){
                 UC uAux = SysFacade.getUC(ucID);
                 int turnoId=this.turnos.get(ucID).intValue();
                 List<TrocaInteressado> aux=uAux.getTrocasInteressados();

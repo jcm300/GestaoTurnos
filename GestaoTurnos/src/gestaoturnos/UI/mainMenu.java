@@ -1039,6 +1039,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         });
 
         jButton39.setText("Continuar");
+        jButton39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton39ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SugerirTrocadeTurnoLayout = new javax.swing.GroupLayout(SugerirTrocadeTurno.getContentPane());
         SugerirTrocadeTurno.getContentPane().setLayout(SugerirTrocadeTurnoLayout);
@@ -1095,6 +1100,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel16.setText("O nº inscrito não se encontra atribuído a nenhum aluno inscrito no sistema.");
 
         jButton40.setText("OK");
+        jButton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton40ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroAlunoInvSugerirTrocaLayout = new javax.swing.GroupLayout(ErroAlunoInvSugerirTroca.getContentPane());
         ErroAlunoInvSugerirTroca.getContentPane().setLayout(ErroAlunoInvSugerirTrocaLayout);
@@ -1124,6 +1134,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel17.setText("O turno inserido não é válido para efetuar sugestão de troca.");
 
         jButton41.setText("OK");
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroTurnoSugerirTrocaLayout = new javax.swing.GroupLayout(ErroTurnoSugerirTroca.getContentPane());
         ErroTurnoSugerirTroca.getContentPane().setLayout(ErroTurnoSugerirTrocaLayout);
@@ -1151,6 +1166,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel18.setText("A UC inserida não é uma opção válida.");
 
         jButton42.setText("OK");
+        jButton42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton42ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroUCSugerirTrocaLayout = new javax.swing.GroupLayout(ErroUCSugerirTroca.getContentPane());
         ErroUCSugerirTroca.getContentPane().setLayout(ErroUCSugerirTrocaLayout);
@@ -1182,10 +1202,25 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel22.setText("Turno:");
 
         jButton43.setText("Confirmar");
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton43ActionPerformed(evt);
+            }
+        });
 
         jButton44.setText("Cancelar");
+        jButton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton44ActionPerformed(evt);
+            }
+        });
 
         jButton45.setText("Alterar");
+        jButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton45ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ConfirmarSugestaoSugerirTrocaLayout = new javax.swing.GroupLayout(ConfirmarSugestaoSugerirTroca.getContentPane());
         ConfirmarSugestaoSugerirTroca.getContentPane().setLayout(ConfirmarSugestaoSugerirTrocaLayout);
@@ -1273,6 +1308,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel24.setText("O aluno não está inscrito na UC");
 
         jButton47.setText("OK");
+        jButton47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton47ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroAlunoIndsSugerirTrocaLayout = new javax.swing.GroupLayout(ErroAlunoIndsSugerirTroca.getContentPane());
         ErroAlunoIndsSugerirTroca.getContentPane().setLayout(ErroAlunoIndsSugerirTrocaLayout);
@@ -2918,6 +2958,9 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
         this.SugerirTrocadeTurno.setVisible(false);
+        this.nAluno.setText("");
+        this.uc.setText("");
+        this.turno2.setText("");
         if(this.utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
         else this.MenuAluno.setVisible(true);
     }//GEN-LAST:event_jButton38ActionPerformed
@@ -3044,6 +3087,87 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
     }//GEN-LAST:event_voltarPresencasAlunosActionPerformed
 
+    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
+        Aluno cur=(Aluno)this.utilizador;
+        int idAl=Integer.parseInt(this.nAluno.getText());
+        int idUC=Integer.parseInt(this.uc.getText());
+        int idTurno=Integer.parseInt(this.turno2.getText());
+        int res=cur.possibilidaTrocaTurno(idAl,idUC,idTurno);
+        this.SugerirTrocadeTurno.setVisible(false);
+        switch(res){
+            case 0:
+                this.ErroAlunoInvSugerirTroca.setVisible(true);
+            case 1:
+                this.jTextField2.setText(this.nAluno.getText());
+                this.jTextField3.setText(this.uc.getText());
+                this.jTextField4.setText(this.turno2.getText());
+                this.ConfirmarSugestaoSugerirTroca.setVisible(true);
+            case 2:
+                this.ErroUCSugerirTroca.setVisible(true);
+            case 3:
+                this.ErroTurnoSugerirTroca.setVisible(true);
+            case 4:
+                this.ErroAlunoIndsSugerirTroca.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton39ActionPerformed
+
+    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
+        this.ErroAlunoInvSugerirTroca.setVisible(false);
+        this.SugerirTrocadeTurno.setVisible(true);
+    }//GEN-LAST:event_jButton40ActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        this.ErroTurnoSugerirTroca.setVisible(false);
+        this.SugerirTrocadeTurno.setVisible(true);
+    }//GEN-LAST:event_jButton41ActionPerformed
+
+    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
+        this.ErroUCSugerirTroca.setVisible(false);
+        this.SugerirTrocadeTurno.setVisible(true);
+    }//GEN-LAST:event_jButton42ActionPerformed
+
+    private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
+        this.ErroAlunoIndsSugerirTroca.setVisible(false);
+        this.SugerirTrocadeTurno.setVisible(true);
+    }//GEN-LAST:event_jButton47ActionPerformed
+
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        this.ConfirmarSugestaoSugerirTroca.setVisible(false);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+        int idAl=Integer.parseInt(this.nAluno.getText());
+        int idUC=Integer.parseInt(this.uc.getText());
+        int idTurno=Integer.parseInt(this.turno2.getText());
+        this.nAluno.setText("");
+        this.uc.setText("");
+        this.turno2.setText("");
+        this.jTextField2.setText("");
+        this.jTextField3.setText("");
+        this.jTextField4.setText("");
+        Aluno cur=(Aluno)this.utilizador;
+        Troca aux = cur.trocaTurnoAluno(idAl,idUC,idTurno);
+        SysFacade.addSugestao(aux);
+    }//GEN-LAST:event_jButton43ActionPerformed
+
+    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+        this.ConfirmarSugestaoSugerirTroca.setVisible(false);
+        this.SugerirTrocadeTurno.setVisible(true);
+        this.jTextField2.setText("");
+        this.jTextField3.setText("");
+        this.jTextField4.setText("");
+    }//GEN-LAST:event_jButton45ActionPerformed
+
+    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        this.ConfirmarSugestaoSugerirTroca.setVisible(false);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+        this.nAluno.setText("");
+        this.uc.setText("");
+        this.turno2.setText("");
+        this.jTextField2.setText("");
+        this.jTextField3.setText("");
+        this.jTextField4.setText("");
+    }//GEN-LAST:event_jButton44ActionPerformed
 
     /**
      * @param args the command line arguments

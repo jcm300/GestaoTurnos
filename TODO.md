@@ -72,7 +72,7 @@
 - [x] Escolher UCs
 - [x] ConsultarUCs
 - [ ] DefinirCapacidade
-- [ ] SugerirTrocaDeTurno
+- [x] SugerirTrocaDeTurno
 - [ ] SugestaoRecebida
 - [ ] InserirMotiveRecusaTroca
 - [ ] DitribuicaoInicial
@@ -97,3 +97,4 @@
 - [ ] Escolher UCs
 - [ ] ConsultarUCs
 - [ ] ConsultarPresencas
+- [ ] SugerirTrocaDeTurno
