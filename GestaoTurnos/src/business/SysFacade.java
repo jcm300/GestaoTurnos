@@ -32,12 +32,12 @@ public void testing(){
         List<Integer> l = new ArrayList();
         l.add(0);
         doc_turnos.put(0,l);
-        SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1","aluno1",new ArrayDeque<>(), aluno_turnos ));
+        SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1","aluno1",new ArrayDeque<>(), aluno_turnos));
         Coordenador aux=new Coordenador("coordenador1","coordenador1","coordenador1",new HashMap<>(),0);
         SysFacade.utilizadores.put(1, aux);
         SysFacade.utilizadores.put(2, new Docente("docente1","docente1","docente1",doc_turnos ));
         SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
-        SysFacade.utilizadores.put(4,new Aluno("aluno3","aluno3","aluno3",new ArrayDeque<>(), aluno_turnos2 ));
+        SysFacade.utilizadores.put(4,new Aluno("aluno3","aluno3","aluno3",new ArrayDeque<>(), aluno_turnos2));
         Map<Integer,Boolean> presencas = new HashMap<Integer,Boolean>();
         presencas.put(0,true);
         Calendar c1= GregorianCalendar.getInstance();
@@ -52,7 +52,7 @@ public void testing(){
         turnos.add(0,t);
         turnos.add(1,t2);
         SysFacade.ucs.put(0, new UC(new ArrayList<>(),new ArrayList<>(),turnos,0,aux,3,"Base de Dados"));
-        Aluno aluno1 = SysFacade.getAluno(0);
+        Aluno aluno1 = SysFacade.getAluno(4);
         int res2=aluno1.possibilidaTrocaTurno(0,1,4); 
         boolean res= aluno1.alunoInscritoNaUC(0);
         System.out.println("teste:"+res2);

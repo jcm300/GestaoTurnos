@@ -26,7 +26,7 @@ public class Aluno extends Utilizador{
         for(Troca tr:tp){
             this.trocasPendentes.addFirst(tr);
         }
-        turnos=t;
+        this.turnos.putAll(t);
     }
 
     protected Aluno(ArrayDeque<Troca> tp, Map<Integer,Integer> t){
@@ -36,7 +36,7 @@ public class Aluno extends Utilizador{
         for(Troca tr:tp){
             this.trocasPendentes.addFirst(tr);
         }
-        t.putAll(this.turnos);
+        this.turnos.putAll(t);
     }
 
 
@@ -167,10 +167,10 @@ public class Aluno extends Utilizador{
 
     public boolean existeTurnos() {
         Collection<Integer> values = this.turnos.values();
-        boolean turnosDisp = false;
+        boolean turnosDisp = true;
         for (Integer t : values){
-            if (t!=-1){ 
-                turnosDisp = true;
+            if (t==-1){ 
+                turnosDisp = false;
                 break;
             }
         }
