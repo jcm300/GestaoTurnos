@@ -104,6 +104,7 @@ public class Aluno extends Utilizador{
         Turno turno = uc.getTurno(idTurno);
         List<Aula> aulasT = turno.getAulas();
         int n = aulasT.size();
+        if (n==0) return (new Float(1));
         float ret=pres/n;
         return ret;
     }
