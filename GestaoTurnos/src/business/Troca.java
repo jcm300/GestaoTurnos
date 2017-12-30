@@ -39,7 +39,7 @@ public class Troca {
         this.id=nId;
     }
     
-    protected int getIdUC(){
+    public int getIdUC(){
         return this.idUC;
     }
 
@@ -47,7 +47,7 @@ public class Troca {
         return this.idTurno1;
     }
 
-    protected int getIdTurno2(){
+    public int getIdTurno2(){
         return this.idTurno2;
     }
 
@@ -55,7 +55,7 @@ public class Troca {
         return this.idAluno1;
     }
     
-    protected int getIdAluno2(){
+    public int getIdAluno2(){
         return this.idAluno2;
     }
 

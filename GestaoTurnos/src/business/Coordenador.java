@@ -16,8 +16,8 @@ public class Coordenador extends Docente {
             this.ucRegente=cOld.getUCRegente();
         }
         
-        protected Coordenador(String email,String password,Map<Integer,List<Integer>> turnos, int cadeira){
-            super(email,password,turnos);
+        protected Coordenador(String email,String password,String nome,Map<Integer,List<Integer>> turnos, int cadeira){
+            super(email,password,nome,turnos);
         }
         
         protected Coordenador(int cadeira){
