@@ -13,8 +13,8 @@ public class Docente extends Utilizador {
             this.turnos=oldD.getTurnos();
         }
         
-        public Docente(String email,String password,Map<Integer,List<Integer>> turnos){
-            super(email,password);
+        public Docente(String email,String password,String nome,Map<Integer,List<Integer>> turnos){
+            super(email,password,nome);
             this.turnos=turnos.entrySet().stream().collect(Collectors.toMap(e->e.getKey(), e->e.getValue()));
         }
         
