@@ -107,7 +107,7 @@
 - [ ] ConsultarTrocas
 - [ ] PercPresencasNaUC
 - [ ] ListaDeTrocas
-- [ ] TrocasPendentes
+- [x] TrocasPendentes
 - [ ] DefinirCapacidade
 - [ ] DitribuicaoInicial
 - [ ] ConsultarPresencas

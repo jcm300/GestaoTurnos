@@ -2932,11 +2932,12 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         Coordenador cur=(Coordenador)this.utilizador;
+        DefaultTableModel model = (DefaultTableModel) this.tabelaTrocasPendentes.getModel();
+        model.setRowCount(0);
         this.MenuCoordenador.setVisible(false);
         List<TrocaInteressado> lT=cur.consultarTrocasPend();
         if(lT.size()==0) this.ErroTPTrocasInexistentes.setVisible(true);
         else{
-            DefaultTableModel model = (DefaultTableModel) this.tabelaTrocasPendentes.getModel();
             for(TrocaInteressado ti:lT){
                 Object[] row={String.valueOf(ti.getIdAluno()),String.valueOf(ti.getIdTurno()),String.valueOf(ti.getTurnoPretendido())};
                 model.addRow(row);
