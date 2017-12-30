@@ -3241,7 +3241,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         int idAl=Integer.parseInt(this.nAluno.getText());
         int idUC=Integer.parseInt(this.uc.getText());
         int idTurno=Integer.parseInt(this.turno2.getText());
-        int res=cur.possibilidaTrocaTurno(idAl,idUC,idTurno);
+        int res=cur.possibilidaTrocaTurno(idUC,idTurno,idAl);
         this.SugerirTrocadeTurno.setVisible(false);
         switch(res){
             case 0:

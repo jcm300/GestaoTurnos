@@ -52,6 +52,10 @@ public void testing(){
         turnos.add(0,t);
         turnos.add(1,t2);
         SysFacade.ucs.put(0, new UC(new ArrayList<>(),new ArrayList<>(),turnos,0,aux,3,"Base de Dados"));
+        Aluno aluno1 = SysFacade.getAluno(0);
+        int res2=aluno1.possibilidaTrocaTurno(0,1,4); 
+        boolean res= aluno1.alunoInscritoNaUC(0);
+        System.out.println("teste:"+res2);
     }
 
     public static int getIdUC(String UC) {
