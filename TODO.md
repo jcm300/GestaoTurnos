@@ -80,12 +80,12 @@
 - [ ] PresencasAlunos
 - [ ] RegistarAulasEPresencas
 - [ ] TrocasPendentes
-- [ ] ConsultarTrocas
-- [ ] ListaDeTrocas
+- [x] ConsultarTrocas
+- [x] ListaDeTrocas
 - [x] TrocarDeTurno
 - [x] SinalizarInteresse
 - [x] ConsultarPerPresencas
-- [ ] PercPresencasNaUC
+- [x] PercPresencasNaUC
 - [x] PedirTrocaDeTurnoAoDocente
 
 ## Interface (testing)
@@ -104,3 +104,6 @@
 - [ ] PedirTrocaDeTurnoAoDocente
 - [ ] TrocarDeTurno
 - [ ] SugestaoRecebida
+- [ ] ConsultarTrocas
+- [ ] PercPresencasNaUC
+- [ ] ListaDeTrocas
