@@ -3004,6 +3004,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         this.TrocarDeTurno.setVisible(true);
         this.ucTrocaCombo.removeAllItems();
+        this.turnoTrocaCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucTrocaCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
         for(UC uc:ucs)
