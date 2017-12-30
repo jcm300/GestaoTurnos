@@ -3374,7 +3374,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                 Map<Integer,business.Utilizador> users = this.sys.getUtilizadores();
                 if(model.getRowCount()==0){
                     for(Map.Entry<Integer,business.Utilizador> e: users.entrySet()){
-                        if(e.getValue() instanceof Aluno){
+                        if(e.getValue() instanceof business.Aluno){
                             String id = e.getKey().toString();
                              Object[] row={id};
                         model.addRow(row);
@@ -3391,7 +3391,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                         }
                         HashMap<Integer,Boolean> pre = new HashMap<Integer,Boolean>();
                         for(business.Utilizador u: users.values()){
-                            if(u instanceof Aluno){
+                            if(u instanceof business.Aluno){
                                 if(presentes.contains(u.getId())) pre.put(u.getId(),true);
                                 else pre.put(u.getId(),false);
                             }
