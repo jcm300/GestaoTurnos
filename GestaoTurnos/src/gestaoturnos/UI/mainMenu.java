@@ -3090,10 +3090,12 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         this.PedirTrocaDeTurnoAoDocente.setVisible(true);
+        Aluno cur=(Aluno)this.utilizador;
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucPTDCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
-        for(UC uc:ucs)
+        for(UC uc:ucs){
             model.addElement(uc.getNome());
+        }
         this.MenuAluno.setVisible(false);
     }//GEN-LAST:event_jButton26ActionPerformed
 
@@ -3527,10 +3529,15 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void ucPTDComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucPTDComboActionPerformed
         int idUC=SysFacade.getIdUC((String)this.ucPTDCombo.getSelectedItem());
+        int alT=-1;
+        Aluno cur=(Aluno)this.utilizador;
+        if(cur.alunoInscritoNaUC(idUC))
+            alT=cur.getTurnos().get(idUC);
         UC uc=SysFacade.getUC(idUC);
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.turnoPTDCombo.getModel();
         for(Turno t: uc.getTurnos())
-            model.addElement(t.getId());
+            if(alT!=t.getId())
+                model.addElement(t.getId());
     }//GEN-LAST:event_ucPTDComboActionPerformed
 
     private void pedirPTDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedirPTDActionPerformed
