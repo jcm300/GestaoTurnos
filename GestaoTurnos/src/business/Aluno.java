@@ -113,7 +113,7 @@ public class Aluno extends Utilizador{
         return ucs;
     }
 
-    protected boolean inscreveUC(int idUC) {
+    public boolean inscreveUC(int idUC) {
         if(SysFacade.existeUC(idUC) && !this.turnos.containsKey(idUC)){
             this.turnos.put(idUC,-1);
             return true;
