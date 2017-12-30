@@ -49,7 +49,7 @@ public class Aluno extends Utilizador{
         return res;
     }
 
-    protected Map<Integer,Integer> getTurnos(){
+    public Map<Integer,Integer> getTurnos(){
         Map<Integer,Integer> resp = new HashMap<Integer,Integer>();
         for (Integer uc : this.turnos.keySet()){
             resp.put(uc,this.turnos.get(uc));

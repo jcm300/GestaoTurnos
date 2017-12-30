@@ -1,6 +1,7 @@
 package gestaoturnos.UI;
 
 import business.*;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.table.DefaultTableModel;
@@ -765,6 +766,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel6.setText("Não foi escolhida nenhuma unidade curricular");
 
         jButton30.setText("OK");
+        jButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton30ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout NenhumaUCEscolherUCsLayout = new javax.swing.GroupLayout(NenhumaUCEscolherUCs.getContentPane());
         NenhumaUCEscolherUCs.getContentPane().setLayout(NenhumaUCEscolherUCsLayout);
@@ -834,6 +840,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jScrollPane2.setViewportView(jTable2);
 
         jButton32.setText("Voltar");
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ConsultarUCsLayout = new javax.swing.GroupLayout(ConsultarUCs.getContentPane());
         ConsultarUCs.getContentPane().setLayout(ConsultarUCsLayout);
@@ -863,6 +874,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel8.setText("Turnos ainda não foram gerados pela DC");
 
         jButton33.setText("OK");
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroConsultarUCsLayout = new javax.swing.GroupLayout(ErroConsultarUCs.getContentPane());
         ErroConsultarUCs.getContentPane().setLayout(ErroConsultarUCsLayout);
@@ -2594,7 +2610,6 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_LoginActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for(UC uc: SysFacade.getUCsDisponiveis()){
             String nome=uc.getNome();
@@ -2693,9 +2708,6 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         this.MenuAlunoTE.setVisible(false);
     }//GEN-LAST:event_jButton18ActionPerformed
 
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        System.exit(0);
-    }                                         
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         this.SugerirTrocadeTurno.setVisible(true);
@@ -2708,7 +2720,20 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        this.ConsultarUCs.setVisible(true);
+        if(SysFacade.existeTurnos()){
+            Aluno cur = (Aluno)this.utilizador;
+            Map<Integer,Integer> ucTurn=cur.getTurnos();
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+
+            for(Integer ucId:ucTurn.keySet()){
+                String nome=SysFacade.getUC(ucId.intValue()).getNome();
+                String ano=String.valueOf(ucTurn.get(ucId));
+                Object[] row={nome,ano};
+                model.addRow(row);
+            }
+            this.ConsultarUCs.setVisible(true);
+        }else this.ErroConsultarUCs.setVisible(true);
+        
         this.MenuAluno.setVisible(false);
     }//GEN-LAST:event_jButton22ActionPerformed
 
@@ -2717,10 +2742,10 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         this.MenuAluno.setVisible(false);
     }//GEN-LAST:event_jButton27ActionPerformed
 
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         this.SinalizarInteresse.setVisible(true);
-        this.MenuAluno.setVisible(false);
-    }//GEN-LAST:event_jButton23ActionPerformed
+    }
+    
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
         this.ConsultarPercPresencas.setVisible(true);
@@ -2733,11 +2758,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-
+        this.MenuAluno.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        // TODO add your handling code here:
         this.EscoherUCs.setVisible(false);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
@@ -2747,31 +2772,49 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         Aluno cur = (Aluno)this.utilizador;
         int[] selectIndex=this.jTable1.getSelectedRows();
-        for(int i=0;i<selectIndex.length;i++){
+        int len=selectIndex.length;
+        
+        for(int i=0;i<len;i++){
             String ucN=this.jTable1.getValueAt(selectIndex[i], 0).toString();
             cur.inscreveUC(SysFacade.getIdUC(ucN));
         }
-        this.EscolhaRealizadaEscolherUCs.setVisible(true);
+        
+        if(len==0) this.NenhumaUCEscolherUCs.setVisible(true);
+        else this.EscolhaRealizadaEscolherUCs.setVisible(true);
         this.EscoherUCs.setVisible(false);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
-        // TODO add your handling code here:
         this.EscolhaRealizadaEscolherUCs.setVisible(false);
         this.MenuAluno.setVisible(true);
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
-        // TODO add your handling code here:
         this.ErroEmailLogin.setVisible(false);
     }//GEN-LAST:event_OKActionPerformed
 
     private void OK2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OK2ActionPerformed
-        // TODO add your handling code here:
         this.ErroPassLogin.setVisible(false);
     }//GEN-LAST:event_OK2ActionPerformed
+
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+        this.NenhumaUCEscolherUCs.setVisible(false);
+        this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_jButton30ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        this.ConsultarUCs.setVisible(false);
+        this.MenuAluno.setVisible(true);
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setRowCount(0);
+    }//GEN-LAST:event_jButton32ActionPerformed
+
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+        this.ErroConsultarUCs.setVisible(false);
+        this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_jButton33ActionPerformed
 
 
     /**
