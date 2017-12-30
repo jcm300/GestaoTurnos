@@ -2148,6 +2148,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jScrollPane6.setViewportView(tabelaListaTrocas);
 
         voltarConsultaTrocas.setText("Voltar");
+        voltarConsultaTrocas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarConsultaTrocasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ListaDeTrocasLayout = new javax.swing.GroupLayout(ListaDeTrocas.getContentPane());
         ListaDeTrocas.getContentPane().setLayout(ListaDeTrocasLayout);
@@ -2962,6 +2967,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        this.ucCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
         for(UC uc:ucs)
@@ -2982,6 +2988,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         this.PedirTrocaDeTurnoAoDocente.setVisible(true);
+        this.ucCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
         for(UC uc:ucs)
@@ -2996,6 +3003,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         this.TrocarDeTurno.setVisible(true);
+        this.ucTrocaCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucTrocaCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
         for(UC uc:ucs)
@@ -3065,6 +3073,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         this.PedirTrocaDeTurnoAoDocente.setVisible(true);
+        this.ucCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.ucCombo.getModel();
         List<UC> ucs=SysFacade.getUCsDisponiveis();
         for(UC uc:ucs)
@@ -3494,6 +3503,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     private void ucPTDComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucPTDComboActionPerformed
         int idUC=SysFacade.getIdUC((String)this.ucPTDCombo.getSelectedItem());
         UC uc=SysFacade.getUC(idUC);
+        this.turnoPTDCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.turnoPTDCombo.getModel();
         for(Turno t: uc.getTurnos())
             model.addElement(t.getId());
@@ -3527,6 +3537,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
     private void ucTrocaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ucTrocaComboActionPerformed
         int idUC=SysFacade.getIdUC((String)this.ucTrocaCombo.getSelectedItem());
         UC uc=SysFacade.getUC(idUC);
+        this.turnoTrocaCombo.removeAllItems();
         DefaultComboBoxModel model = (DefaultComboBoxModel)this.turnoTrocaCombo.getModel();
         for(Turno t: uc.getTurnos())
             model.addElement(t.getId());
@@ -3595,6 +3606,12 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         this.ErroTPTrocasInexistentes.setVisible(false);
         this.MenuCoordenador.setVisible(true);
     }//GEN-LAST:event_okTPActionPerformed
+
+    private void voltarConsultaTrocasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarConsultaTrocasActionPerformed
+        this.ListaDeTrocas.setVisible(false);
+        if(utilizador instanceof AlunoTE) this.MenuAlunoTE.setVisible(true);
+        else this.MenuAluno.setVisible(true);
+    }//GEN-LAST:event_voltarConsultaTrocasActionPerformed
 
     /**
      * @param args the command line arguments
