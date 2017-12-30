@@ -8,7 +8,6 @@ import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Locale;
 import java.text.ParseException;
         
 public class mainMenu extends javax.swing.JFrame implements Observer {
@@ -1822,7 +1821,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
 
             },
             new String [] {
-                "Aluno", "Presença"
+                "Aluno"
             }
         ));
         jScrollPane4.setViewportView(registarPresencas);
@@ -1902,6 +1901,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel49.setText("A UC inserida não é válida.");
 
         okRA1.setText("Ok");
+        okRA1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okRA1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroRAUCInvalidaLayout = new javax.swing.GroupLayout(ErroRAUCInvalida.getContentPane());
         ErroRAUCInvalida.getContentPane().setLayout(ErroRAUCInvalidaLayout);
@@ -1931,6 +1935,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         jLabel50.setText("O turno inserido não existe.");
 
         okRA2.setText("Ok");
+        okRA2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okRA2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ErroRATurnoInexistenteLayout = new javax.swing.GroupLayout(ErroRATurnoInexistente.getContentPane());
         ErroRATurnoInexistente.getContentPane().setLayout(ErroRATurnoInexistenteLayout);
@@ -3037,7 +3046,7 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         try{
             int idUc = this.sys.getIdUC(uc);
             int idTurno = Integer.parseInt(turno);
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             Date dataP = df.parse(data);
             Map<Integer,Boolean> presencas;
             if(idUc==-1) this.ErroPresencasUCInvalida.setVisible(true);
@@ -3045,11 +3054,11 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
                 presencas = ((Docente)this.utilizador).consultarPresencas(idUc,idTurno,dataP);
                 DefaultTableModel model = (DefaultTableModel) tablePresencasAlunos.getModel();
                 for(Map.Entry<Integer,Boolean> e: presencas.entrySet()){
-                    String id = e.getKey().toString();
+                    String nome = this.sys.getUtilizador(e.getKey()).getNome();
                     String presenca;
                     if(e.getValue()) presenca = "Presente"; 
                     else presenca = "Faltou";
-                    Object[] row={id,presenca};
+                    Object[] row={nome,presenca};
                     model.addRow(row);
                 }
                 this.ConsultarPresencas.setVisible(false);
@@ -3177,36 +3186,58 @@ public class mainMenu extends javax.swing.JFrame implements Observer {
         String uc = ucRA1.getText();
         String turno = turnoRA2.getText();
         String data = dataRA3.getText();
-        /*
-        try{
-            int idUc = this.sys.getIdUC(uc);
+        
+        int idUc = this.sys.getIdUC(uc);
+        if(!this.sys.existeUC(idUc)) this.ErroRAUCInvalida.setVisible(true);
+        else{
             int idTurno = Integer.parseInt(turno);
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-            Date dataP = df.parse(data);
-            Map<Integer,Boolean> presencas;
-            if(idUc==-1) this.ErroPresencasUCInvalida.setVisible(true);
+            if(!this.sys.existeTurno(idUc,idTurno)) this.ErroRATurnoInexistente.setVisible(true);
             else{
-                presencas = ((Docente)this.utilizador).consultarPresencas(idUc,idTurno,dataP);
-                DefaultTableModel model = (DefaultTableModel) tablePresencasAlunos.getModel();
-                for(Map.Entry<Integer,Boolean> e: presencas.entrySet()){
-                    String id = e.getKey().toString();
-                    String presenca;
-                    if(e.getValue()) presenca = "Presente"; 
-                    else presenca = "Faltou";
-                    Object[] row={id,presenca};
-                    model.addRow(row);
-                }
-                this.ConsultarPresencas.setVisible(false);
-                this.PresencasAlunos.setVisible(true);
+                business.UC ucO = this.sys.getUC(idUc);
+                DefaultTableModel model = (DefaultTableModel) registarPresencas.getModel();
+                Map<Integer,business.Utilizador> users = this.sys.getUtilizadores();
+                if(model.getRowCount()==0){
+                    for(Map.Entry<Integer,business.Utilizador> e: users.entrySet()){
+                        if(e.getValue() instanceof Aluno){
+                            String id = e.getKey().toString();
+                             Object[] row={id};
+                        model.addRow(row);
+                        }
+                    }
+                }else{
+                    try{
+                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                        Date dataP = df.parse(data);
+                        int[] selectIndex=this.jTable1.getSelectedRows();
+                        ArrayList<Integer> presentes = new ArrayList<Integer>();
+                        for(Integer i: selectIndex){
+                            presentes.add(this.jTable1.getValueAt(selectIndex[i], 0));
+                        }
+                        HashMap<Integer,Boolean> pre = new HashMap<Integer,Boolean>();
+                        for(business.Utilizador u: users.values()){
+                            if(presentes.contains(u.getId())) pre.add(u.getId(),true);
+                            else pre.add(u.getId(),false);
+                        }
+                        ucO.registaPresencas(idTurno,dataP,pre);
+                        this.RegistarAulaEPresencas.setVisible(false);
+                    }catch(ParseException e){}
+                }  
             }
-        }catch(business.UCInvalidaException e){
-            this.ErroPresencasUCInvalida.setVisible(true);
-        }catch(business.TurnoInexistenteException|NumberFormatException e){
-            this.ErroPresencasTurnoInexistente.setVisible(true);
-        }catch(business.AulaInexistenteException|ParseException e){
-            this.ErroPresencasDataInvalida.setVisible(true);
-        }*/
     }//GEN-LAST:event_okRAActionPerformed
+
+    private void okRA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okRA1ActionPerformed
+        this.ErroRAUCInvalida.setVisible(false);
+        this.RegistarAulaEPresencas.setVisible(false);
+        if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
+        if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
+    }//GEN-LAST:event_okRA1ActionPerformed
+
+    private void okRA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okRA2ActionPerformed
+        this.ErroRATurnoInexistente.setVisible(false);
+        this.RegistarAulaEPresencas.setVisible(false);
+        if(this.utilizador instanceof business.Docente) this.MenuDocente.setVisible(true);
+        if(this.utilizador instanceof business.Coordenador) this.MenuCoordenador.setVisible(true);
+    }//GEN-LAST:event_okRA2ActionPerformed
 
     /**
      * @param args the command line arguments
