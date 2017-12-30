@@ -86,24 +86,7 @@ public class SysFacade {
 
             for(Turno t:turnos)
                 if(t.getId()==idTurno) return true;
-            return res;
 	}
-
-	public static boolean existeUC(int idUC) {
-            for(UC uc: SysFacade.ucs.values())
-                if(uc.getId()==idUC) return true;
-            return false;
-	}
-
-	public static void addSugestao(Troca troca) {
-            getAluno(troca.getIdAluno1()).getTrocasPendentes().addFirst(troca);            
-        }
-
-	public static UC getUC(int idUC) {
-            UC uc = null;
-            uc = ucs.get(idUC);
-            return uc.clone();
-        }
         return false;
     }
 
@@ -114,6 +97,7 @@ public class SysFacade {
     }
 
     public static void addSugestao(Troca troca) {
+        SysFacade.getAluno(troca.getIdAluno1()).getTrocasPendentes().addFirst(troca);            
     }
 
     public static UC getUC(int idUC) {
@@ -127,5 +111,4 @@ public class SysFacade {
         Aluno a = (Aluno)u;
         return a.clone();
     }
-
 }
