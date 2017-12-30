@@ -23,17 +23,17 @@ public class SysFacade extends Observable{
         this.ucs = new HashMap<Integer,UC>();
     }
     
-        public void testing(){
+    public void testing(){
         Map<Integer,Integer> aluno_turnos = new HashMap<>();
         aluno_turnos.put(0,0);
         Map<Integer,List<Integer>> doc_turnos = new HashMap<>();
         List<Integer> l = new ArrayList();
         l.add(0);
         doc_turnos.put(0,l);
-        SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1",new ArrayDeque<>(), aluno_turnos ));
-        SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
-        SysFacade.utilizadores.put(2, new Docente("docente1","docente1",doc_turnos ));
-        Coordenador aux=new Coordenador("coordenador1","coordenador1",new HashMap<>(),0);
+        SysFacade.utilizadores.put(0,new Aluno("aluno1","aluno1","aluno1",new ArrayDeque<>(), aluno_turnos ));
+        SysFacade.utilizadores.put(3,new AlunoTE("aluno2","aluno2","aluno2",new ArrayDeque<>(),new HashMap<>()));
+        SysFacade.utilizadores.put(2, new Docente("docente1","docente1","docente1",doc_turnos ));
+        Coordenador aux=new Coordenador("coordenador1","coordenador1","coordenador1",new HashMap<>(),0);
         SysFacade.utilizadores.put(1, aux);
         Map<Integer,Boolean> presencas = new HashMap<Integer,Boolean>();
         presencas.put(0,true);     
@@ -98,6 +98,10 @@ public class SysFacade extends Observable{
             resp.add(uc);
         }
         return resp;
+    }
+    
+    public static Map<Integer,Utilizador> getUtilizadores(){
+        return SysFacade.utilizadores;
     }
 
     public static boolean existemVagas(int idUC, int idTurno){

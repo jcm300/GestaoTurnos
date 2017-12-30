@@ -50,7 +50,7 @@ public abstract class Utilizador {
             this.password=nPassword;
         }
         
-        protected int getId(){
+        public int getId(){
             return this.id;
         }
         
